@@ -76,10 +76,15 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\AlarmDisplayService.cs" />
+    <Compile Include="Service\DatabaseManagerService.cs" />
+    <Compile Include="Service\RealTimeUnitService.cs" />
+    <Compile Include="Service\ReportManagerService.cs" />
+    <Compile Include="Service\TrendingService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Driver\" />
-    <Folder Include="Service\" />
+    <Folder Include="Driver\RealTimeDriver\" />
+    <Folder Include="Driver\SimulationDriver\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
