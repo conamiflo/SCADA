@@ -11,5 +11,4 @@ namespace Core.Model.Tag
         string Description { get; set; }
         string IOAddress { get; set; }
     }
-
 }
