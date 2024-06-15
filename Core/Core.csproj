@@ -65,6 +65,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Tag\AnalogInput.cs" />
+    <Compile Include="Model\Tag\AnalogOutput.cs" />
+    <Compile Include="Model\Tag\DigitalInput.cs" />
+    <Compile Include="Model\Tag\DigitalOutput.cs" />
     <Compile Include="Model\Tag\Tag.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
