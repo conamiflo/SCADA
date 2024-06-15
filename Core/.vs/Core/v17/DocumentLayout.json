@@ -1,0 +1,123 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\context\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:context\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\model\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:model\\alarm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\model\\tag\\analoginput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:model\\tag\\analoginput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\model\\tag\\digitaloutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:model\\tag\\digitaloutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\model\\tag\\digitalinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:model\\tag\\digitalinput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Model\\User.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\User.cs",
+              "RelativeToolTip": "Model\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T19:52:02.159Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserContext.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Context\\UserContext.cs",
+              "RelativeDocumentMoniker": "Context\\UserContext.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Context\\UserContext.cs",
+              "RelativeToolTip": "Context\\UserContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T20:13:31.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Alarm.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Alarm.cs",
+              "RelativeDocumentMoniker": "Model\\Alarm.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Alarm.cs",
+              "RelativeToolTip": "Model\\Alarm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T20:10:07.489Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AnalogInput.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\AnalogInput.cs",
+              "RelativeDocumentMoniker": "Model\\Tag\\AnalogInput.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\AnalogInput.cs",
+              "RelativeToolTip": "Model\\Tag\\AnalogInput.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T19:51:23.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DigitalOutput.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\DigitalOutput.cs",
+              "RelativeDocumentMoniker": "Model\\Tag\\DigitalOutput.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\DigitalOutput.cs",
+              "RelativeToolTip": "Model\\Tag\\DigitalOutput.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T19:51:23.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DigitalInput.cs",
+              "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\DigitalInput.cs",
+              "RelativeDocumentMoniker": "Model\\Tag\\DigitalInput.cs",
+              "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Model\\Tag\\DigitalInput.cs",
+              "RelativeToolTip": "Model\\Tag\\DigitalInput.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-15T19:51:23.376Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
