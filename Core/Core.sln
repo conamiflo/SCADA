@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core.csproj", "{76301054-139B-448B-9DE8-6B8CAA4CC2A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "..\DatabaseManager\DatabaseManager.csproj", "{CD7E09BF-657A-4789-8B0F-A2073481F9F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76301054-139B-448B-9DE8-6B8CAA4CC2A4} = {76301054-139B-448B-9DE8-6B8CAA4CC2A4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trending", "..\Trending\Trending.csproj", "{49E3478E-8777-4493-AA44-3BA541924741}"
 EndProject

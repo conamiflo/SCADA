@@ -14,8 +14,8 @@ namespace Core.Service
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private static Dictionary<string, User> authenticatedUsers =new Dictionary<string, User>();
-        private RNGCryptoServiceProvider crypto;
+        private readonly static Dictionary<string, User> authenticatedUsers =new Dictionary<string, User>();
+        private readonly RNGCryptoServiceProvider crypto;
 
         public UserService(IUserRepository userRepository)
         {
@@ -35,8 +35,9 @@ namespace Core.Service
                     return token;
 
                 }
+                throw new Exception("Login failed. Invalid password.");
             }
-            return "Login failed";
+            throw new Exception("Login failed. Invalid username.");
         }
 
         public bool Logout(string token)
@@ -44,12 +45,20 @@ namespace Core.Service
             return authenticatedUsers.Remove(token);
         }
 
-        public bool Registration(string username, string password)
+        public string Registration(string username, string password)
         {
+            if (string.IsNullOrEmpty(username))
+            {
+                throw new ArgumentException("Username cannot be null or empty.");
+            }
+            if (string.IsNullOrEmpty(password))
+            {
+                throw new ArgumentException("Password cannot be null or empty.");
+            }
             string encryptedPassword = EncryptUtil.EncryptData(password);
             User user = _userRepository.AddUser(username, encryptedPassword);
-            if(user == null) { return  false; }
-            return true;
+            if(user == null) { throw new Exception("Registration failed. Username already exists."); }
+            return "Registration failed!";
         }
 
         private bool IsUserAuthenticated(string token)

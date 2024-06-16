@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace Core.Service.IService
 {
+    [ServiceContract]
     public interface IUserService
     {
         [OperationContract]
-        bool Registration(string username, string password);
+        string Registration(string username, string password);
 
         [OperationContract]
         string Login(string username, string password);

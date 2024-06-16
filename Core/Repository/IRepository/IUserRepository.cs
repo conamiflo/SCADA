@@ -11,7 +11,7 @@ namespace Core.Repository.IRepository
     public interface IUserRepository
     {
         User GetUser(int id);
-        User GetUser(string email);
-        User AddUser(string email, string password);
+        User GetUser(string username);
+        User AddUser(string username, string password);
     }
 }
