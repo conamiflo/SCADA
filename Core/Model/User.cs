@@ -12,18 +12,16 @@ namespace Core.Model
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 3)]
+        [Index(IsUnique = true)]
+        [StringLength(100)]
         public string Username { get; set; }
 
-        [Required]
-        [StringLength(100, MinimumLength = 3)]
-        public string Password { get; set; }
+        public string EncryptedPassword { get; set; }
         public User() { }
-        public User(string username, string password)
+        public User(string username, string encryptedPassword)
         {
             Username = username;
-            Password = password;
+            EncryptedPassword = encryptedPassword;
         }
     }
 }

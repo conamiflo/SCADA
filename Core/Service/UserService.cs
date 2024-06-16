@@ -1,9 +1,12 @@
-﻿using Core.Model;
+﻿using Core.Context;
+using Core.Model;
 using Core.Repository.IRepository;
 using Core.Service.IService;
+using Core.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 
 namespace Core.Service
@@ -11,32 +14,56 @@ namespace Core.Service
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public User GetUser(int id)
+        private static Dictionary<string, User> authenticatedUsers =new Dictionary<string, User>();
+        private RNGCryptoServiceProvider crypto;
+
+        public UserService(IUserRepository userRepository)
         {
-            return _userRepository.GetUser(id);
+            _userRepository = userRepository;
+            crypto = new RNGCryptoServiceProvider();
         }
 
-        public User Login(string username, string password)
+        public string Login(string username, string password)
         {
             User user = _userRepository.GetUser(username);
             if(user != null)
             {
-                if (password.Equals(user.Password))
+                if (EncryptUtil.ValidateEncryptedData(password, user.EncryptedPassword))
                 {
-                    return user;
+                    string token = GenerateToken(username);
+                    authenticatedUsers.Add(token, user);
+                    return token;
+
                 }
             }
-            return null;
+            return "Login failed";
         }
 
-        public User Register(string username, string password)
+        public bool Logout(string token)
         {
-            User user = _userRepository.GetUser(username);
-            if (user != null)
-            {
-                throw new Exception("User with this username already exists");
-            }
-            return _userRepository.AddUser(username, password);
+            return authenticatedUsers.Remove(token);
         }
+
+        public bool Registration(string username, string password)
+        {
+            string encryptedPassword = EncryptUtil.EncryptData(password);
+            User user = _userRepository.AddUser(username, encryptedPassword);
+            if(user == null) { return  false; }
+            return true;
+        }
+
+        private bool IsUserAuthenticated(string token)
+        {
+            return authenticatedUsers.ContainsKey(token);
+        }
+
+        private string GenerateToken(string username)
+        {
+            byte[] randVal = new byte[32];
+            crypto.GetBytes(randVal);
+            string randStr = Convert.ToBase64String(randVal);
+            return username + randStr;
+        }
+
     }
 }
