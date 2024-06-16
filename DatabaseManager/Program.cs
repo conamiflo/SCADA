@@ -34,11 +34,8 @@ namespace DatabaseManager
                         break;
                     case "2":
                         Console.WriteLine("You chose Register.");
-                        bool succesfulRegistration = Register(client);
-                        if (succesfulRegistration)
-                        {
-                            Console.WriteLine("You have succesfully registered, next step is login.");
-                        }
+                        Console.WriteLine(Register(client));
+                       
                         break;
                     case "3":
                         Console.WriteLine("Exiting program. Goodbye!");
@@ -53,7 +50,7 @@ namespace DatabaseManager
             }
         }
 
-        public static bool Register(UserServiceClient client)
+        public static string Register(UserServiceClient client)
         {
             Console.WriteLine("Welcome to registration! Please enter your username:");
             string username = Console.ReadLine();

@@ -11,7 +11,7 @@
   <xs:element name="RegistrationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="RegistrationResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="RegistrationResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

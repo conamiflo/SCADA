@@ -12,10 +12,6 @@ namespace Core.Context
 {
     public class UserContext : DbContext
     {
-        public UserContext() : base("name=UserContext")
-        {
-
-        }
         public DbSet<User> Users { get; set; }
     }
 }

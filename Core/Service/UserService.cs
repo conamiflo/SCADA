@@ -57,8 +57,8 @@ namespace Core.Service
             }
             string encryptedPassword = EncryptUtil.EncryptData(password);
             User user = _userRepository.AddUser(username, encryptedPassword);
-            if(user == null) { throw new Exception("Registration failed. Username already exists."); }
-            return "Registration failed!";
+            if (user == null) { throw new Exception("Registration failed. Username already exists."); }
+            return "Registration successful, next step is login!";
         }
 
         private bool IsUserAuthenticated(string token)

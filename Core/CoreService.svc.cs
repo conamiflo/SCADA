@@ -21,8 +21,7 @@ namespace Core
 
         public CoreService()
         {
-            var userdb = new UserContext();
-            IUserRepository userRepository = new UserRepository(userdb);
+            IUserRepository userRepository = new UserRepository();
             userService = new UserService(userRepository);
         }
 

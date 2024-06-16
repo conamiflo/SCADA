@@ -16,10 +16,10 @@ namespace DatabaseManager.CoreService {
     public interface IUserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Registration", ReplyAction="http://tempuri.org/IUserService/RegistrationResponse")]
-        bool Registration(string username, string password);
+        string Registration(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Registration", ReplyAction="http://tempuri.org/IUserService/RegistrationResponse")]
-        System.Threading.Tasks.Task<bool> RegistrationAsync(string username, string password);
+        System.Threading.Tasks.Task<string> RegistrationAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Login", ReplyAction="http://tempuri.org/IUserService/LoginResponse")]
         string Login(string username, string password);
@@ -61,11 +61,11 @@ namespace DatabaseManager.CoreService {
                 base(binding, remoteAddress) {
         }
         
-        public bool Registration(string username, string password) {
+        public string Registration(string username, string password) {
             return base.Channel.Registration(username, password);
         }
         
-        public System.Threading.Tasks.Task<bool> RegistrationAsync(string username, string password) {
+        public System.Threading.Tasks.Task<string> RegistrationAsync(string username, string password) {
             return base.Channel.RegistrationAsync(username, password);
         }
         
