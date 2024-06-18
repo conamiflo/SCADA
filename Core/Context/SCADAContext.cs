@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Reflection.Emit;
+using Core.Model.Alarm;
 
 namespace Core.Context
 {
@@ -27,19 +28,19 @@ namespace Core.Context
         {
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Alarm>()
-            .HasRequired(a => a.AnalogInput)
-            .WithMany(t => t.Alarms)
-            .HasForeignKey(a => a.AnalogInputId);
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Alarm>()
+        //    .HasRequired(a => a.AnalogInput)
+        //    .WithMany(t => t.Alarms)
+        //    .HasForeignKey(a => a.AnalogInputId);
 
-            modelBuilder.Entity<AnalogOutput>().HasKey(t => t.TagName);
-            modelBuilder.Entity<AnalogInput>().HasKey(t => t.TagName);
-            modelBuilder.Entity<DigitalOutput>().HasKey(t => t.TagName);
-            modelBuilder.Entity<DigitalInput>().HasKey(t => t.TagName);
+        //    modelBuilder.Entity<AnalogOutput>().HasKey(t => t.TagName);
+        //    modelBuilder.Entity<AnalogInput>().HasKey(t => t.TagName);
+        //    modelBuilder.Entity<DigitalOutput>().HasKey(t => t.TagName);
+        //    modelBuilder.Entity<DigitalInput>().HasKey(t => t.TagName);
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }
