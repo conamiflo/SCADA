@@ -1,7 +1,5 @@
 
 *.cache
-Core/.vs/Core/config/applicationhost.config
-
 *.user
 AlarmDisplay/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 DatabaseManager/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
@@ -9,7 +7,6 @@ RealTimeUnit/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 ReportManager/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 SimulationDriver/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 Trending/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
-Core/.vs/Core/config/applicationhost.config
 *.json
 *.vsidx
 .vs/SCADA/v17/.wsuo
@@ -24,9 +21,7 @@ Core/.vs/Core/config/applicationhost.config
 .vscode/settings.json
 AlarmDisplay/.vs/AlarmDisplay.csproj.dtbcache.json
 Core/.vs/Core.csproj.dtbcache.json
-Core/.vs/Core/config/applicationhost.config
 Core/.vs/Core/DesignTimeBuild/.dtbcache.v2
 Core/.vs/Core/v17/.futdcache.v2
 Core/.vs/Core/v17/DocumentLayout.json
-Core/content/net40/Web.config
 Core/.vs/Core/v17/.suo
