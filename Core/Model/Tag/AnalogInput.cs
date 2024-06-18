@@ -26,7 +26,6 @@ namespace Core.Model.Tag
             Units = units;
         }
         
-
         public double ScanTime { get; set; }
         public List<Alarm> Alarms { get; set; } = new List<Alarm>();
         public bool IsOn { get; set; }

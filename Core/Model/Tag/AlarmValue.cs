@@ -11,11 +11,11 @@ namespace Core.Model
         [Key]
         public int Id { get; set; }
         public DateTime TimeStamp { get; set; }
-        public Alarm.Alarm Alarm { get; set; }
+        public Alarm Alarm { get; set; }
         public int AlarmId { get; set; }
 
         public AlarmValue() { }
-        public AlarmValue(Alarm.Alarm alarm)
+        public AlarmValue(Alarm alarm)
         {
             TimeStamp = DateTime.Now;
             Alarm = alarm;

@@ -14,7 +14,6 @@ namespace Core.Model
 
     public class Alarm
     {
-
         [Key]
         public int Id { get; set; }
         public double Threshold { get; set; }
