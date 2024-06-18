@@ -1,6 +1,5 @@
 
 *.cache
-*.config
 Core/.vs/Core/config/applicationhost.config
 
 *.user
@@ -11,13 +10,11 @@ ReportManager/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 SimulationDriver/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 Trending/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 Core/.vs/Core/config/applicationhost.config
-*.config
 *.json
 *.vsidx
 .vs/SCADA/v17/.wsuo
 *.sqlite
 *.v2
-Core/packages.config
 .vs/ProjectSettings.json
 .vs/SCADA/FileContentIndex/19c62eb7-4485-4a75-a1c1-e0d00384a0ec.vsidx
 .vs/SCADA/v17/.wsuo
@@ -26,12 +23,10 @@ Core/packages.config
 .vs/VSWorkspaceState.json
 .vscode/settings.json
 AlarmDisplay/.vs/AlarmDisplay.csproj.dtbcache.json
-AlarmDisplay/App.config
 Core/.vs/Core.csproj.dtbcache.json
 Core/.vs/Core/config/applicationhost.config
 Core/.vs/Core/DesignTimeBuild/.dtbcache.v2
 Core/.vs/Core/v17/.futdcache.v2
 Core/.vs/Core/v17/DocumentLayout.json
 Core/content/net40/Web.config
-Core/packages.config
 Core/.vs/Core/v17/.suo
