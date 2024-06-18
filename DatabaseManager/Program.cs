@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.ServiceModel;
 using System.Text;
 using System.Threading;
@@ -15,9 +16,35 @@ namespace DatabaseManager
         static void Main(string[] args)
         {
             UserServiceClient client = new CoreService.UserServiceClient();
-            bool continueProgram = true;
+            UnsignedMenu(client);
+        }
 
-            while (continueProgram)
+        public static string Register(UserServiceClient client)
+        {
+            Console.Write("Welcome to registration!\nPlease enter your username:");
+            string username = Console.ReadLine();
+
+            Console.Write("\nEnter your password:");
+            string password = Console.ReadLine();
+
+            return client.Login(username,password);
+        }
+
+        public static string Login(UserServiceClient client)
+        {
+            Console.Write("Welcome to Login!\nPlease enter your username: ");
+            string username = Console.ReadLine();
+
+            Console.Write("\nEnter your password: ");
+            string password = Console.ReadLine();
+
+
+            return client.Registration(username, password);
+        }
+
+        public static void UnsignedMenu(UserServiceClient client)
+        {
+            while (true)
             {
                 Console.WriteLine("Menu:");
                 Console.WriteLine("1. Login");
@@ -26,21 +53,25 @@ namespace DatabaseManager
                 Console.Write("Choose an option (1-3): ");
 
                 string choice = Console.ReadLine();
+                Console.WriteLine();
 
                 switch (choice)
                 {
                     case "1":
-                        Console.WriteLine("You chose Login.");
+                        string token = Login(client);
+                        if (token != null)
+                        {
+                            Console.WriteLine("Login sucessfull!");
+                            SignedInMenu(client, token);
+                        }
                         break;
                     case "2":
-                        Console.WriteLine("You chose Register.");
                         Console.WriteLine(Register(client));
-                       
+
                         break;
                     case "3":
                         Console.WriteLine("Exiting program. Goodbye!");
-                        continueProgram = false;
-                        break;
+                        return;
                     default:
                         Console.WriteLine("Invalid option. Please choose again.");
                         break;
@@ -50,16 +81,35 @@ namespace DatabaseManager
             }
         }
 
-        public static string Register(UserServiceClient client)
+        public static void SignedInMenu(UserServiceClient client, string token)
         {
-            Console.WriteLine("Welcome to registration! Please enter your username:");
-            string username = Console.ReadLine();
+            while (true)
+            {
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1.");
+                Console.WriteLine("2.");
+                Console.WriteLine("3. Sign out");
+                Console.Write("Choose an option (1-3): ");
 
-            Console.WriteLine("Enter your password:");
-            string password = Console.ReadLine();
+                string choice = Console.ReadLine();
 
+                switch (choice)
+                {
+                    case "1":
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        Console.WriteLine("Signing out. Goodbye!");
+                        return;
+                    default:
+                        Console.WriteLine("Invalid option. Please choose again.");
+                        break;
+                }
 
-            return client.Registration(username,password);
+                Console.WriteLine();
+            }
         }
+
     }
 }

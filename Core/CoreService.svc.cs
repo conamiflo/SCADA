@@ -21,13 +21,12 @@ namespace Core
 
         public CoreService()
         {
-            IUserRepository userRepository = new UserRepository();
-            userService = new UserService(userRepository);
+            userService = new UserService(new UserRepository());
         }
 
         public string Login(string username, string password)
         {
-            string message = "Login failed";
+            string message = "Login failed!";
 
             try
             {
@@ -37,7 +36,8 @@ namespace Core
             {
                 message = $"{ex.Message}";
             }
-            return message;
+            Console.WriteLine(message);
+            return null;
         }
 
         public bool Logout(string token)

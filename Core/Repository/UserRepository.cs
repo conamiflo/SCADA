@@ -11,9 +11,11 @@ namespace Core.Repository
 {
     public class UserRepository : IUserRepository
     {
+        private UserContext _userContext;
 
         public UserRepository()
         {
+            _userContext = new UserContext();
         }
 
         public User AddUser(string username, string password)
@@ -23,28 +25,22 @@ namespace Core.Repository
                 return null;
             }
             User newUser = new User(username, password);
-            using (var _userContext = new UserContext())
-            {
-                var entityEntry = _userContext.Users.Add(newUser);
-                _userContext.SaveChanges();
-                return entityEntry;
-            }
+            
+            var entityEntry = _userContext.Users.Add(newUser);
+            _userContext.SaveChanges();
+            return entityEntry;
         }
 
         public User GetUser(int id)
         {
-            using (var _userContext = new UserContext())
-            {
-                return _userContext.Users.First(u => u.Id == id);
-            }
+            
+            return _userContext.Users.First(u => u.Id == id);
         }
 
         public User GetUser(string username)
         {
-            using (var _userContext = new UserContext())
-            {
-                return _userContext.Users.FirstOrDefault(u => u.Username.Equals(username));
-            }
+            
+            return _userContext.Users.FirstOrDefault(u => u.Username.Equals(username));
         }
     }
 }
