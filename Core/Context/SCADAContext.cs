@@ -14,13 +14,13 @@ namespace Core.Context
     public class SCADAContext : DbContext
     {
         public DbSet<Alarm> Alarms { get; set; }
-        public DbSet<AlarmValue> AlarmsValue { get; set; }
         public DbSet<AnalogInput> AnalogInput { get; set; }
         public DbSet<AnalogOutput> AnalogOutput { get; set; }
         public DbSet<DigitalOutput> DigitalOutput { get; set; }
         public DbSet<DigitalInput> DigitalInput { get; set; }
-        public DbSet<InputsValue> InputsValues { get; set; }
+        /*public DbSet<InputsValue> InputsValues { get; set; }
         public DbSet<OutputsValue> OutputsValues { get; set; }
+        public DbSet<AlarmValue> AlarmsValue { get; set; }*/
 
 
         public SCADAContext() : base("name=SCADAContext")
