@@ -6,12 +6,15 @@
       "AbsoluteMoniker": "D:0:0:{CD7E09BF-657A-4789-8B0F-A2073481F9F8}|..\\DatabaseManager\\DatabaseManager.csproj|c:\\users\\stefan djurica\\desktop\\scada\\databasemanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\coreservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:coreservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,11 +40,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
@@ -55,20 +58,30 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-06-18T11:42:55.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\DatabaseManager\\Program.cs",
               "RelativeDocumentMoniker": "..\\DatabaseManager\\Program.cs",
               "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\DatabaseManager\\Program.cs",
               "RelativeToolTip": "..\\DatabaseManager\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGcAAABDAAAA",
+              "ViewState": "AQIAAE8AAAAAAAAAAAAkwDcAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T09:22:11.823Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "CoreService.svc.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\CoreService.svc.cs",
               "RelativeDocumentMoniker": "CoreService.svc.cs",
@@ -81,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Service\\IService\\IUserService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IUserService.cs",
@@ -94,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "Service\\UserService.cs",
@@ -107,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UserRepository.cs",
@@ -120,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "UserContext.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Context\\UserContext.cs",
               "RelativeDocumentMoniker": "Context\\UserContext.cs",
