@@ -25,3 +25,9 @@ Core/.vs/Core/DesignTimeBuild/.dtbcache.v2
 Core/.vs/Core/v17/.futdcache.v2
 Core/.vs/Core/v17/DocumentLayout.json
 Core/.vs/Core/v17/.suo
+AlarmDisplay/bin/Debug/AlarmDisplay.exe.config
+Core/bin/Core.dll.config
+DatabaseManager/bin/Debug/DatabaseManager.exe.config
+RealTimeUnit/bin/Debug/RealTimeUnit.exe.config
+ReportManager/bin/Debug/ReportManager.exe.config
+Trending/bin/Debug/Trending.exe.config
