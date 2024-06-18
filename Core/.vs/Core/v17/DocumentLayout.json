@@ -10,11 +10,11 @@
       "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:coreservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|c:\\users\\stefan djurica\\desktop\\scada\\core\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{76301054-139B-448B-9DE8-6B8CAA4CC2A4}|Core.csproj|C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,6 +45,17 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "dbo.Users [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql",
+              "ToolTip": "dbo.Users [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-06-18T11:42:55.443Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
@@ -58,23 +69,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.Users [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/UsersDB/True/SqlTable/dbo.Users.sql",
-              "ToolTip": "dbo.Users [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-06-18T11:42:55.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\DatabaseManager\\Program.cs",
               "RelativeDocumentMoniker": "..\\DatabaseManager\\Program.cs",
               "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\DatabaseManager\\Program.cs",
               "RelativeToolTip": "..\\DatabaseManager\\Program.cs",
-              "ViewState": "AQIAAE8AAAAAAAAAAAAkwDcAAAAkAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAAADAAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T09:22:11.823Z",
               "EditorCaption": ""
@@ -87,7 +88,7 @@
               "RelativeDocumentMoniker": "CoreService.svc.cs",
               "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\CoreService.svc.cs",
               "RelativeToolTip": "CoreService.svc.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAArAAAA",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T09:14:00.665Z",
               "EditorCaption": ""
@@ -113,7 +114,7 @@
               "RelativeDocumentMoniker": "Service\\UserService.cs",
               "ToolTip": "C:\\Users\\Stefan Djurica\\Desktop\\SCADA\\Core\\Service\\UserService.cs",
               "RelativeToolTip": "Service\\UserService.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAswCUAAABHAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-16T07:52:33.931Z",
               "EditorCaption": ""
@@ -141,8 +142,7 @@
               "RelativeToolTip": "Context\\UserContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwBEAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-15T20:13:31.315Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-15T20:13:31.315Z"
             }
           ]
         }

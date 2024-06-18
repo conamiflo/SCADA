@@ -26,18 +26,7 @@ namespace Core
 
         public string Login(string username, string password)
         {
-            string message = "Login failed!";
-
-            try
-            {
-                return userService.Login(username, password);
-            }
-            catch (Exception ex)
-            {
-                message = $"{ex.Message}";
-            }
-            Console.WriteLine(message);
-            return null;
+            return userService.Login(username, password);
         }
 
         public bool Logout(string token)
@@ -47,20 +36,7 @@ namespace Core
 
         public string Registration(string username, string password)
         {
-            string message = "Registration failed";
-            try
-            {
-                return userService.Registration(username, password);
-            }
-            catch (ArgumentException ex)
-            {
-                message = $"Registration failed: {ex.Message}";
-            }
-            catch (Exception ex)
-            {
-                message = $"{ex.Message}";
-            }
-            return message;
+            return userService.Registration(username, password);
         }
     }
 }

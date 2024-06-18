@@ -21,32 +21,54 @@ namespace DatabaseManager
 
         public static string Register(UserServiceClient client)
         {
-            Console.Write("Welcome to registration!\nPlease enter your username:");
+            Console.Write("Welcome to registration!\n\nPlease enter your username:");
             string username = Console.ReadLine();
 
             Console.Write("\nEnter your password:");
             string password = Console.ReadLine();
 
-            return client.Login(username,password);
+            string message = "Registration failed";
+            try
+            {
+                return client.Registration(username,password);
+            }
+            catch (ArgumentException ex)
+            {
+                message = $"Registration failed: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                message = $"{ex.Message}";
+            }
+            return message;
         }
 
         public static string Login(UserServiceClient client)
         {
-            Console.Write("Welcome to Login!\nPlease enter your username: ");
+            Console.Write("Welcome to Login!\n\nPlease enter your username: ");
             string username = Console.ReadLine();
 
             Console.Write("\nEnter your password: ");
             string password = Console.ReadLine();
 
-
-            return client.Registration(username, password);
+            string message = "Login failed!";
+            try
+            {
+                return client.Login(username, password);
+            }
+            catch (Exception ex)
+            {
+                message = $"{ex.Message}";
+            }
+            Console.WriteLine(message);
+            return null;
         }
 
         public static void UnsignedMenu(UserServiceClient client)
         {
             while (true)
             {
-                Console.WriteLine("Menu:");
+                Console.WriteLine("\nMenu:");
                 Console.WriteLine("1. Login");
                 Console.WriteLine("2. Register");
                 Console.WriteLine("3. Quit");
@@ -61,7 +83,7 @@ namespace DatabaseManager
                         string token = Login(client);
                         if (token != null)
                         {
-                            Console.WriteLine("Login sucessfull!");
+                            Console.WriteLine("\nLogin sucessfull!");
                             SignedInMenu(client, token);
                         }
                         break;
@@ -85,7 +107,7 @@ namespace DatabaseManager
         {
             while (true)
             {
-                Console.WriteLine("Menu:");
+                Console.WriteLine("\nMenu:");
                 Console.WriteLine("1.");
                 Console.WriteLine("2.");
                 Console.WriteLine("3. Sign out");
