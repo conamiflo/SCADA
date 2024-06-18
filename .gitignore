@@ -60,3 +60,5 @@ RealTimeUnit/obj/Debug/RealTimeUnit.csproj.FileListAbsolute.txt
 ReportManager/obj/Debug/ReportManager.csproj.FileListAbsolute.txt
 SimulationDriver/obj/Debug/SimulationDriver.csproj.FileListAbsolute.txt
 Trending/obj/Debug/Trending.csproj.FileListAbsolute.txt
+DatabaseManager/bin/Debug/Core.dll.config
+DatabaseManager/obj/Debug/DatabaseManager.csproj.CopyComplete
