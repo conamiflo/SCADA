@@ -9,326 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace DatabaseManager.CoreService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(DatabaseManager.CoreService.AnalogInput))]
-    public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IOAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IOAddress {
-            get {
-                return this.IOAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IOAddressField, value) != true)) {
-                    this.IOAddressField = value;
-                    this.RaisePropertyChanged("IOAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TagName {
-            get {
-                return this.TagNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
-                    this.TagNameField = value;
-                    this.RaisePropertyChanged("TagName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
-    [System.SerializableAttribute()]
-    public partial class AnalogInput : DatabaseManager.CoreService.Tag {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.CoreService.Alarm[] AlarmsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double HighLimitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsOnField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double LowLimitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ScanTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UnitsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.CoreService.Alarm[] Alarms {
-            get {
-                return this.AlarmsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AlarmsField, value) != true)) {
-                    this.AlarmsField = value;
-                    this.RaisePropertyChanged("Alarms");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double HighLimit {
-            get {
-                return this.HighLimitField;
-            }
-            set {
-                if ((this.HighLimitField.Equals(value) != true)) {
-                    this.HighLimitField = value;
-                    this.RaisePropertyChanged("HighLimit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsOn {
-            get {
-                return this.IsOnField;
-            }
-            set {
-                if ((this.IsOnField.Equals(value) != true)) {
-                    this.IsOnField = value;
-                    this.RaisePropertyChanged("IsOn");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double LowLimit {
-            get {
-                return this.LowLimitField;
-            }
-            set {
-                if ((this.LowLimitField.Equals(value) != true)) {
-                    this.LowLimitField = value;
-                    this.RaisePropertyChanged("LowLimit");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double ScanTime {
-            get {
-                return this.ScanTimeField;
-            }
-            set {
-                if ((this.ScanTimeField.Equals(value) != true)) {
-                    this.ScanTimeField = value;
-                    this.RaisePropertyChanged("ScanTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Units {
-            get {
-                return this.UnitsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UnitsField, value) != true)) {
-                    this.UnitsField = value;
-                    this.RaisePropertyChanged("Units");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/Core.Model")]
-    [System.SerializableAttribute()]
-    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.CoreService.AnalogInput AnalogInputField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AnalogInputIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PriorityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ThresholdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.CoreService.AlarmType TypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.CoreService.AnalogInput AnalogInput {
-            get {
-                return this.AnalogInputField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AnalogInputField, value) != true)) {
-                    this.AnalogInputField = value;
-                    this.RaisePropertyChanged("AnalogInput");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int AnalogInputId {
-            get {
-                return this.AnalogInputIdField;
-            }
-            set {
-                if ((this.AnalogInputIdField.Equals(value) != true)) {
-                    this.AnalogInputIdField = value;
-                    this.RaisePropertyChanged("AnalogInputId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Priority {
-            get {
-                return this.PriorityField;
-            }
-            set {
-                if ((this.PriorityField.Equals(value) != true)) {
-                    this.PriorityField = value;
-                    this.RaisePropertyChanged("Priority");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Threshold {
-            get {
-                return this.ThresholdField;
-            }
-            set {
-                if ((this.ThresholdField.Equals(value) != true)) {
-                    this.ThresholdField = value;
-                    this.RaisePropertyChanged("Threshold");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.CoreService.AlarmType Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((this.TypeField.Equals(value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmType", Namespace="http://schemas.datacontract.org/2004/07/Core.Model")]
-    public enum AlarmType : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LOW = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HIGH = 1,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IUserService")]
@@ -410,10 +91,10 @@ namespace DatabaseManager.CoreService {
     public interface ITagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
-        void AddAnalogInput(DatabaseManager.CoreService.AnalogInput analogInput);
+        void AddAnalogInput(Core.Model.Tag.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
-        System.Threading.Tasks.Task AddAnalogInputAsync(DatabaseManager.CoreService.AnalogInput analogInput);
+        System.Threading.Tasks.Task AddAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
         bool DeleteAnalogInput(string id);
@@ -422,16 +103,16 @@ namespace DatabaseManager.CoreService {
         System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
-        DatabaseManager.CoreService.AnalogInput GetAnalogInput(string id);
+        Core.Model.Tag.AnalogInput GetAnalogInput(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.CoreService.AnalogInput> GetAnalogInputAsync(string id);
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> GetAnalogInputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
-        DatabaseManager.CoreService.AnalogInput UpdateAnalogInput(DatabaseManager.CoreService.AnalogInput analogInput);
+        Core.Model.Tag.AnalogInput UpdateAnalogInput(Core.Model.Tag.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.CoreService.AnalogInput> UpdateAnalogInputAsync(DatabaseManager.CoreService.AnalogInput analogInput);
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -461,11 +142,11 @@ namespace DatabaseManager.CoreService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddAnalogInput(DatabaseManager.CoreService.AnalogInput analogInput) {
+        public void AddAnalogInput(Core.Model.Tag.AnalogInput analogInput) {
             base.Channel.AddAnalogInput(analogInput);
         }
         
-        public System.Threading.Tasks.Task AddAnalogInputAsync(DatabaseManager.CoreService.AnalogInput analogInput) {
+        public System.Threading.Tasks.Task AddAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput) {
             return base.Channel.AddAnalogInputAsync(analogInput);
         }
         
@@ -477,19 +158,19 @@ namespace DatabaseManager.CoreService {
             return base.Channel.DeleteAnalogInputAsync(id);
         }
         
-        public DatabaseManager.CoreService.AnalogInput GetAnalogInput(string id) {
+        public Core.Model.Tag.AnalogInput GetAnalogInput(string id) {
             return base.Channel.GetAnalogInput(id);
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.CoreService.AnalogInput> GetAnalogInputAsync(string id) {
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> GetAnalogInputAsync(string id) {
             return base.Channel.GetAnalogInputAsync(id);
         }
         
-        public DatabaseManager.CoreService.AnalogInput UpdateAnalogInput(DatabaseManager.CoreService.AnalogInput analogInput) {
+        public Core.Model.Tag.AnalogInput UpdateAnalogInput(Core.Model.Tag.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInput(analogInput);
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.CoreService.AnalogInput> UpdateAnalogInputAsync(DatabaseManager.CoreService.AnalogInput analogInput) {
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInputAsync(analogInput);
         }
     }

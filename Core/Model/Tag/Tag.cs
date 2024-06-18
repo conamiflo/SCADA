@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 using System.Xml.Serialization;
 
 namespace Core.Model.Tag
 {
     [XmlInclude(typeof(AnalogInput))]
+    [DataContractAttribute]
     public abstract class Tag
     {
         protected Tag()

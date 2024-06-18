@@ -8,18 +8,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Model.Tag;
-using Core.Model;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace DatabaseManager
 {
     class Program
     {
+        public static TagServiceClient tagServiceClient = new CoreService.TagServiceClient();
 
         static void Main(string[] args)
         {
             UserServiceClient client = new CoreService.UserServiceClient();
-            TagServiceClient tagServiceClient = new CoreService.TagServiceClient(); 
             //AnalogInput analogInput = new AnalogInput();
             //analogInput.TagName = "asdf";
             //analogInput.Description = "asdf";
@@ -232,7 +231,10 @@ namespace DatabaseManager
                     Console.Write("Invalid input. Please enter a valid integer for Scan Time: ");
                 }
 
-                AnalogInput tag= new AnalogInput(name,  description,  ioAddress,  scanTime,null,  onOffScan,  lowLimit,  highLimit,  units);
+
+
+                AnalogInput tag = new AnalogInput(name,  description,  ioAddress,  scanTime,null,  onOffScan,  lowLimit,  highLimit,  units);
+                tagServiceClient.AddAnalogInput(tag);
             }
             else
             {

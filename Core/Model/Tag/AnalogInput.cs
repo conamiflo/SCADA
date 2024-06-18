@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Security.Claims;
 using System.Web;
 using Core.Model;
@@ -9,6 +10,7 @@ using Core.Model.Alarm;
 
 namespace Core.Model.Tag
 {
+    [DataContractAttribute]
     public class AnalogInput : Tag
     {
 
@@ -21,8 +23,12 @@ namespace Core.Model.Tag
             HighLimit = highLimit;
             Units = units;
         }
+        
+
+
 
         public double ScanTime { get; set; }
+        [DataMemberAttribute]
         public List<Alarm.Alarm> Alarms { get; set; } = new List<Alarm.Alarm>();
         public bool IsOn { get; set; }
         public double LowLimit { get; set; }
