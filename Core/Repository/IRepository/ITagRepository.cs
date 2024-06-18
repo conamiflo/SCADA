@@ -7,7 +7,7 @@ using Core.Model.Tag;
 
 namespace Core.Repository.IRepository
 {
-    internal interface ITagRepository
+    public interface ITagRepository
     {
         AnalogInput GetAnalogInput(string id);
         void AddAnalogInput(AnalogInput analogInput);

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeUnit", "..\RealTime
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulationDriver", "..\SimulationDriver\SimulationDriver.csproj", "{1CFC2891-15E7-4EC7-8792-5A0CEC3F64A5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App_data", "App_data", "{EDC05D6A-B25B-4DE5-9EB3-DD26D5D6C603}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -16,6 +16,17 @@ namespace DatabaseManager
         static void Main(string[] args)
         {
             UserServiceClient client = new CoreService.UserServiceClient();
+            TagServiceClient tagServiceClient = new CoreService.TagServiceClient(); 
+            //AnalogInput analogInput = new AnalogInput();
+            //analogInput.TagName = "asdf";
+            //analogInput.Description = "asdf";
+            //analogInput.Units = "asdf";
+            //analogInput.HighLimit = 1.0;
+            //analogInput.LowLimit = 1.0;
+            //analogInput.IsOn = true;
+            //analogInput.IOAddress = "asdf";
+            //tagServiceClient.AddAnalogInput(analogInput);
+            
             UnsignedMenu(client);
         }
 

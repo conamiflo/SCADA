@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag" />
+  <xs:complexType name="ArrayOfAlarm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Alarm" nillable="true" type="tns:Alarm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlarm" nillable="true" type="tns:ArrayOfAlarm" />
+  <xs:complexType name="Alarm">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="AnalogInput" nillable="true" type="q1:AnalogInput" />
+      <xs:element minOccurs="0" name="AnalogInputId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="Threshold" type="xs:double" />
+      <xs:element minOccurs="0" name="Type" type="tns:AlarmType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Alarm" nillable="true" type="tns:Alarm" />
+  <xs:simpleType name="AlarmType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LOW" />
+      <xs:enumeration value="HIGH" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AlarmType" nillable="true" type="tns:AlarmType" />
+</xs:schema>

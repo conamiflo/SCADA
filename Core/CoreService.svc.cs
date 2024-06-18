@@ -1,4 +1,5 @@
 ﻿using Core.Context;
+using Core.Model.Tag;
 using Core.Repository;
 using Core.Repository.IRepository;
 using Core.Service;
@@ -14,15 +15,19 @@ using System.Text;
 
 namespace Core
 {
-    public class CoreService : IUserService
+    public class CoreService : IUserService, ITagService
     {
 
         private IUserService userService;
+        private ITagService tagService;
 
         public CoreService()
         {
             userService = new UserService(new UserRepository());
+            tagService = new TagService(new TagRepository());
         }
+
+
 
         public string Login(string username, string password)
         {
@@ -37,6 +42,24 @@ namespace Core
         public string Registration(string username, string password)
         {
             return userService.Registration(username, password);
+        }
+        public void AddAnalogInput(AnalogInput analogInput)
+        {
+            tagService.AddAnalogInput(analogInput);
+        }
+
+        public bool DeleteAnalogInput(string id)
+        {
+            return tagService.DeleteAnalogInput(id);
+        }
+
+        public AnalogInput GetAnalogInput(string id)
+        {
+            return tagService.GetAnalogInput(id);
+        }
+        public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
+        {
+            return tagService.UpdateAnalogInput(analogInput);
         }
     }
 }

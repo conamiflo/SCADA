@@ -79,6 +79,15 @@
     <None Include="Connected Services\CoreService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\CoreService\CoreService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CoreService\CoreService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CoreService\DatabaseManager.CoreService.AnalogInput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CoreService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
