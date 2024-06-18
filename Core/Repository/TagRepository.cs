@@ -16,14 +16,15 @@ namespace Core.Repository
     {
 
         private List<Tag> tags= new List<Tag>();
-        private string filename = "./tags.xml";
+        private string filename = HttpContext.Current.Server.MapPath("~/AppData/tags.xml");
         public void AddAnalogInput(AnalogInput analogInput)
         {
             tags.Add(analogInput);
 
-            XmlSerializer x = new XmlSerializer(typeof(Tag));
+            XmlSerializer x = new XmlSerializer(typeof(List<Tag>), new XmlRootAttribute("ArrayOfTag"));
             TextWriter writer = new StreamWriter(filename);
             x.Serialize(writer, tags);
+            writer.Close();
 
         }
 

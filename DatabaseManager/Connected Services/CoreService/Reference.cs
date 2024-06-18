@@ -85,4 +85,93 @@ namespace DatabaseManager.CoreService {
             return base.Channel.LogoutAsync(token);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITagService")]
+    public interface ITagService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
+        void AddAnalogInput(Core.Model.Tag.AnalogInput analogInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
+        System.Threading.Tasks.Task AddAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
+        bool DeleteAnalogInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
+        Core.Model.Tag.AnalogInput GetAnalogInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> GetAnalogInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
+        Core.Model.Tag.AnalogInput UpdateAnalogInput(Core.Model.Tag.AnalogInput analogInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITagServiceChannel : DatabaseManager.CoreService.ITagService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TagServiceClient : System.ServiceModel.ClientBase<DatabaseManager.CoreService.ITagService>, DatabaseManager.CoreService.ITagService {
+        
+        public TagServiceClient() {
+        }
+        
+        public TagServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public TagServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddAnalogInput(Core.Model.Tag.AnalogInput analogInput) {
+            base.Channel.AddAnalogInput(analogInput);
+        }
+        
+        public System.Threading.Tasks.Task AddAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput) {
+            return base.Channel.AddAnalogInputAsync(analogInput);
+        }
+        
+        public bool DeleteAnalogInput(string id) {
+            return base.Channel.DeleteAnalogInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id) {
+            return base.Channel.DeleteAnalogInputAsync(id);
+        }
+        
+        public Core.Model.Tag.AnalogInput GetAnalogInput(string id) {
+            return base.Channel.GetAnalogInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> GetAnalogInputAsync(string id) {
+            return base.Channel.GetAnalogInputAsync(id);
+        }
+        
+        public Core.Model.Tag.AnalogInput UpdateAnalogInput(Core.Model.Tag.AnalogInput analogInput) {
+            return base.Channel.UpdateAnalogInput(analogInput);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput) {
+            return base.Channel.UpdateAnalogInputAsync(analogInput);
+        }
+    }
 }
