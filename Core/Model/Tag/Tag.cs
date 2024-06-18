@@ -10,6 +10,17 @@ namespace Core.Model.Tag
     [XmlInclude(typeof(AnalogInput))]
     public abstract class Tag
     {
+        protected Tag()
+        {
+        }
+
+        protected Tag(string tagName, string description, string iOAddress)
+        {
+            TagName = tagName;
+            Description = description;
+            IOAddress = iOAddress;
+        }
+
         [Key]
         public string TagName { get; set; }
         public string Description { get; set; }
