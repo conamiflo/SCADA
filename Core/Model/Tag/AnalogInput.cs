@@ -10,9 +10,11 @@ using Core.Model.Alarm;
 
 namespace Core.Model.Tag
 {
-    [DataContractAttribute]
     public class AnalogInput : Tag
     {
+        public AnalogInput()
+        {
+        }
 
         public AnalogInput(string tagName,string tagDesc,string ioAddress,double scanTime, List<Model.Alarm.Alarm> alarms, bool isOn, double lowLimit, double highLimit, string units):base(tagName,tagDesc,ioAddress)
         {
@@ -25,10 +27,7 @@ namespace Core.Model.Tag
         }
         
 
-
-
         public double ScanTime { get; set; }
-        [DataMemberAttribute]
         public List<Alarm.Alarm> Alarms { get; set; } = new List<Alarm.Alarm>();
         public bool IsOn { get; set; }
         public double LowLimit { get; set; }

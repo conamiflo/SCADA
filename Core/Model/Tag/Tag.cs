@@ -9,14 +9,13 @@ using System.Xml.Serialization;
 namespace Core.Model.Tag
 {
     [XmlInclude(typeof(AnalogInput))]
-    [DataContractAttribute]
     public abstract class Tag
     {
-        protected Tag()
+        public Tag()
         {
         }
 
-        protected Tag(string tagName, string description, string iOAddress)
+        public Tag(string tagName, string description, string iOAddress)
         {
             TagName = tagName;
             Description = description;

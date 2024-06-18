@@ -41,7 +41,6 @@ Core/.vs/Core/config/applicationhost.config
 Core/obj/Debug/Core.csproj.FileListAbsolute.txt
 DatabaseManager/obj/Debug/DatabaseManager.csproj.FileListAbsolute.txt
 AlarmDisplay/obj/Debug/AlarmDisplay.csproj.FileListAbsolute.txt
-*.xml
 Core/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 Core/obj/Debug/Core.csproj.CopyComplete
 *.targets

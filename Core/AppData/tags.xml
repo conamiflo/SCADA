@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTag xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tag xsi:type="AnalogInput">
+    <TagName>a</TagName>
+    <Description>d</Description>
+    <IOAddress>d</IOAddress>
+    <ScanTime>3</ScanTime>
+    <IsOn>true</IsOn>
+    <LowLimit>4</LowLimit>
+    <HighLimit>5</HighLimit>
+    <Units>6</Units>
+  </Tag>
+</ArrayOfTag>
