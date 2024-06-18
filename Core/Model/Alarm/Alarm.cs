@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
-namespace Core.Model.Alarm
+namespace Core.Model
 {
     public enum AlarmType
     {
@@ -19,6 +19,7 @@ namespace Core.Model.Alarm
         public double Threshold { get; set; }
         public AlarmType Type { get; set; }
         public int Priority { get; set; }
-        public int AnalogInputId { get; set; }
+        public string TagName { get; set; }
+        public string Unit { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Core.Context;
-using Core.Model.Alarm;
+using Core.Model;
 using Core.Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,7 @@ namespace Core.Repository
 
         public void LogAlarm(Alarm alarm)
         {
-            var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, AnalogInputId={alarm.AnalogInputId}, Timestamp={DateTime.Now}";
+            var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, AnalogInputId={alarm.TagName}, Timestamp={DateTime.Now}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
         }
     }

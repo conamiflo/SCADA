@@ -8,8 +8,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Reflection.Emit;
-using Core.Model.Alarm;
-
 namespace Core.Context
 {
     public class SCADAContext : DbContext
@@ -19,6 +17,7 @@ namespace Core.Context
         public DbSet<AnalogOutput> AnalogOutput { get; set; }
         public DbSet<DigitalOutput> DigitalOutput { get; set; }
         public DbSet<DigitalInput> DigitalInput { get; set; }
+        public DbSet<AlarmTrigger> AlarmTriggers { get; set; }
         /*public DbSet<InputsValue> InputsValues { get; set; }
         public DbSet<OutputsValue> OutputsValues { get; set; }
         public DbSet<AlarmValue> AlarmsValue { get; set; }*/
@@ -28,19 +27,19 @@ namespace Core.Context
         {
         }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Alarm>()
-        //    .HasRequired(a => a.AnalogInput)
-        //    .WithMany(t => t.Alarms)
-        //    .HasForeignKey(a => a.AnalogInputId);
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AnalogOutput>().HasKey(t => t.TagName);
+            modelBuilder.Entity<AnalogInput>().HasKey(t => t.TagName);
+            modelBuilder.Entity<DigitalOutput>().HasKey(t => t.TagName);
+            modelBuilder.Entity<DigitalInput>().HasKey(t => t.TagName);
 
-        //    modelBuilder.Entity<AnalogOutput>().HasKey(t => t.TagName);
-        //    modelBuilder.Entity<AnalogInput>().HasKey(t => t.TagName);
-        //    modelBuilder.Entity<DigitalOutput>().HasKey(t => t.TagName);
-        //    modelBuilder.Entity<DigitalInput>().HasKey(t => t.TagName);
+            modelBuilder.Entity<Alarm>()
+            .HasRequired<string>(a => a.TagName)
+            .WithMany()
+            .HasForeignKey(a => a.TagName);
 
-        //    base.OnModelCreating(modelBuilder);
-        //}
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
