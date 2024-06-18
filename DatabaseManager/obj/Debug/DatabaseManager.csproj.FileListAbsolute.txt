@@ -1,7 +1,0 @@
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\bin\Debug\DatabaseManager.exe.config
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\bin\Debug\DatabaseManager.exe
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\bin\Debug\DatabaseManager.pdb
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\obj\Debug\DatabaseManager.csproj.AssemblyReference.cache
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\obj\Debug\DatabaseManager.csproj.CoreCompileInputs.cache
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\obj\Debug\DatabaseManager.exe
-C:\Users\Stefan Djurica\Desktop\SCADA\DatabaseManager\obj\Debug\DatabaseManager.pdb
