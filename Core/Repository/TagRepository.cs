@@ -77,6 +77,131 @@ namespace Core.Repository
             return null;
         }
 
+        public List<AnalogOutput> GetAllAnalogOutputs()
+        {
+            return tags.OfType<AnalogOutput>().ToList();
+        }
+
+        public AnalogOutput GetAnalogOutput(string tagName)
+        {
+            return tags.FirstOrDefault(tag => tag.TagName == tagName) as AnalogOutput;
+        }
+
+        public void AddAnalogOutput(AnalogOutput analogOutput)
+        {
+            tags.Add(analogOutput);
+            SaveTagsToFile();
+        }
+
+        public bool DeleteAnalogOutput(string tagName)
+        {
+            Tag analogOutputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
+
+            if (analogOutputToRemove != null && analogOutputToRemove is AnalogOutput)
+            {
+                tags.Remove(analogOutputToRemove);
+                SaveTagsToFile();
+                return true;
+            }
+
+            return false;
+        }
+
+        public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
+        {
+            AnalogOutput existingAnalogOutput = tags.FirstOrDefault(tag => tag.TagName == analogOutput.TagName) as AnalogOutput;
+
+            if (existingAnalogOutput != null)
+            {
+                existingAnalogOutput.Description = analogOutput.Description;
+                existingAnalogOutput.IOAddress = analogOutput.IOAddress;
+                existingAnalogOutput.InitialValue = analogOutput.InitialValue;
+                existingAnalogOutput.LowLimit = analogOutput.LowLimit;
+                existingAnalogOutput.HighLimit = analogOutput.HighLimit;
+                existingAnalogOutput.Units = analogOutput.Units;
+
+                SaveTagsToFile();
+
+                return existingAnalogOutput;
+            }
+
+            return null;
+        }
+
+        public List<DigitalInput> GetAllDigitalInputs()
+        {
+            return tags.OfType<DigitalInput>().ToList();
+        }
+
+        public DigitalInput GetDigitalInput(string tagName)
+        {
+            return tags.FirstOrDefault(tag => tag.TagName == tagName) as DigitalInput;
+        }
+
+        public void AddDigitalInput(DigitalInput digitalInput)
+        {
+            tags.Add(digitalInput);
+            SaveTagsToFile();
+        }
+
+        public bool DeleteDigitalInput(string tagName)
+        {
+            Tag digitalInputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
+
+            if (digitalInputToRemove != null && digitalInputToRemove is DigitalInput)
+            {
+                tags.Remove(digitalInputToRemove);
+                SaveTagsToFile();
+                return true;
+            }
+
+            return false;
+        }
+
+        public DigitalInput UpdateDigitalInput(DigitalInput digitalInput)
+        {
+            DigitalInput existingDigitalInput = tags.FirstOrDefault(tag => tag.TagName == digitalInput.TagName) as DigitalInput;
+
+            if (existingDigitalInput != null)
+            {
+                existingDigitalInput.Description = digitalInput.Description;
+                existingDigitalInput.IOAddress = digitalInput.IOAddress;
+                existingDigitalInput.IsOn = digitalInput.IsOn;
+
+                SaveTagsToFile();
+
+                return existingDigitalInput;
+            }
+
+            return null;
+        }
+
+        public List<DigitalOutput> GetAllDigitalOutputs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public DigitalOutput GetDigitalOutput(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddDigitalOutput(DigitalOutput digitalOutput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteDigitalOutput(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         private void LoadTagsFromFile()
         {

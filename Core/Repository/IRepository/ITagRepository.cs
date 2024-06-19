@@ -15,5 +15,22 @@ namespace Core.Repository.IRepository
         bool DeleteAnalogInput(string id);
         AnalogInput UpdateAnalogInput(AnalogInput analogInput);
 
+        List<AnalogOutput> GetAllAnalogOutputs();
+        AnalogOutput GetAnalogOutput(string id);
+        void AddAnalogOutput(AnalogOutput analogOutput);
+        bool DeleteAnalogOutput(string id);
+        AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput);
+
+        List<DigitalInput> GetAllDigitalInputs();
+        DigitalInput GetDigitalInput(string id);
+        void AddDigitalInput(DigitalInput digitalInput);
+        bool DeleteDigitalInput(string id);
+        DigitalInput UpdateDigitalInput(DigitalInput digitalInput);
+
+        List<DigitalOutput> GetAllDigitalOutputs();
+        DigitalOutput GetDigitalOutput(string id);
+        void AddDigitalOutput(DigitalOutput digitalOutput);
+        bool DeleteDigitalOutput(string id);
+        DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput);
     }
 }
