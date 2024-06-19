@@ -44,6 +44,7 @@ namespace Core.Repository
         {
             var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
+            Add(alarm);
         }
     }
 }
