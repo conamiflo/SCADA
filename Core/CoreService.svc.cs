@@ -1,5 +1,4 @@
 ﻿using Core.Context;
-using Core.Model;
 using Core.Model.Tag;
 using Core.Repository;
 using Core.Repository.IRepository;
@@ -13,24 +12,21 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using static Core.Service.AlarmService;
 
 namespace Core
 {
-    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService
+    public class CoreService : IUserService, ITagService
     {
 
         private IUserService userService;
         private ITagService tagService;
-        private IAlarmService alarmService;
 
         public CoreService()
         {
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
-            alarmService = new AlarmService(new AlarmRepository());
         }
+
 
 
         public string Login(string username, string password)
@@ -64,40 +60,6 @@ namespace Core
         public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
         {
             return tagService.UpdateAnalogInput(analogInput);
-        }
-
-        public void AddAlarm(AlarmTrigger alarm)
-        {
-            alarmService.AddAlarm(alarm);
-        }
-        public void RemoveAlarm(AlarmTrigger alarm)
-        {
-            alarmService.RemoveAlarm(alarm);
-        }
-
-        public AlarmTrigger GetAlarmById(int id)
-        {
-            return alarmService.GetAlarmById(id);
-        }
-
-        public IEnumerable<AlarmTrigger> GetAllAlarms()
-        {
-            return alarmService.GetAllAlarms();
-        }
-
-        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, SortOption sortOption)
-        {
-            return alarmService.GetAlarmsInPeriod(startTime, endTime, sortOption);
-        }
-
-        public IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority)
-        {
-            return alarmService.GetAlarmsByPriority(priority);
-        }
-
-        public void LogAlarm(AlarmTrigger alarm)
-        {
-            alarmService.LogAlarm(alarm);
         }
     }
 }

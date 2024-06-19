@@ -5,17 +5,10 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using static Core.Service.AlarmService;
 
 namespace Core.Service.IService
 {
-    public interface IAlarmCallback
-    {
-        [OperationContract(IsOneWay = true)]
-        void Alarms(string message);
-    }
-
-    [ServiceContract(CallbackContract = typeof(IAlarmCallback))]
+    [ServiceContract]
     public interface IAlarmService
     {
         [OperationContract]
@@ -34,7 +27,7 @@ namespace Core.Service.IService
         void LogAlarm(AlarmTrigger alarm);
 
         [OperationContract]
-        IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, SortOption sortOption);
+        IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime);
 
         [OperationContract]
         IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority);
