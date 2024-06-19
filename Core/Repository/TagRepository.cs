@@ -17,44 +17,96 @@ namespace Core.Repository
 
         private List<Tag> tags= new List<Tag>();
         private string filename = HttpContext.Current.Server.MapPath("~/AppData/tags.xml");
+
+        public TagRepository()
+        {
+            LoadTagsFromFile();
+        }
+        
         public void AddAnalogInput(AnalogInput analogInput)
         {
             tags.Add(analogInput);
 
-            XmlSerializer x = new XmlSerializer(typeof(List<Tag>), new XmlRootAttribute("ArrayOfTag"));
-            TextWriter writer = new StreamWriter(filename);
-            x.Serialize(writer, tags);
-            writer.Close();
+            SaveTagsToFile();
 
         }
 
-        public bool DeleteAnalogInput(string id)
+        public bool DeleteAnalogInput(string tagName)
         {
-            throw new NotImplementedException();
+            Tag analogInputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
+
+            if (analogInputToRemove != null)
+            {
+                tags.Remove(analogInputToRemove);
+                SaveTagsToFile();
+                return true;
+            }
+
+            return false;
         }
 
-        public AnalogInput GetAnalogInput(string id)
+        public AnalogInput GetAnalogInput(string tagName)
         {
-            throw new NotImplementedException();
+            return tags.FirstOrDefault(tag => tag.TagName == tagName) as AnalogInput;
         }
 
-        public User GetUser(int id)
-        {
-
-            // return _userContext.Users.First(u => u.Id == id);
-            return null;
-        }
-
-        public User GetUser(string username)
-
-        {
-            return null;
-           // return _userContext.Users.FirstOrDefault(u => u.Username.Equals(username));
-        }
 
         public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
         {
-            throw new NotImplementedException();
+            AnalogInput existingAnalogInput = (AnalogInput) tags.FirstOrDefault(tag => tag.TagName == analogInput.TagName);
+
+            if (existingAnalogInput != null)
+            {
+                existingAnalogInput.Description = analogInput.Description;
+                existingAnalogInput.IOAddress = analogInput.IOAddress;
+                existingAnalogInput.ScanTime = analogInput.ScanTime;
+                existingAnalogInput.Alarms = analogInput.Alarms;
+                existingAnalogInput.IsOn = analogInput.IsOn;
+                existingAnalogInput.LowLimit = analogInput.LowLimit;
+                existingAnalogInput.HighLimit = analogInput.HighLimit;
+                existingAnalogInput.Units = analogInput.Units;
+
+                SaveTagsToFile();
+
+                return existingAnalogInput;
+            }
+
+            return null;
+        }
+
+
+        private void LoadTagsFromFile()
+        {
+            if (File.Exists(filename))
+            {
+                try
+                {
+                    XmlSerializer x = new XmlSerializer(typeof(List<Tag>), new XmlRootAttribute("ArrayOfTag"));
+                    using (FileStream fs = new FileStream(filename, FileMode.Open))
+                    {
+                        tags = (List<Tag>)x.Deserialize(fs);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error loading tags from XML file: " + ex.Message);
+                }
+            }
+        }
+        private void SaveTagsToFile()
+        {
+            try
+            {
+                XmlSerializer x = new XmlSerializer(typeof(List<Tag>), new XmlRootAttribute("ArrayOfTag"));
+                using (TextWriter writer = new StreamWriter(filename))
+                {
+                    x.Serialize(writer, tags);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving tags to XML file: " + ex.Message);
+            }
         }
     }
 }

@@ -55,17 +55,17 @@ namespace Core.Service
 
         public bool DeleteAnalogInput(string id)
         {
-            throw new NotImplementedException();
+            return _tagRepository.DeleteAnalogInput(id);
         }
 
         public AnalogInput GetAnalogInput(string id)
         {
-            throw new NotImplementedException();
+            return _tagRepository.GetAnalogInput(id);
         }
 
         public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
         {
-            throw new NotImplementedException();
+            return _tagRepository.UpdateAnalogInput(analogInput);
         }
     }
 }
