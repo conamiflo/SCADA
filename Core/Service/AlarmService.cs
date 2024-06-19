@@ -1,5 +1,6 @@
 ﻿using Core.Model;
 using Core.Repository.IRepository;
+using Core.Service.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace Core.Service
 {
-    public class AlarmService
+    public class AlarmService : IAlarmService
     {
         public enum SortOption
         {
