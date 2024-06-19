@@ -11,7 +11,7 @@ namespace Core.Service.IService
         void AddAnalogInput(AnalogInput analogInput);
 
         [OperationContract]
-        bool DeleteAnalogInput(string id);
+        bool DeleteTag(string id);
 
         [OperationContract]
         AnalogInput GetAnalogInput(string id);
@@ -27,9 +27,6 @@ namespace Core.Service.IService
         void AddAnalogOutput(AnalogOutput analogOutput);
 
         [OperationContract]
-        bool DeleteAnalogOutput(string id);
-
-        [OperationContract]
         AnalogOutput GetAnalogOutput(string id);
 
         [OperationContract]
@@ -43,9 +40,6 @@ namespace Core.Service.IService
         void AddDigitalInput(DigitalInput digitalInput);
 
         [OperationContract]
-        bool DeleteDigitalInput(string id);
-
-        [OperationContract]
         DigitalInput GetDigitalInput(string id);
 
         [OperationContract]
@@ -57,9 +51,6 @@ namespace Core.Service.IService
 
         [OperationContract]
         void AddDigitalOutput(DigitalOutput digitalOutput);
-
-        [OperationContract]
-        bool DeleteDigitalOutput(string id);
 
         [OperationContract]
         DigitalOutput GetDigitalOutput(string id);

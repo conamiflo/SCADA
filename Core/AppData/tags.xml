@@ -6,4 +6,7 @@
   </Tag>
   <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="1" IsOn="true" Driver="Driveeeer" />
   <Tag xsi:type="AnalogInput" TagName="nemanjatag" Description="asfo" IOAddress="444" ScanTime="400" LowLimit="4" HighLimit="7" IsOn="true" driver="Simulation" Units="C" />
+  <Tag xsi:type="AnalogOutput" TagName="beep" Description="boop" IOAddress="S" InitialValue="50" LowLimit="10" HighLimit="80" Units="gram" />
+  <Tag xsi:type="DigitalInput" TagName="bomba" Description="qewwrq" IOAddress="S" ScanTime="2" IsOn="true" Driver="Sim" />
+  <Tag xsi:type="DigitalOutput" TagName="uhoh" Description="ggrw" IOAddress="s" InitialValue="123" />
 </ArrayOfTag>

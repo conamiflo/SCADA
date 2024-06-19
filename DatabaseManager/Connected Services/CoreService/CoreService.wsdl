@@ -481,11 +481,11 @@
   <wsdl:message name="ITagService_AddAnalogInput_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddAnalogInputResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagService_DeleteAnalogInput_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteAnalogInput" />
+  <wsdl:message name="ITagService_DeleteTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTag" />
   </wsdl:message>
-  <wsdl:message name="ITagService_DeleteAnalogInput_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteAnalogInputResponse" />
+  <wsdl:message name="ITagService_DeleteTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTagResponse" />
   </wsdl:message>
   <wsdl:message name="ITagService_GetAnalogInput_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAnalogInput" />
@@ -511,12 +511,6 @@
   <wsdl:message name="ITagService_AddAnalogOutput_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddAnalogOutputResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagService_DeleteAnalogOutput_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteAnalogOutput" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_DeleteAnalogOutput_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteAnalogOutputResponse" />
-  </wsdl:message>
   <wsdl:message name="ITagService_GetAnalogOutput_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAnalogOutput" />
   </wsdl:message>
@@ -541,12 +535,6 @@
   <wsdl:message name="ITagService_AddDigitalInput_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddDigitalInputResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagService_DeleteDigitalInput_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDigitalInput" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_DeleteDigitalInput_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDigitalInputResponse" />
-  </wsdl:message>
   <wsdl:message name="ITagService_GetDigitalInput_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDigitalInput" />
   </wsdl:message>
@@ -570,12 +558,6 @@
   </wsdl:message>
   <wsdl:message name="ITagService_AddDigitalOutput_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddDigitalOutputResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_DeleteDigitalOutput_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDigitalOutput" />
-  </wsdl:message>
-  <wsdl:message name="ITagService_DeleteDigitalOutput_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteDigitalOutputResponse" />
   </wsdl:message>
   <wsdl:message name="ITagService_GetDigitalOutput_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDigitalOutput" />
@@ -659,9 +641,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddAnalogInput" message="tns:ITagService_AddAnalogInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddAnalogInputResponse" message="tns:ITagService_AddAnalogInput_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteAnalogInput">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteAnalogInput" message="tns:ITagService_DeleteAnalogInput_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteAnalogInputResponse" message="tns:ITagService_DeleteAnalogInput_OutputMessage" />
+    <wsdl:operation name="DeleteTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteTag" message="tns:ITagService_DeleteTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteTagResponse" message="tns:ITagService_DeleteTag_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAnalogInput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAnalogInput" message="tns:ITagService_GetAnalogInput_InputMessage" />
@@ -679,10 +661,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddAnalogOutput" message="tns:ITagService_AddAnalogOutput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddAnalogOutputResponse" message="tns:ITagService_AddAnalogOutput_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteAnalogOutput">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteAnalogOutput" message="tns:ITagService_DeleteAnalogOutput_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteAnalogOutputResponse" message="tns:ITagService_DeleteAnalogOutput_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAnalogOutput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAnalogOutput" message="tns:ITagService_GetAnalogOutput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAnalogOutputResponse" message="tns:ITagService_GetAnalogOutput_OutputMessage" />
@@ -699,10 +677,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddDigitalInput" message="tns:ITagService_AddDigitalInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddDigitalInputResponse" message="tns:ITagService_AddDigitalInput_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteDigitalInput">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteDigitalInput" message="tns:ITagService_DeleteDigitalInput_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteDigitalInputResponse" message="tns:ITagService_DeleteDigitalInput_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetDigitalInput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetDigitalInput" message="tns:ITagService_GetDigitalInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetDigitalInputResponse" message="tns:ITagService_GetDigitalInput_OutputMessage" />
@@ -718,10 +692,6 @@
     <wsdl:operation name="AddDigitalOutput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddDigitalOutput" message="tns:ITagService_AddDigitalOutput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddDigitalOutputResponse" message="tns:ITagService_AddDigitalOutput_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteDigitalOutput">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteDigitalOutput" message="tns:ITagService_DeleteDigitalOutput_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteDigitalOutputResponse" message="tns:ITagService_DeleteDigitalOutput_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDigitalOutput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetDigitalOutput" message="tns:ITagService_GetDigitalOutput_InputMessage" />
@@ -810,8 +780,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteAnalogInput">
-      <soap:operation soapAction="http://tempuri.org/ITagService/DeleteAnalogInput" style="document" />
+    <wsdl:operation name="DeleteTag">
+      <soap:operation soapAction="http://tempuri.org/ITagService/DeleteTag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -855,15 +825,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteAnalogOutput">
-      <soap:operation soapAction="http://tempuri.org/ITagService/DeleteAnalogOutput" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetAnalogOutput">
       <soap:operation soapAction="http://tempuri.org/ITagService/GetAnalogOutput" style="document" />
       <wsdl:input>
@@ -900,15 +861,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteDigitalInput">
-      <soap:operation soapAction="http://tempuri.org/ITagService/DeleteDigitalInput" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetDigitalInput">
       <soap:operation soapAction="http://tempuri.org/ITagService/GetDigitalInput" style="document" />
       <wsdl:input>
@@ -938,15 +890,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddDigitalOutput">
       <soap:operation soapAction="http://tempuri.org/ITagService/AddDigitalOutput" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteDigitalOutput">
-      <soap:operation soapAction="http://tempuri.org/ITagService/DeleteDigitalOutput" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1082,7 +1025,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:50508/CoreService.svc/AlarmService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-7MHIHBB\Nemanja</Upn>
+          <Upn>DESKTOP-J8BC53K\Nesa</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

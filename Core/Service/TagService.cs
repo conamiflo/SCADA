@@ -56,10 +56,10 @@ namespace Core.Service
             TagProcessing.addAnalogTag(analogInput);
         }
 
-        public bool DeleteAnalogInput(string id)
+        public bool DeleteTag(string id)
         {
             TagProcessing.deleteTag(id);
-            return _tagRepository.DeleteAnalogInput(id);
+            return _tagRepository.DeleteTag(id);
         }
 
         public AnalogInput GetAnalogInput(string id)
@@ -81,11 +81,6 @@ namespace Core.Service
         {
             ValidateTagProperties(analogOutput);
             _tagRepository.AddAnalogOutput(analogOutput);
-        }
-
-        public bool DeleteAnalogOutput(string id)
-        {
-            return _tagRepository.DeleteAnalogOutput(id);
         }
 
         public AnalogOutput GetAnalogOutput(string id)
@@ -111,12 +106,6 @@ namespace Core.Service
             TagProcessing.addDigitalTag(digitalInput);
         }
 
-        public bool DeleteDigitalInput(string id)
-        {
-            TagProcessing.deleteTag(id);
-            return _tagRepository.DeleteDigitalInput(id);
-        }
-
         public DigitalInput GetDigitalInput(string id)
         {
             return _tagRepository.GetDigitalInput(id);
@@ -138,12 +127,6 @@ namespace Core.Service
             ValidateTagProperties(digitalOutput);
             _tagRepository.AddDigitalOutput(digitalOutput);
         }
-
-        public bool DeleteDigitalOutput(string id)
-        {
-            return _tagRepository.DeleteDigitalOutput(id);
-        }
-
         public DigitalOutput GetDigitalOutput(string id)
         {
             return _tagRepository.GetDigitalOutput(id);

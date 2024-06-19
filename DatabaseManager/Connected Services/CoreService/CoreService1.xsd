@@ -59,17 +59,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogInput">
+  <xs:element name="DeleteTag">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogInputResponse">
+  <xs:element name="DeleteTagResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteAnalogInputResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DeleteTagResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -125,20 +125,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogOutput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteAnalogOutputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteAnalogOutputResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetAnalogOutput">
     <xs:complexType>
       <xs:sequence>
@@ -191,20 +177,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteDigitalInput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalInputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteDigitalInputResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetDigitalInput">
     <xs:complexType>
       <xs:sequence>
@@ -255,20 +227,6 @@
   <xs:element name="AddDigitalOutputResponse">
     <xs:complexType>
       <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalOutput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalOutputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteDigitalOutputResult" type="xs:boolean" />
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDigitalOutput">
