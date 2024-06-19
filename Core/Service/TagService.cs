@@ -14,10 +14,12 @@ namespace Core.Service
     public class TagService : ITagService
     {
         private readonly ITagRepository _tagRepository;
+        private TagProcessing TagProcessing;
 
         public TagService(ITagRepository tagRepository)
         {
             _tagRepository = tagRepository;
+            TagProcessing = new TagProcessing(this);
         }
 
         public void AddAnalogInput(AnalogInput analogInput)
@@ -51,10 +53,12 @@ namespace Core.Service
                 throw new ArgumentException("Units cannot be null or empty.");
             }
             _tagRepository.AddAnalogInput(analogInput);
+            TagProcessing.addAnalogTag(analogInput);
         }
 
         public bool DeleteAnalogInput(string id)
         {
+            TagProcessing.deleteTag(id);
             return _tagRepository.DeleteAnalogInput(id);
         }
 
@@ -104,10 +108,12 @@ namespace Core.Service
         {
             ValidateTagProperties(digitalInput);
             _tagRepository.AddDigitalInput(digitalInput);
+            TagProcessing.addDigitalTag(digitalInput);
         }
 
         public bool DeleteDigitalInput(string id)
         {
+            TagProcessing.deleteTag(id);
             return _tagRepository.DeleteDigitalInput(id);
         }
 

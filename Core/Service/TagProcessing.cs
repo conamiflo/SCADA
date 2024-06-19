@@ -5,10 +5,18 @@ using System.Threading;
 using System.Web;
 using Core.Model;
 using Core.Model.Tag;
+using Core.Service.IService;
 namespace Core.Service
 {
     public class TagProcessing
     {
+        public static Dictionary<string,Thread> activeTags = new Dictionary<string, Thread>();
+
+        public TagProcessing(ITagService tagService)
+        {
+            StartProcessing(tagService);
+        }
+
         public static void getValuesAnalog(object t)
         {
             AnalogInput tag = (AnalogInput)t;
@@ -49,24 +57,23 @@ namespace Core.Service
             }
         }
 
-        public static void StartProcessing() {
-
-            //get all input tags
-            List<AnalogInput> analogTags= new List<AnalogInput>();
-            List<DigitalInput> digitalTags = new List<DigitalInput>();
+        public static void StartProcessing(ITagService tagService) {
+            List<AnalogInput> analogTags = tagService.GetAllAnalogInputs();
+            List<DigitalInput> digitalTags = tagService.GetAllDigitalInputs();
 
             foreach (AnalogInput t in analogTags)
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesAnalog));
                 thread.Start(t);
+                activeTags.Add(t.TagName, thread);
             }
 
             foreach (DigitalInput t in digitalTags)
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesDigital));
                 thread.Start(t);
+                activeTags.Add(t.TagName, thread);
             }
-
         }
 
         static void processAlarms(double value,List<Alarm> alarms, string tagName)
@@ -82,6 +89,36 @@ namespace Core.Service
             }
 
             // TODO prikazati alarme i sacuvati trigere
+        }
+
+        public static void deleteTag(string tagName)
+        {
+            if (activeTags.ContainsKey(tagName))
+            {
+                Thread thread = activeTags[tagName];
+                thread.Abort();
+                activeTags.Remove(tagName);
+            }
+        }
+
+        public static void addAnalogTag(AnalogInput tag)
+        {
+            if (! activeTags.ContainsKey(tag.TagName))
+            {
+                Thread thread = new Thread(new ParameterizedThreadStart(getValuesAnalog));
+                thread.Start(tag);
+                activeTags.Add(tag.TagName, thread);
+            }
+        }
+
+        public static void addDigitalTag(DigitalInput tag)
+        {
+            if (!activeTags.ContainsKey(tag.TagName))
+            {
+                Thread thread = new Thread(new ParameterizedThreadStart(getValuesDigital));
+                thread.Start(tag);
+                activeTags.Add(tag.TagName, thread);
+            }
         }
 
     }
