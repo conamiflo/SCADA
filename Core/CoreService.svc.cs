@@ -66,5 +66,79 @@ namespace Core
         {
             return tagService.GetAllAnalogInputs();
         }
+        public void AddAnalogOutput(AnalogOutput analogOutput)
+        {
+            tagService.AddAnalogOutput(analogOutput);
+        }
+
+        public bool DeleteAnalogOutput(string id)
+        {
+            return tagService.DeleteAnalogOutput(id);
+        }
+
+        public AnalogOutput GetAnalogOutput(string id)
+        {
+            return tagService.GetAnalogOutput(id);
+        }
+
+        public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
+        {
+            return tagService.UpdateAnalogOutput(analogOutput);
+        }
+
+        public List<AnalogOutput> GetAllAnalogOutputs()
+        {
+            return tagService.GetAllAnalogOutputs();
+        }
+
+        public void AddDigitalInput(DigitalInput digitalInput)
+        {
+            tagService.AddDigitalInput(digitalInput);
+        }
+
+        public bool DeleteDigitalInput(string id)
+        {
+            return tagService.DeleteDigitalInput(id);
+        }
+
+        public DigitalInput GetDigitalInput(string id)
+        {
+            return tagService.GetDigitalInput(id);
+        }
+
+        public DigitalInput UpdateDigitalInput(DigitalInput digitalInput)
+        {
+            return tagService.UpdateDigitalInput(digitalInput);
+        }
+
+        public List<DigitalInput> GetAllDigitalInputs()
+        {
+            return tagService.GetAllDigitalInputs();
+        }
+
+        public void AddDigitalOutput(DigitalOutput digitalOutput)
+        {
+            tagService.AddDigitalOutput(digitalOutput);
+        }
+
+        public bool DeleteDigitalOutput(string id)
+        {
+            return tagService.DeleteDigitalOutput(id);
+        }   
+
+        public DigitalOutput GetDigitalOutput(string id)
+        {
+            return tagService.GetDigitalOutput(id);
+        }
+
+        public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
+        {
+            return tagService.UpdateDigitalOutput(digitalOutput);
+        }
+
+        public List<DigitalOutput> GetAllDigitalOutputs()
+        {
+            return tagService.GetAllDigitalOutputs();
+        }
     }
 }

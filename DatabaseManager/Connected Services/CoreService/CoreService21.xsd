@@ -6,6 +6,7 @@
       <xs:extension base="tns:Tag">
         <xs:sequence>
           <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="Alarms" nillable="true" type="q1:ArrayOfAlarm" />
+          <xs:element minOccurs="0" name="Driver" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
           <xs:element minOccurs="0" name="IsOn" type="xs:boolean" />
           <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
@@ -30,4 +31,57 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAnalogInput" nillable="true" type="tns:ArrayOfAnalogInput" />
+  <xs:complexType name="AnalogOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Tag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="InitialValue" type="xs:double" />
+          <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AnalogOutput" nillable="true" type="tns:AnalogOutput" />
+  <xs:complexType name="ArrayOfAnalogOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogOutput" nillable="true" type="tns:AnalogOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalogOutput" nillable="true" type="tns:ArrayOfAnalogOutput" />
+  <xs:complexType name="DigitalInput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Tag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Driver" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsOn" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ScanTime" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DigitalInput" nillable="true" type="tns:DigitalInput" />
+  <xs:complexType name="ArrayOfDigitalInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalInput" nillable="true" type="tns:DigitalInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalInput" nillable="true" type="tns:ArrayOfDigitalInput" />
+  <xs:complexType name="DigitalOutput">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Tag">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InitialValue" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DigitalOutput" nillable="true" type="tns:DigitalOutput" />
+  <xs:complexType name="ArrayOfDigitalOutput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalOutput" nillable="true" type="tns:DigitalOutput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDigitalOutput" nillable="true" type="tns:ArrayOfDigitalOutput" />
 </xs:schema>

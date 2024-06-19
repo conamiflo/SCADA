@@ -1,1 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTag xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tag xsi:type="AnalogInput" TagName="aasdasdsdf" Description="asdf" IOAddress="asdf" ScanTime="0" LowLimit="1" HighLimit="1" IsOn="true" driver="Driveeeer" Units="asdf">
+    <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
+    <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
+  </Tag>
+  <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="1" IsOn="true" Driver="Driveeeer" />
+</ArrayOfTag>
