@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace AlarmDisplay
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-        }
+        //public class Callback
+        //{
+        //    public void Results(string message)
+        //    {
+        //        Console.WriteLine(message);
+        //    }
+        //}
+
+
+        //public static AlarmServiceClient alarmServiceClient = new CoreService.AlarmServiceClient();
+
+        //static void Main(string[] args)
+        //{
+        //}
     }
 }
