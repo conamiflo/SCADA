@@ -9,6 +9,12 @@ namespace Core.Service
 {
     public class AlarmService
     {
+        public enum SortOption
+        {
+            Priority,
+            Timestamp
+        }
+
         private readonly IAlarmRepository _alarmRepository;
 
         public AlarmService(IAlarmRepository alarmRepository)
@@ -39,6 +45,33 @@ namespace Core.Service
         public void LogAlarm(AlarmTrigger alarm)
         {
             _alarmRepository.LogAlarm(alarm);
+        }
+        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, SortOption sortOption)
+        {
+            var alarms = _alarmRepository.GetAllAlarms()
+                                         .Where(a => a.Timestamp >= startTime && a.Timestamp <= endTime);
+
+            return SortAlarms(alarms, sortOption);
+        }
+
+        private IEnumerable<AlarmTrigger> SortAlarms(IEnumerable<AlarmTrigger> alarms, SortOption sortOption)
+        {
+            switch (sortOption)
+            {
+                case SortOption.Priority:
+                    return alarms.OrderByDescending(a => a.Priority).ThenBy(a => a.Timestamp);
+                case SortOption.Timestamp:
+                    return alarms.OrderBy(a => a.Timestamp);
+                default:
+                    throw new ArgumentException("Invalid sort option");
+            }
+        }
+
+        public IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority)
+        {
+            return _alarmRepository.GetAllAlarms()
+                                   .Where(a => a.Priority == priority)
+                                   .OrderBy(a => a.Timestamp);
         }
     }
 }

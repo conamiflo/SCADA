@@ -13,13 +13,23 @@ namespace Core.Service.IService
     {
         [OperationContract]
         void AddAlarm(AlarmTrigger alarm);
+
         [OperationContract]
         void RemoveAlarm(AlarmTrigger alarm);
+
         [OperationContract]
         AlarmTrigger GetAlarmById(int id);
+
         [OperationContract]
         IEnumerable<AlarmTrigger> GetAllAlarms();
+
         [OperationContract]
         void LogAlarm(AlarmTrigger alarm);
+
+        [OperationContract]
+        IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime);
+
+        [OperationContract]
+        IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority);
     }
 }
