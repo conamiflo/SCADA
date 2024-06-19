@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace AlarmDisplay
 {
-    internal class Program
+    public class Callback : CoreService.IAlarmServiceCallback
+    {
+        public void AlarmTriggered(string message)
+        {
+            //implementirati
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Program
     {
         static void Main(string[] args)
         {

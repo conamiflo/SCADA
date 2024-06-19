@@ -174,4 +174,143 @@ namespace DatabaseManager.CoreService {
             return base.Channel.UpdateAnalogInputAsync(analogInput);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IAlarmService", CallbackContract=typeof(DatabaseManager.CoreService.IAlarmServiceCallback))]
+    public interface IAlarmService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        void AddAlarm(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
+        System.Threading.Tasks.Task AddAlarmAsync(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        void RemoveAlarm(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
+        System.Threading.Tasks.Task RemoveAlarmAsync(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmById", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmByIdResponse")]
+        Core.Model.AlarmTrigger GetAlarmById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmById", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmByIdResponse")]
+        System.Threading.Tasks.Task<Core.Model.AlarmTrigger> GetAlarmByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        Core.Model.AlarmTrigger[] GetAllAlarms();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
+        System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAllAlarmsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/LogAlarm", ReplyAction="http://tempuri.org/IAlarmService/LogAlarmResponse")]
+        void LogAlarm(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/LogAlarm", ReplyAction="http://tempuri.org/IAlarmService/LogAlarmResponse")]
+        System.Threading.Tasks.Task LogAlarmAsync(Core.Model.AlarmTrigger alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
+        Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
+        System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
+        Core.Model.AlarmTrigger[] GetAlarmsByPriority(int priority);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
+        System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmService/AlarmTriggered")]
+        void AlarmTriggered(string message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmServiceChannel : DatabaseManager.CoreService.IAlarmService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmServiceClient : System.ServiceModel.DuplexClientBase<DatabaseManager.CoreService.IAlarmService>, DatabaseManager.CoreService.IAlarmService {
+        
+        public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void AddAlarm(Core.Model.AlarmTrigger alarm) {
+            base.Channel.AddAlarm(alarm);
+        }
+        
+        public System.Threading.Tasks.Task AddAlarmAsync(Core.Model.AlarmTrigger alarm) {
+            return base.Channel.AddAlarmAsync(alarm);
+        }
+        
+        public void RemoveAlarm(Core.Model.AlarmTrigger alarm) {
+            base.Channel.RemoveAlarm(alarm);
+        }
+        
+        public System.Threading.Tasks.Task RemoveAlarmAsync(Core.Model.AlarmTrigger alarm) {
+            return base.Channel.RemoveAlarmAsync(alarm);
+        }
+        
+        public Core.Model.AlarmTrigger GetAlarmById(int id) {
+            return base.Channel.GetAlarmById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger> GetAlarmByIdAsync(int id) {
+            return base.Channel.GetAlarmByIdAsync(id);
+        }
+        
+        public Core.Model.AlarmTrigger[] GetAllAlarms() {
+            return base.Channel.GetAllAlarms();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAllAlarmsAsync() {
+            return base.Channel.GetAllAlarmsAsync();
+        }
+        
+        public void LogAlarm(Core.Model.AlarmTrigger alarm) {
+            base.Channel.LogAlarm(alarm);
+        }
+        
+        public System.Threading.Tasks.Task LogAlarmAsync(Core.Model.AlarmTrigger alarm) {
+            return base.Channel.LogAlarmAsync(alarm);
+        }
+        
+        public Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption) {
+            return base.Channel.GetAlarmsInPeriod(startTime, endTime, sortOption);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption) {
+            return base.Channel.GetAlarmsInPeriodAsync(startTime, endTime, sortOption);
+        }
+        
+        public Core.Model.AlarmTrigger[] GetAlarmsByPriority(int priority) {
+            return base.Channel.GetAlarmsByPriority(priority);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority) {
+            return base.Channel.GetAlarmsByPriorityAsync(priority);
+        }
+    }
 }
