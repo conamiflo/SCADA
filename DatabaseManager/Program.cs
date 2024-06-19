@@ -285,7 +285,7 @@ namespace DatabaseManager
                 }
 
                 AnalogOutput tag = new AnalogOutput(name, description, ioAddress, initValue, lowLimit, highLimit, units);
-                //tagServiceClient.AddAnalogOutput(tag);
+                tagServiceClient.AddAnalogOutput(tag);
 
 
             }
@@ -325,7 +325,7 @@ namespace DatabaseManager
                 }
 
                 DigitalInput tag = new DigitalInput(tagName, description, ioAddress, driver,scanTime,onOffScan);
-                //tagServiceClient.AddDigitalOutput(tag);
+                tagServiceClient.AddDigitalInput(tag);
 
             }
             else
@@ -338,7 +338,7 @@ namespace DatabaseManager
                 }
 
                 DigitalOutput tag = new DigitalOutput(tagName, description, ioAddress, initValue);
-                //tagServiceClient.AddDihgitalInput(tag);
+                tagServiceClient.AddDigitalOutput(tag);
 
 
             }
@@ -358,12 +358,18 @@ namespace DatabaseManager
                 Console.Write("Enter Alarms Tag Name ");
 
                 string input = Console.ReadLine();
-                // TODO tag finding logic
-                tag = null;
+                
+                tag= tagServiceClient.GetAnalogInput(input);
+
+                if (tag == null)
+                {
+                    Console.Write("Non Existant Analog Input Tag Name. ");
+                    continue;
+                }
+
                 break;
 
             }
-                
 
 
             Console.Write("Enter Alarm Type: ");
@@ -406,10 +412,8 @@ namespace DatabaseManager
 
             Alarm alarm = new Alarm(threshold, type, priority, unit);
 
-            // TODO add alarm to the selected tag
             tag.addAlarm(alarm);
 
-            
         }
 
 
