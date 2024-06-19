@@ -63,6 +63,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Core.Model.Tag.AnalogInput.datasource" />
+    <None Include="Properties\DataSources\Core.Model.Tag.AnalogOutput.datasource" />
+    <None Include="Properties\DataSources\Core.Model.Tag.DigitalInput.datasource" />
+    <None Include="Properties\DataSources\Core.Model.Tag.DigitalOutput.datasource" />
+    <None Include="Properties\DataSources\Core.Model.Tag.Tag.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

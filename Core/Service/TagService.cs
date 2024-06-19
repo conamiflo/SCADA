@@ -73,5 +73,101 @@ namespace Core.Service
             return _tagRepository.GetAllAnalogInputs();
         }
 
+        public void AddAnalogOutput(AnalogOutput analogOutput)
+        {
+            ValidateTagProperties(analogOutput);
+            _tagRepository.AddAnalogOutput(analogOutput);
+        }
+
+        public bool DeleteAnalogOutput(string id)
+        {
+            return _tagRepository.DeleteAnalogOutput(id);
+        }
+
+        public AnalogOutput GetAnalogOutput(string id)
+        {
+            return _tagRepository.GetAnalogOutput(id);
+        }
+
+        public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
+        {
+            ValidateTagProperties(analogOutput);
+            return _tagRepository.UpdateAnalogOutput(analogOutput);
+        }
+
+        public List<AnalogOutput> GetAllAnalogOutputs()
+        {
+            return _tagRepository.GetAllAnalogOutputs();
+        }
+
+        public void AddDigitalInput(DigitalInput digitalInput)
+        {
+            ValidateTagProperties(digitalInput);
+            _tagRepository.AddDigitalInput(digitalInput);
+        }
+
+        public bool DeleteDigitalInput(string id)
+        {
+            return _tagRepository.DeleteDigitalInput(id);
+        }
+
+        public DigitalInput GetDigitalInput(string id)
+        {
+            return _tagRepository.GetDigitalInput(id);
+        }
+
+        public DigitalInput UpdateDigitalInput(DigitalInput digitalInput)
+        {
+            ValidateTagProperties(digitalInput);
+            return _tagRepository.UpdateDigitalInput(digitalInput);
+        }
+
+        public List<DigitalInput> GetAllDigitalInputs()
+        {
+            return _tagRepository.GetAllDigitalInputs();
+        }
+
+        public void AddDigitalOutput(DigitalOutput digitalOutput)
+        {
+            ValidateTagProperties(digitalOutput);
+            _tagRepository.AddDigitalOutput(digitalOutput);
+        }
+
+        public bool DeleteDigitalOutput(string id)
+        {
+            return _tagRepository.DeleteDigitalOutput(id);
+        }
+
+        public DigitalOutput GetDigitalOutput(string id)
+        {
+            return _tagRepository.GetDigitalOutput(id);
+        }
+
+        public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
+        {
+            ValidateTagProperties(digitalOutput);
+            return _tagRepository.UpdateDigitalOutput(digitalOutput);
+        }
+
+        public List<DigitalOutput> GetAllDigitalOutputs()
+        {
+            return _tagRepository.GetAllDigitalOutputs();
+        }
+
+        private void ValidateTagProperties(Tag tag)
+        {
+            if (string.IsNullOrEmpty(tag.TagName))
+            {
+                throw new ArgumentException("Tag name cannot be null or empty.");
+            }
+            if (string.IsNullOrEmpty(tag.Description))
+            {
+                throw new ArgumentException("Description cannot be null or empty.");
+            }
+            if (string.IsNullOrEmpty(tag.IOAddress))
+            {
+                throw new ArgumentException("IOAddress cannot be null or empty.");
+            }
+        }
     }
 }

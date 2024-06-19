@@ -68,6 +68,7 @@ namespace Core.Repository
                 existingAnalogInput.LowLimit = analogInput.LowLimit;
                 existingAnalogInput.HighLimit = analogInput.HighLimit;
                 existingAnalogInput.Units = analogInput.Units;
+                existingAnalogInput.Driver = analogInput.Driver;
 
                 SaveTagsToFile();
 
@@ -166,7 +167,9 @@ namespace Core.Repository
             {
                 existingDigitalInput.Description = digitalInput.Description;
                 existingDigitalInput.IOAddress = digitalInput.IOAddress;
+                existingDigitalInput.ScanTime = digitalInput.ScanTime;
                 existingDigitalInput.IsOn = digitalInput.IsOn;
+                existingDigitalInput.Driver = digitalInput.Driver;
 
                 SaveTagsToFile();
 
@@ -178,30 +181,51 @@ namespace Core.Repository
 
         public List<DigitalOutput> GetAllDigitalOutputs()
         {
-            throw new NotImplementedException();
+            return tags.OfType<DigitalOutput>().ToList();
         }
 
-        public DigitalOutput GetDigitalOutput(string id)
+        public DigitalOutput GetDigitalOutput(string tagName)
         {
-            throw new NotImplementedException();
+            return tags.FirstOrDefault(tag => tag.TagName == tagName) as DigitalOutput;
         }
 
         public void AddDigitalOutput(DigitalOutput digitalOutput)
         {
-            throw new NotImplementedException();
+            tags.Add(digitalOutput);
+            SaveTagsToFile();
         }
 
-        public bool DeleteDigitalOutput(string id)
+        public bool DeleteDigitalOutput(string tagName)
         {
-            throw new NotImplementedException();
+            Tag digitalOutputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
+
+            if (digitalOutputToRemove != null && digitalOutputToRemove is DigitalOutput)
+            {
+                tags.Remove(digitalOutputToRemove);
+                SaveTagsToFile();
+                return true;
+            }
+
+            return false;
         }
 
         public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
         {
-            throw new NotImplementedException();
+            DigitalOutput existingDigitalOutput = tags.FirstOrDefault(tag => tag.TagName == digitalOutput.TagName) as DigitalOutput;
+
+            if (existingDigitalOutput != null)
+            {
+                existingDigitalOutput.Description = digitalOutput.Description;
+                existingDigitalOutput.IOAddress = digitalOutput.IOAddress;
+                existingDigitalOutput.InitialValue = digitalOutput.InitialValue;
+
+                SaveTagsToFile();
+
+                return existingDigitalOutput;
+            }
+
+            return null;
         }
-
-
 
         private void LoadTagsFromFile()
         {

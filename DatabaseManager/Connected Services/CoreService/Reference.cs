@@ -119,6 +119,96 @@ namespace DatabaseManager.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
         System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput[]> GetAllAnalogInputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
+        void AddAnalogOutput(Core.Model.Tag.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
+        System.Threading.Tasks.Task AddAnalogOutputAsync(Core.Model.Tag.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
+        bool DeleteAnalogOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
+        Core.Model.Tag.AnalogOutput GetAnalogOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput> GetAnalogOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
+        Core.Model.Tag.AnalogOutput UpdateAnalogOutput(Core.Model.Tag.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput> UpdateAnalogOutputAsync(Core.Model.Tag.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
+        Core.Model.Tag.AnalogOutput[] GetAllAnalogOutputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput[]> GetAllAnalogOutputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
+        void AddDigitalInput(Core.Model.Tag.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
+        System.Threading.Tasks.Task AddDigitalInputAsync(Core.Model.Tag.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
+        bool DeleteDigitalInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
+        Core.Model.Tag.DigitalInput GetDigitalInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput> GetDigitalInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
+        Core.Model.Tag.DigitalInput UpdateDigitalInput(Core.Model.Tag.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput> UpdateDigitalInputAsync(Core.Model.Tag.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
+        Core.Model.Tag.DigitalInput[] GetAllDigitalInputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput[]> GetAllDigitalInputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
+        void AddDigitalOutput(Core.Model.Tag.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
+        System.Threading.Tasks.Task AddDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
+        bool DeleteDigitalOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
+        Core.Model.Tag.DigitalOutput GetDigitalOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput> GetDigitalOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
+        Core.Model.Tag.DigitalOutput UpdateDigitalOutput(Core.Model.Tag.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput> UpdateDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
+        Core.Model.Tag.DigitalOutput[] GetAllDigitalOutputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput[]> GetAllDigitalOutputsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -186,6 +276,126 @@ namespace DatabaseManager.CoreService {
         
         public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput[]> GetAllAnalogInputsAsync() {
             return base.Channel.GetAllAnalogInputsAsync();
+        }
+        
+        public void AddAnalogOutput(Core.Model.Tag.AnalogOutput analogOutput) {
+            base.Channel.AddAnalogOutput(analogOutput);
+        }
+        
+        public System.Threading.Tasks.Task AddAnalogOutputAsync(Core.Model.Tag.AnalogOutput analogOutput) {
+            return base.Channel.AddAnalogOutputAsync(analogOutput);
+        }
+        
+        public bool DeleteAnalogOutput(string id) {
+            return base.Channel.DeleteAnalogOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id) {
+            return base.Channel.DeleteAnalogOutputAsync(id);
+        }
+        
+        public Core.Model.Tag.AnalogOutput GetAnalogOutput(string id) {
+            return base.Channel.GetAnalogOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput> GetAnalogOutputAsync(string id) {
+            return base.Channel.GetAnalogOutputAsync(id);
+        }
+        
+        public Core.Model.Tag.AnalogOutput UpdateAnalogOutput(Core.Model.Tag.AnalogOutput analogOutput) {
+            return base.Channel.UpdateAnalogOutput(analogOutput);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput> UpdateAnalogOutputAsync(Core.Model.Tag.AnalogOutput analogOutput) {
+            return base.Channel.UpdateAnalogOutputAsync(analogOutput);
+        }
+        
+        public Core.Model.Tag.AnalogOutput[] GetAllAnalogOutputs() {
+            return base.Channel.GetAllAnalogOutputs();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogOutput[]> GetAllAnalogOutputsAsync() {
+            return base.Channel.GetAllAnalogOutputsAsync();
+        }
+        
+        public void AddDigitalInput(Core.Model.Tag.DigitalInput digitalInput) {
+            base.Channel.AddDigitalInput(digitalInput);
+        }
+        
+        public System.Threading.Tasks.Task AddDigitalInputAsync(Core.Model.Tag.DigitalInput digitalInput) {
+            return base.Channel.AddDigitalInputAsync(digitalInput);
+        }
+        
+        public bool DeleteDigitalInput(string id) {
+            return base.Channel.DeleteDigitalInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id) {
+            return base.Channel.DeleteDigitalInputAsync(id);
+        }
+        
+        public Core.Model.Tag.DigitalInput GetDigitalInput(string id) {
+            return base.Channel.GetDigitalInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput> GetDigitalInputAsync(string id) {
+            return base.Channel.GetDigitalInputAsync(id);
+        }
+        
+        public Core.Model.Tag.DigitalInput UpdateDigitalInput(Core.Model.Tag.DigitalInput digitalInput) {
+            return base.Channel.UpdateDigitalInput(digitalInput);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput> UpdateDigitalInputAsync(Core.Model.Tag.DigitalInput digitalInput) {
+            return base.Channel.UpdateDigitalInputAsync(digitalInput);
+        }
+        
+        public Core.Model.Tag.DigitalInput[] GetAllDigitalInputs() {
+            return base.Channel.GetAllDigitalInputs();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalInput[]> GetAllDigitalInputsAsync() {
+            return base.Channel.GetAllDigitalInputsAsync();
+        }
+        
+        public void AddDigitalOutput(Core.Model.Tag.DigitalOutput digitalOutput) {
+            base.Channel.AddDigitalOutput(digitalOutput);
+        }
+        
+        public System.Threading.Tasks.Task AddDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput) {
+            return base.Channel.AddDigitalOutputAsync(digitalOutput);
+        }
+        
+        public bool DeleteDigitalOutput(string id) {
+            return base.Channel.DeleteDigitalOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id) {
+            return base.Channel.DeleteDigitalOutputAsync(id);
+        }
+        
+        public Core.Model.Tag.DigitalOutput GetDigitalOutput(string id) {
+            return base.Channel.GetDigitalOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput> GetDigitalOutputAsync(string id) {
+            return base.Channel.GetDigitalOutputAsync(id);
+        }
+        
+        public Core.Model.Tag.DigitalOutput UpdateDigitalOutput(Core.Model.Tag.DigitalOutput digitalOutput) {
+            return base.Channel.UpdateDigitalOutput(digitalOutput);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput> UpdateDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput) {
+            return base.Channel.UpdateDigitalOutputAsync(digitalOutput);
+        }
+        
+        public Core.Model.Tag.DigitalOutput[] GetAllDigitalOutputs() {
+            return base.Channel.GetAllDigitalOutputs();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.DigitalOutput[]> GetAllDigitalOutputsAsync() {
+            return base.Channel.GetAllDigitalOutputsAsync();
         }
     }
 }

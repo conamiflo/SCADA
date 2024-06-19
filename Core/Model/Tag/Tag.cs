@@ -9,6 +9,9 @@ using System.Xml.Serialization;
 namespace Core.Model.Tag
 {
     [XmlInclude(typeof(AnalogInput))]
+    [XmlInclude(typeof(DigitalInput))]
+    [XmlInclude(typeof(AnalogOutput))]
+    [XmlInclude(typeof(DigitalOutput))]
     public abstract class Tag
     {
         public Tag()

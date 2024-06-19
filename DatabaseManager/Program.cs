@@ -30,6 +30,7 @@ namespace DatabaseManager
             //analogInput.LowLimit = 1.0;
             //analogInput.IsOn = true;
             //analogInput.IOAddress = "asdf";
+            //analogInput.Driver = "Driveeeer";
 
             //Alarm alarm = new Alarm
             //{
@@ -51,7 +52,16 @@ namespace DatabaseManager
             //analogInput.Alarms.Add(alarm2);
 
             //tagServiceClient.AddAnalogInput(analogInput);
-            //AnalogInput[] allAnalogInputs = tagServiceClient.GetAllAnalogInputs();
+
+            //DigitalInput digitalInput = new DigitalInput();
+            //digitalInput.TagName = "aaaa";
+            //digitalInput.Description = "asdf";
+            //digitalInput.IsOn = true;
+            //digitalInput.ScanTime = 1;
+            //digitalInput.IOAddress = "asdf";
+            //digitalInput.Driver = "Driveeeer";
+
+            //tagServiceClient.AddDigitalInput(digitalInput);
 
             UnsignedMenu(client);
         }
