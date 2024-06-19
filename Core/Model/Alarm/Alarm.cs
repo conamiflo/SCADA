@@ -1,9 +1,6 @@
-﻿using Core.Model.Tag;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
-using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace Core.Model
 {
@@ -11,15 +8,23 @@ namespace Core.Model
     {
         LOW, HIGH
     }
-
+    [XmlRoot("alarm")]
     public class Alarm
     {
         [Key]
+        [XmlIgnore]
         public int Id { get; set; }
+
+        [XmlAttribute("Threshold")]
         public double Threshold { get; set; }
+
+        [XmlAttribute("Type")]
         public AlarmType Type { get; set; }
+
+        [XmlAttribute("Priority")]
         public int Priority { get; set; }
-        public string TagName { get; set; }
+
+        [XmlAttribute("Unit")]
         public string Unit { get; set; }
     }
 }

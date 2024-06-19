@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfTag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Tag xsi:type="AnalogInput">
-    <TagName>brev</TagName>
-    <Description>asf</Description>
-    <IOAddress>asf</IOAddress>
-    <ScanTime>150</ScanTime>
-    <IsOn>true</IsOn>
-    <LowLimit>5</LowLimit>
-    <HighLimit>10</HighLimit>
-    <Units>asfoj</Units>
+<ArrayOfTag xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tag xsi:type="AnalogInput" TagName="asdf" Description="asdf" IOAddress="asdf" ScanTime="0" LowLimit="1" HighLimit="1" IsOn="true" Units="asdf">
+    <alarms Threshold="80" Type="HIGH" Priority="3" Unit="C" />
+    <alarms Threshold="80" Type="HIGH" Priority="3" Unit="C" />
   </Tag>
 </ArrayOfTag>

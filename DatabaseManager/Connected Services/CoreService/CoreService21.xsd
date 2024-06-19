@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Core.Model.Tag" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Core.Model.Alarm" />
+  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Core.Model" />
   <xs:complexType name="AnalogInput">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:Tag">
         <xs:sequence>
-          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Model.Alarm" minOccurs="0" name="Alarms" nillable="true" type="q1:ArrayOfAlarm" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="Alarms" nillable="true" type="q1:ArrayOfAlarm" />
+          <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="IsOn" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
+          <xs:element minOccurs="0" name="ScanTime" type="xs:double" />
+          <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="AnalogInput" nillable="true" type="tns:AnalogInput" />
   <xs:complexType name="Tag">
-    <xs:sequence />
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IOAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
+    </xs:sequence>
   </xs:complexType>
   <xs:element name="Tag" nillable="true" type="tns:Tag" />
 </xs:schema>

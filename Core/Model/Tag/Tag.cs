@@ -23,8 +23,11 @@ namespace Core.Model.Tag
         }
 
         [Key]
+        [XmlAttribute("TagName")]
         public string TagName { get; set; }
+        [XmlAttribute("Description")]
         public string Description { get; set; }
+        [XmlAttribute("IOAddress")]
         public string IOAddress { get; set; }
     }
 }

@@ -62,6 +62,7 @@
     <None Include="Connected Services\CoreService\CoreService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\Core.Model.Tag.AnalogInput.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

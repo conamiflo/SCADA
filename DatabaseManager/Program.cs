@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Core.Model.Tag;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using Core.Model;
 
 namespace DatabaseManager
 {
@@ -19,16 +20,36 @@ namespace DatabaseManager
         static void Main(string[] args)
         {
             UserServiceClient client = new CoreService.UserServiceClient();
-            //AnalogInput analogInput = new AnalogInput();
-            //analogInput.TagName = "asdf";
-            //analogInput.Description = "asdf";
-            //analogInput.Units = "asdf";
-            //analogInput.HighLimit = 1.0;
-            //analogInput.LowLimit = 1.0;
-            //analogInput.IsOn = true;
-            //analogInput.IOAddress = "asdf";
-            //tagServiceClient.AddAnalogInput(analogInput);
-            
+            AnalogInput analogInput = new AnalogInput();
+            analogInput.TagName = "asdf";
+            analogInput.Description = "asdf";
+            analogInput.Units = "asdf";
+            analogInput.HighLimit = 1.0;
+            analogInput.LowLimit = 1.0;
+            analogInput.IsOn = true;
+            analogInput.IOAddress = "asdf";
+
+            Alarm alarm = new Alarm
+            {
+                Id = 1,
+                Threshold = 80.0,
+                Type = AlarmType.HIGH,
+                Priority = 3,
+                Unit = "C"
+            };
+            Alarm alarm2 = new Alarm
+            {
+                Id = 12,
+                Threshold = 80.0,
+                Type = AlarmType.HIGH,
+                Priority = 3,
+                Unit = "C"
+            };
+            analogInput.Alarms.Add(alarm);
+            analogInput.Alarms.Add(alarm2);
+
+            tagServiceClient.AddAnalogInput(analogInput);
+
             UnsignedMenu(client);
         }
 
