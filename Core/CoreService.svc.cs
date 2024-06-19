@@ -176,6 +176,11 @@ namespace Core
         public void LogAlarm(AlarmTrigger alarm)
         {
             alarmService.LogAlarm(alarm);
+
+            foreach (var callback in CallbackChannels.Values)
+            {
+                callback.AlarmTriggered($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}");
+            }
         }
     }
 }

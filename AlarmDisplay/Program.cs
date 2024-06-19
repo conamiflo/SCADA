@@ -10,8 +10,7 @@ namespace AlarmDisplay
     {
         public void AlarmTriggered(string message)
         {
-            //implementirati
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
     }
 
