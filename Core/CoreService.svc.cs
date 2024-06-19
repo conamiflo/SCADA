@@ -1,4 +1,5 @@
 ﻿using Core.Context;
+using Core.Model;
 using Core.Model.Tag;
 using Core.Repository;
 using Core.Repository.IRepository;
@@ -12,21 +13,24 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-
 namespace Core
 {
-    public class CoreService : IUserService, ITagService
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    public class CoreService : IUserService, ITagService, IAlarmService
     {
 
-        private IUserService userService;
-        private ITagService tagService;
+        public Dictionary<string, IAlarmCallback> CallbackChannels = new Dictionary<string, IAlarmCallback>();
+
+        public IUserService userService;
+        public ITagService tagService;
+        public IAlarmService alarmService;
 
         public CoreService()
         {
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
+            alarmService = new AlarmService(new AlarmRepository());
         }
-
 
 
         public string Login(string username, string password)
@@ -139,6 +143,39 @@ namespace Core
         public List<DigitalOutput> GetAllDigitalOutputs()
         {
             return tagService.GetAllDigitalOutputs();
+        }
+        public void AddAlarm(AlarmTrigger alarm)
+        {
+            alarmService.AddAlarm(alarm);
+        }
+        public void RemoveAlarm(AlarmTrigger alarm)
+        {
+            alarmService.RemoveAlarm(alarm);
+        }
+
+        public AlarmTrigger GetAlarmById(int id)
+        {
+            return alarmService.GetAlarmById(id);
+        }
+
+        public IEnumerable<AlarmTrigger> GetAllAlarms()
+        {
+            return alarmService.GetAllAlarms();
+        }
+
+        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, Core.Service.AlarmService.SortOption sortOption)
+        {
+            return alarmService.GetAlarmsInPeriod(startTime, endTime, sortOption);
+        }
+
+        public IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority)
+        {
+            return alarmService.GetAlarmsByPriority(priority);
+        }
+
+        public void LogAlarm(AlarmTrigger alarm)
+        {
+            alarmService.LogAlarm(alarm);
         }
     }
 }

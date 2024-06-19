@@ -18,8 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportManager", "..\ReportM
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlarmDisplay", "..\AlarmDisplay\AlarmDisplay.csproj", "{72685C31-6B21-43E5-8DC7-3035C952B053}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76301054-139B-448B-9DE8-6B8CAA4CC2A4} = {76301054-139B-448B-9DE8-6B8CAA4CC2A4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealTimeUnit", "..\RealTimeUnit\RealTimeUnit.csproj", "{7AC2A911-623C-4F27-B17A-BE9A7580B502}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76301054-139B-448B-9DE8-6B8CAA4CC2A4} = {76301054-139B-448B-9DE8-6B8CAA4CC2A4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulationDriver", "..\SimulationDriver\SimulationDriver.csproj", "{1CFC2891-15E7-4EC7-8792-5A0CEC3F64A5}"
 EndProject

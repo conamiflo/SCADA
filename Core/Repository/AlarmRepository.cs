@@ -13,9 +13,9 @@ namespace Core.Repository
         private readonly SCADAContext _context;
         private readonly string logFilePath = "alarmsLog.txt";
 
-        public AlarmRepository(SCADAContext context)
+        public AlarmRepository()
         {
-            _context = context;
+            _context = new SCADAContext();
         }
 
         public IEnumerable<AlarmTrigger> GetAllAlarms()
