@@ -156,7 +156,7 @@ namespace DatabaseManager
             {
                 Console.WriteLine("\nMenu:");
                 Console.WriteLine("1.Create Tag");
-                Console.WriteLine("2. Give sloppy toppy");
+                Console.WriteLine("2. Create alarm");
                 Console.WriteLine("3. Sign out");
                 Console.Write("Choose an option (1-3): ");
 
