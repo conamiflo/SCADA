@@ -157,7 +157,8 @@ namespace DatabaseManager
                 Console.WriteLine("\nMenu:");
                 Console.WriteLine("1.Create Tag");
                 Console.WriteLine("2. Give sloppy toppy");
-                Console.WriteLine("3. Sign out");
+                Console.WriteLine("3. Create Alarm");
+                Console.WriteLine("4. Sign out");
                 Console.Write("Choose an option (1-3): ");
 
                 string choice = Console.ReadLine();
@@ -171,6 +172,9 @@ namespace DatabaseManager
                         Console.WriteLine("\n,':/\n");
                         break;
                     case "3":
+                        AlarmCreation();
+                        break;
+                    case "4":
                         Console.WriteLine("Signing out. Goodbye!");
                         return;
                     default:
@@ -349,7 +353,7 @@ namespace DatabaseManager
         }
 
 
-        void AlarmCreation()
+        public static void AlarmCreation()
         {
             AnalogInput tag = new AnalogInput();
             while (true)
