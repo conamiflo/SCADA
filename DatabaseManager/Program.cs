@@ -368,7 +368,7 @@ namespace DatabaseManager
                 if (tag == null)
                 {
                     Console.Write("Non Existant Analog Input Tag Name. ");
-                    continue;
+                    return;
                 }
 
                 break;
@@ -408,15 +408,14 @@ namespace DatabaseManager
                 Console.Write("Invalid input. Please enter a valid number for Threshold Value: ");
             }
 
-            Console.Write("Enter Size Name the alarm is tied to: ");
-            string sizeName = Console.ReadLine();
-
             Console.Write("Enter Unit which alarm uses: ");
             string unit = Console.ReadLine();
 
             Alarm alarm = new Alarm(threshold, type, priority, unit);
 
-            tag.addAlarm(alarm);
+            tag.Alarms.Add(alarm);
+            tagServiceClient.UpdateAnalogInput(tag);
+            
 
         }
 
