@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
 
 namespace Core.Model
@@ -14,19 +15,22 @@ namespace Core.Model
 
     public class Alarm
     {
+        public Alarm(double threshold, AlarmType type, int priority,string unit)
+        {
+
+            Id = DateTime.Now.GetHashCode();
+            Threshold = threshold;
+            Type = type;
+            Priority = priority;
+            Unit = unit;
+        }
+
+        [Key]
         public int Id { get; set; }
         public double Threshold { get; set; }
         public AlarmType Type { get; set; }
         public int Priority { get; set; }
         public string Unit { get; set; }
 
-        public Alarm(int id, double threshold, AlarmType type, int priority, string unit)
-        {
-            Id = id;
-            Threshold = threshold;
-            Type = type;
-            Priority = priority;
-            Unit = unit;
-        }
     }
 }

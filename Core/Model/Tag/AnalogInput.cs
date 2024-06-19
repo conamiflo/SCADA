@@ -32,6 +32,11 @@ namespace Core.Model.Tag
         public double LowLimit { get; set; }
         public double HighLimit { get; set; }
         public string Units { get; set; }
+
+        public void addAlarm(Alarm.Alarm alarm)
+        {
+            Alarms.Add(alarm);
+        }
     }
         
 }
