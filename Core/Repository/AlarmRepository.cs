@@ -18,31 +18,31 @@ namespace Core.Repository
             _context = context;
         }
 
-        public IEnumerable<Alarm> GetAllAlarms()
+        public IEnumerable<AlarmTrigger> GetAllAlarms()
         {
-            return _context.Alarms.ToList();
+            return _context.AlarmTriggers.ToList();
         }
 
-        public void Add(Alarm alarm)
+        public void Add(AlarmTrigger alarm)
         {
-            _context.Alarms.Add(alarm);
+            _context.AlarmTriggers.Add(alarm);
             _context.SaveChanges();
         }
 
-        public Alarm GetById(int id)
+        public AlarmTrigger GetById(int id)
         {
-            return _context.Alarms.Find(id);
+            return _context.AlarmTriggers.Find(id);
         }
 
-        public void Remove(Alarm alarm)
+        public void Remove(AlarmTrigger alarm)
         {
-            _context.Alarms.Remove(alarm);
+            _context.AlarmTriggers.Remove(alarm);
             _context.SaveChanges();
         }
 
-        public void LogAlarm(Alarm alarm)
+        public void LogAlarm(AlarmTrigger alarm)
         {
-            var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, AnalogInputId={alarm.TagName}, Timestamp={DateTime.Now}";
+            var logMessage = $"Alarm Triggered: Id={alarm.Id}, AnalogInputId={alarm.TagName}, Type={alarm.Type}, Priority={alarm.Priority}, Unit={alarm.Unit}, Timestamp={DateTime.Now}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
         }
     }

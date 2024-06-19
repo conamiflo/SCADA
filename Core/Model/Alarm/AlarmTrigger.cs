@@ -12,5 +12,10 @@ namespace Core.Model
         public int Id { get; set; }
         public string TagName { get; set; }
         public DateTime Timestamp { get; set; }
+        public double Threshold { get; set; }
+        public AlarmType Type { get; set; }
+        public int Priority { get; set; }
+        public string Unit { get; set; }
+        public double TagValue { get; set; }
     }
 }

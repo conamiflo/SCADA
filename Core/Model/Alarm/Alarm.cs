@@ -14,12 +14,10 @@ namespace Core.Model
 
     public class Alarm
     {
-        [Key]
         public int Id { get; set; }
         public double Threshold { get; set; }
         public AlarmType Type { get; set; }
         public int Priority { get; set; }
-        public string TagName { get; set; }
         public string Unit { get; set; }
     }
 }
