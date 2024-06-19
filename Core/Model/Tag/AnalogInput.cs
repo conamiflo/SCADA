@@ -17,13 +17,14 @@ namespace Core.Model.Tag
         {
         }
 
-        public AnalogInput(string tagName,string tagDesc,string ioAddress,double scanTime, List<Alarm> alarms, bool isOn, double lowLimit, double highLimit, string units):base(tagName,tagDesc,ioAddress)
+        public AnalogInput(string tagName,string tagDesc,string ioAddress,double scanTime,string driver, List<Alarm> alarms, bool isOn, double lowLimit, double highLimit, string units):base(tagName,tagDesc,ioAddress)
         {
             ScanTime = scanTime;
             Alarms = alarms;
             IsOn = isOn;
             LowLimit = lowLimit;
             HighLimit = highLimit;
+            Driver = driver;
             Units = units;
         }
         
@@ -39,6 +40,10 @@ namespace Core.Model.Tag
 
         [XmlAttribute("IsOn")]
         public bool IsOn { get; set; }
+
+        [XmlAttribute("driver")]
+        public string Driver { get; set; }
+
         [XmlAttribute("Units")]
         public string Units { get; set; }
 

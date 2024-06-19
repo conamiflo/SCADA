@@ -224,6 +224,9 @@ namespace DatabaseManager
             Console.WriteLine("Enter the I/O address of the tag: ");
             string ioAddress = Console.ReadLine();
 
+            Console.Write("Enter Driver: ");
+            string driver = Console.ReadLine();
+
             Console.Write("Enter Low Limit: ");
             double lowLimit;
             while (!double.TryParse(Console.ReadLine(), out lowLimit))
@@ -259,7 +262,7 @@ namespace DatabaseManager
 
 
 
-                AnalogInput tag = new AnalogInput(name,  description,  ioAddress,  scanTime,null,  onOffScan,  lowLimit,  highLimit,  units);
+                AnalogInput tag = new AnalogInput(name,  description,  ioAddress,  scanTime,driver,null,  onOffScan,  lowLimit,  highLimit,  units);
                 tagServiceClient.AddAnalogInput(tag);
             }
             else
