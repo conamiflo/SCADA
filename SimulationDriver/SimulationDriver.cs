@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimulationDriver
 {
-    public class SimulationDriver
+    public static class SimulationDriver
     {
         public static double ReturnValue(string address)
         {

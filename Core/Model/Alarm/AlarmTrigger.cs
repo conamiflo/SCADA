@@ -22,6 +22,18 @@ namespace Core.Model
         {
         }
 
+        public AlarmTrigger(Alarm a,string tagName,DateTime timeStamp,double value)
+        {
+            Id= DateTime.Now.GetHashCode();
+            TagName = tagName;
+            Timestamp = timeStamp;
+            Threshold = a.Threshold;
+            Type = a.Type;
+            Priority = a.Priority;
+            Unit = a.Unit;
+            TagValue = value;
+        }
+
         public AlarmTrigger(int id, string tagName, DateTime timestamp, double threshold, AlarmType type, int priority, string unit, double tagValue)
         {
             Id = id;

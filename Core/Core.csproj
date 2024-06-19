@@ -275,6 +275,7 @@
     <Compile Include="Service\AlarmService.cs" />
     <Compile Include="Service\IService\IAlarmService.cs" />
     <Compile Include="Service\IService\IUserService.cs" />
+    <Compile Include="Service\TagProcessing.cs" />
     <Compile Include="Service\TagService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Util\EncryptUtil.cs" />
