@@ -22,7 +22,10 @@ namespace Core.Repository
         {
             LoadTagsFromFile();
         }
-        
+        public List<AnalogInput> GetAllAnalogInputs()
+        {
+            return tags.OfType<AnalogInput>().ToList();
+        }
         public void AddAnalogInput(AnalogInput analogInput)
         {
             tags.Add(analogInput);

@@ -11,6 +11,7 @@ using Core.Model.Tag;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Core.Model;
 using System.Xml.Linq;
+using Core.Service;
 
 namespace DatabaseManager
 {
@@ -50,6 +51,8 @@ namespace DatabaseManager
             //analogInput.Alarms.Add(alarm2);
 
             //tagServiceClient.AddAnalogInput(analogInput);
+            //AnalogInput[] allAnalogInputs = tagServiceClient.GetAllAnalogInputs();
+
             UnsignedMenu(client);
         }
 

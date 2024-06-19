@@ -99,4 +99,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllAnalogInputs">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAnalogInputsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="GetAllAnalogInputsResult" nillable="true" type="q5:ArrayOfAnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -24,4 +24,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tag" nillable="true" type="tns:Tag" />
+  <xs:complexType name="ArrayOfAnalogInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AnalogInput" nillable="true" type="tns:AnalogInput" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAnalogInput" nillable="true" type="tns:ArrayOfAnalogInput" />
 </xs:schema>

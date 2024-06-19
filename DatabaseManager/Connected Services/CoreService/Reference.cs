@@ -113,6 +113,12 @@ namespace DatabaseManager.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
         System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
+        Core.Model.Tag.AnalogInput[] GetAllAnalogInputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput[]> GetAllAnalogInputsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -172,6 +178,14 @@ namespace DatabaseManager.CoreService {
         
         public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput> UpdateAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInputAsync(analogInput);
+        }
+        
+        public Core.Model.Tag.AnalogInput[] GetAllAnalogInputs() {
+            return base.Channel.GetAllAnalogInputs();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.AnalogInput[]> GetAllAnalogInputsAsync() {
+            return base.Channel.GetAllAnalogInputsAsync();
         }
     }
 }

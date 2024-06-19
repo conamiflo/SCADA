@@ -67,5 +67,11 @@ namespace Core.Service
         {
             return _tagRepository.UpdateAnalogInput(analogInput);
         }
+
+        public List<AnalogInput> GetAllAnalogInputs()
+        {
+            return _tagRepository.GetAllAnalogInputs();
+        }
+
     }
 }

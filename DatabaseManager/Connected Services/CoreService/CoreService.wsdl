@@ -50,6 +50,12 @@
   <wsdl:message name="ITagService_UpdateAnalogInput_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateAnalogInputResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagService_GetAllAnalogInputs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogInputs" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_GetAllAnalogInputs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAnalogInputsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="Registration">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Registration" message="tns:IUserService_Registration_InputMessage" />
@@ -80,6 +86,10 @@
     <wsdl:operation name="UpdateAnalogInput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogInput" message="tns:ITagService_UpdateAnalogInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/UpdateAnalogInputResponse" message="tns:ITagService_UpdateAnalogInput_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnalogInputs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputs" message="tns:ITagService_GetAllAnalogInputs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAllAnalogInputsResponse" message="tns:ITagService_GetAllAnalogInputs_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
@@ -143,6 +153,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateAnalogInput">
       <soap:operation soapAction="http://tempuri.org/ITagService/UpdateAnalogInput" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAnalogInputs">
+      <soap:operation soapAction="http://tempuri.org/ITagService/GetAllAnalogInputs" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

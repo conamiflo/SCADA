@@ -19,5 +19,7 @@ namespace Core.Service.IService
         AnalogInput GetAnalogInput(string id);
         [OperationContract]
         AnalogInput UpdateAnalogInput(AnalogInput analogInput);
+        [OperationContract]
+        List<AnalogInput> GetAllAnalogInputs();
     }
 }
