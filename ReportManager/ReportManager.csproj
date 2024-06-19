@@ -68,7 +68,22 @@
     <None Include="Connected Services\CoreService\CoreService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\CoreService\CoreService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CoreService\ReportManager.CoreService.AlarmTrigger.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CoreService\ReportManager.CoreService.AnalogInput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CoreService\ReportManager.CoreService.AnalogOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CoreService\ReportManager.CoreService.DigitalInput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CoreService\ReportManager.CoreService.DigitalOutput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>

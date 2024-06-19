@@ -1072,17 +1072,17 @@
   </wsdl:binding>
   <wsdl:service name="CoreService">
     <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
-      <soap:address location="http://localhost:50508/CoreService.svc/L" />
+      <soap:address location="http://localhost:50508/CoreService.svc/UserService" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_ITagService" binding="tns:BasicHttpBinding_ITagService">
-      <soap:address location="http://localhost:50508/CoreService.svc/L" />
+      <soap:address location="http://localhost:50508/CoreService.svc/TagService" />
     </wsdl:port>
     <wsdl:port name="WSDualHttpBinding_IAlarmService" binding="tns:WSDualHttpBinding_IAlarmService">
-      <soap12:address location="http://localhost:50508/CoreService.svc/P" />
+      <soap12:address location="http://localhost:50508/CoreService.svc/AlarmService" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:50508/CoreService.svc/P</wsa10:Address>
+        <wsa10:Address>http://localhost:50508/CoreService.svc/AlarmService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-445ODN7\Stefan Djurica</Upn>
+          <Upn>DESKTOP-7MHIHBB\Nemanja</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

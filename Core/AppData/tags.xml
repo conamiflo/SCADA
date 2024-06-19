@@ -5,4 +5,5 @@
     <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
   </Tag>
   <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="1" IsOn="true" Driver="Driveeeer" />
+  <Tag xsi:type="AnalogInput" TagName="nemanjatag" Description="asfo" IOAddress="444" ScanTime="400" LowLimit="4" HighLimit="7" IsOn="true" driver="Simulation" Units="C" />
 </ArrayOfTag>
