@@ -12,7 +12,7 @@ namespace Core.Context
 {
     public class SCADAContext : DbContext
     {
-        public DbSet<Alarm> Alarms { get; set; }
+        //public DbSet<Alarm> Alarms { get; set; }
         public DbSet<AnalogInput> AnalogInput { get; set; }
         public DbSet<AnalogOutput> AnalogOutput { get; set; }
         public DbSet<DigitalOutput> DigitalOutput { get; set; }
@@ -34,7 +34,7 @@ namespace Core.Context
             modelBuilder.Entity<DigitalOutput>().HasKey(t => t.TagName);
             modelBuilder.Entity<DigitalInput>().HasKey(t => t.TagName);
 
-            modelBuilder.Entity<Alarm>()
+            modelBuilder.Entity<AlarmTrigger>()
             .HasRequired<string>(a => a.TagName)
             .WithMany()
             .HasForeignKey(a => a.TagName);

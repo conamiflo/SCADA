@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Core.Repository.IRepository
 {
-    internal interface IAlarmRepository
+    public interface IAlarmRepository
     {
-        void Add(Alarm alarm);
-        void Remove(Alarm alarm);
-        Alarm GetById(int id);
-        IEnumerable<Alarm> GetAllAlarms();
-        void LogAlarm(Alarm alarm);
+        void Add(AlarmTrigger alarm);
+        void Remove(AlarmTrigger alarm);
+        AlarmTrigger GetById(int id);
+        IEnumerable<AlarmTrigger> GetAllAlarms();
+        void LogAlarm(AlarmTrigger alarm);
     }
 }

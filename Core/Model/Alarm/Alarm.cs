@@ -26,5 +26,14 @@ namespace Core.Model
 
         [XmlAttribute("Unit")]
         public string Unit { get; set; }
+
+        public Alarm(int id, double threshold, AlarmType type, int priority, string unit)
+        {
+            Id = id;
+            Threshold = threshold;
+            Type = type;
+            Priority = priority;
+            Unit = unit;
+        }
     }
 }
