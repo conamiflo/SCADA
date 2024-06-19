@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Security.Claims;
 using System.Web;
-using Core.Model;
 using System.Xml.Serialization;
 
 
@@ -45,7 +44,7 @@ namespace Core.Model.Tag
 
         [XmlElement("Alarm")]
         public List<Alarm> Alarms { get; set; } = new List<Alarm>();
-        public void addAlarm(Alarm.Alarm alarm)
+        public void addAlarm(Alarm alarm)
         {
             Alarms.Add(alarm);
         }

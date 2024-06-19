@@ -61,3 +61,4 @@ SimulationDriver/obj/Debug/SimulationDriver.csproj.FileListAbsolute.txt
 Trending/obj/Debug/Trending.csproj.FileListAbsolute.txt
 DatabaseManager/bin/Debug/Core.dll.config
 DatabaseManager/obj/Debug/DatabaseManager.csproj.CopyComplete
+Core/.vs/Core/config/applicationhost.config

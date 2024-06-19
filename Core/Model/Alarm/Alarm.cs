@@ -14,8 +14,9 @@ namespace Core.Model
     [XmlRoot("alarm")]
     public class Alarm
     {
-        [Key]
-        [XmlIgnore]
+
+        public Alarm() { }
+
         public Alarm(double threshold, AlarmType type, int priority,string unit)
         {
 
@@ -27,6 +28,7 @@ namespace Core.Model
         }
 
         [Key]
+        [XmlIgnore]
         public int Id { get; set; }
 
         [XmlAttribute("Threshold")]
@@ -41,14 +43,5 @@ namespace Core.Model
         [XmlAttribute("Unit")]
         public string Unit { get; set; }
 
-        public Alarm() { }
-        public Alarm(int id, double threshold, AlarmType type, int priority, string unit)
-        {
-            Id = id;
-            Threshold = threshold;
-            Type = type;
-            Priority = priority;
-            Unit = unit;
-        }
     }
 }
