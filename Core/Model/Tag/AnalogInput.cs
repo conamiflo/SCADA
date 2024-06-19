@@ -43,7 +43,7 @@ namespace Core.Model.Tag
         [XmlAttribute("Units")]
         public string Units { get; set; }
 
-        [XmlElement("alarms")]
+        [XmlElement("Alarm")]
         public List<Alarm> Alarms { get; set; } = new List<Alarm>();
     }
         

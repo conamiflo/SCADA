@@ -10,7 +10,6 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Priority" type="xs:int" />
-      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Threshold" type="xs:double" />
       <xs:element minOccurs="0" name="Type" type="tns:AlarmType" />
       <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
