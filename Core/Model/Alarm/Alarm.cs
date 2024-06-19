@@ -19,5 +19,14 @@ namespace Core.Model
         public AlarmType Type { get; set; }
         public int Priority { get; set; }
         public string Unit { get; set; }
+
+        public Alarm(int id, double threshold, AlarmType type, int priority, string unit)
+        {
+            Id = id;
+            Threshold = threshold;
+            Type = type;
+            Priority = priority;
+            Unit = unit;
+        }
     }
 }

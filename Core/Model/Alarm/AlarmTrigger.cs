@@ -17,5 +17,33 @@ namespace Core.Model
         public int Priority { get; set; }
         public string Unit { get; set; }
         public double TagValue { get; set; }
+
+        public AlarmTrigger()
+        {
+        }
+
+        public AlarmTrigger(int id, string tagName, DateTime timestamp, double threshold, AlarmType type, int priority, string unit, double tagValue)
+        {
+            Id = id;
+            TagName = tagName;
+            Timestamp = timestamp;
+            Threshold = threshold;
+            Type = type;
+            Priority = priority;
+            Unit = unit;
+            TagValue = tagValue;
+        }
+
+        public AlarmTrigger(int id, string tagName, DateTime timestamp, double tagValue, Alarm alarm)
+        {
+            Id = id;
+            TagName = tagName;
+            Timestamp = timestamp;
+            Threshold = alarm.Threshold;
+            Type = alarm.Type;
+            Priority = alarm.Priority;
+            Unit = alarm.Unit;
+            TagValue = tagValue;
+        }
     }
 }
