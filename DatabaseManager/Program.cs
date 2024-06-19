@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Model.Tag;
+using Core.Model.Alarm;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Core.Model;
+using System.Xml.Linq;
 
 namespace DatabaseManager
 {
@@ -192,8 +194,10 @@ namespace DatabaseManager
                         AnalogTagCreation(false);
                         break;
                     case "3":
+                        DigitalTagCreation(true);
                         break;
                     case "4":
+                        DigitalTagCreation(false);
                         break;
                     case "5":
                         return;
@@ -267,13 +271,63 @@ namespace DatabaseManager
                 }
 
                 AnalogOutput tag = new AnalogOutput(name, description, ioAddress, initValue, lowLimit, highLimit, units);
+                //tagServiceClient.AddAnalogOutput(tag);
 
 
             }
 
 
+        }
+
+        public static void DigitalTagCreation(bool input)
+        {
+            Console.Write("Enter Tag Name (ID): ");
+            string tagName = Console.ReadLine();
+
+            Console.Write("Enter Description: ");
+            string description = Console.ReadLine();
+
+            Console.Write("Enter I/O Address: ");
+            string ioAddress = Console.ReadLine();
+
+            if (input)
+            {
+                Console.Write("Enter Driver: ");
+                string driver = Console.ReadLine();
 
 
+                Console.Write("Enter On/Off Scan (true/false): ");
+                bool onOffScan;
+                while (!bool.TryParse(Console.ReadLine(), out onOffScan))
+                {
+                    Console.Write("Invalid input. Please enter true or false for On/Off Scan: ");
+                }
+
+                Console.Write("Enter Scan Time (in milliseconds): ");
+                int scanTime;
+                while (!int.TryParse(Console.ReadLine(), out scanTime))
+                {
+                    Console.Write("Invalid input. Please enter a valid integer for Scan Time: ");
+                }
+
+                DigitalInput tag = new DigitalInput(tagName, description, ioAddress, driver,scanTime,onOffScan);
+                //tagServiceClient.AddDigitalOutput(tag);
+
+            }
+            else
+            {
+                Console.Write("Enter an initial value: ");
+                int initValue;
+                while (!int.TryParse(Console.ReadLine(), out initValue))
+                {
+                    Console.Write("Invalid input. Please enter valid int for initial value: ");
+                }
+
+                DigitalOutput tag = new DigitalOutput(tagName, description, ioAddress, initValue);
+                //tagServiceClient.AddDihgitalInput(tag);
+
+
+            }
 
 
 
@@ -281,71 +335,68 @@ namespace DatabaseManager
         }
 
 
-        /* List<Alarm> AlarmCreation()
+        void AlarmCreation()
         {
-            List<Alarm> alarmList = new List<Alarm>();
-
+            AnalogInput tag = new AnalogInput();
             while (true)
             {
-                Console.WriteLine("\nAlarm Menu:");
-                Console.WriteLine("1.Create An Alarm");
-                Console.WriteLine("2.Continue");
 
-                string choice = Console.ReadLine();
+                Console.Write("Enter Alarms Tag Name ");
 
-                switch (choice)
-                {
-                    case "1":
-                        break;
-                    case "2":
-                        return alarmList;
-                    default:
-                        Console.WriteLine("Invalid option. Please choose again.");
-                        break;
-                }
+                string input = Console.ReadLine();
+                // TODO tag finding logic
+                tag = null;
+                break;
 
-                Console.Write("Enter Alarm Type: ");
-                Console.WriteLine("1.Low");
-                Console.WriteLine("2.High");
-                AlarmType type;
-                while (true)
-                {
-                    string input = Console.ReadLine().ToLower();
-                    if (input == "1" || input == "2")
-                    {
-                        type = (AlarmType)int.Parse(input);
-                        break;
-                    }
-                    else
-                    {
-                        Console.Write("Invalid input. Please enter '1' or '2' for Alarm Type: ");
-                    }
-                }
-
-                Console.Write("Enter Priority (1, 2, 3): ");
-                int priority;
-                while (!int.TryParse(Console.ReadLine(), out priority) || (priority < 1 || priority > 3))
-                {
-                    Console.Write("Invalid input. Please enter 1, 2, or 3 for Priority: ");
-                }
-
-                Console.Write("Enter Threshold Value: ");
-                double threshold;
-                while (!double.TryParse(Console.ReadLine(), out threshold))
-                {
-                    Console.Write("Invalid input. Please enter a valid number for Threshold Value: ");
-                }
-
-                Console.Write("Enter Size Name the alarm is tied to: ");
-                string sizeName = Console.ReadLine();
-
-                // Add the new alarm to the list
-                alarmList.Add(new Alarm(threshold,type,priority,)); 
-
+            }
                 
+
+
+            Console.Write("Enter Alarm Type: ");
+            Console.WriteLine("1.Low");
+            Console.WriteLine("2.High");
+            AlarmType type;
+            while (true)
+            {
+                string input = Console.ReadLine().ToLower();
+                if (input == "1" || input == "2")
+                {
+                    type = (AlarmType)int.Parse(input);
+                    break;
+                }
+                else
+                {
+                    Console.Write("Invalid input. Please enter '1' or '2' for Alarm Type: ");
+                }
             }
 
-        }*/
+            Console.Write("Enter Priority (1, 2, 3): ");
+            int priority;
+            while (!int.TryParse(Console.ReadLine(), out priority) || (priority < 1 || priority > 3))
+            {
+                Console.Write("Invalid input. Please enter 1, 2, or 3 for Priority: ");
+            }
+
+            Console.Write("Enter Threshold Value: ");
+            double threshold;
+            while (!double.TryParse(Console.ReadLine(), out threshold))
+            {
+                Console.Write("Invalid input. Please enter a valid number for Threshold Value: ");
+            }
+
+            Console.Write("Enter Size Name the alarm is tied to: ");
+            string sizeName = Console.ReadLine();
+
+            Console.Write("Enter Unit which alarm uses: ");
+            string unit = Console.ReadLine();
+
+            Alarm alarm = new Alarm(threshold, type, priority, unit);
+
+            // TODO add alarm to the selected tag
+            tag.addAlarm(alarm);
+
+            
+        }
 
 
 

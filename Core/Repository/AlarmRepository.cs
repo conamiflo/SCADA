@@ -42,7 +42,7 @@ namespace Core.Repository
 
         public void LogAlarm(AlarmTrigger alarm)
         {
-            var logMessage = $"Alarm Triggered: Id={alarm.Id}, AnalogInputId={alarm.TagName}, Type={alarm.Type}, Priority={alarm.Priority}, Unit={alarm.Unit}, Timestamp={DateTime.Now}";
+            var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
         }
     }

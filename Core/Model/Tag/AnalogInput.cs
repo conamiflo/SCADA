@@ -45,6 +45,10 @@ namespace Core.Model.Tag
 
         [XmlElement("Alarm")]
         public List<Alarm> Alarms { get; set; } = new List<Alarm>();
+        public void addAlarm(Alarm.Alarm alarm)
+        {
+            Alarms.Add(alarm);
+        }
     }
         
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
+using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
 
 namespace Core.Model
 {
@@ -13,6 +16,17 @@ namespace Core.Model
     {
         [Key]
         [XmlIgnore]
+        public Alarm(double threshold, AlarmType type, int priority,string unit)
+        {
+
+            Id = DateTime.Now.GetHashCode();
+            Threshold = threshold;
+            Type = type;
+            Priority = priority;
+            Unit = unit;
+        }
+
+        [Key]
         public int Id { get; set; }
 
         [XmlAttribute("Threshold")]
