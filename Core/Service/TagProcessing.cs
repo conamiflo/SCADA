@@ -9,9 +9,7 @@ namespace Core.Service
 {
     public class TagProcessing
     {
-
-        
-        public static void getValues(object t)
+        public static void getValuesAnalog(object t)
         {
             AnalogInput tag = (AnalogInput)t;
             while (true)
@@ -31,27 +29,42 @@ namespace Core.Service
                         value = tag.LowLimit;
                     }
                     processAlarms(value, tag.Alarms, tag.TagName);
-
                 }
-
-
+                Thread.Sleep((int)tag.ScanTime);
             }
         }
 
+        public static void getValuesDigital(object t)
+        {
+            DigitalInput tag = (DigitalInput)t;
+            while (true)
+            {
+                if (!tag.IsOn) break;
 
+                if (tag.Driver.Equals("Sim"))
+                {
+                    double value = SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
+                }
+                Thread.Sleep((int)tag.ScanTime);
+            }
+        }
 
         public static void StartProcessing() {
 
             //get all input tags
-            List<AnalogInput> tags= new List<AnalogInput>();
+            List<AnalogInput> analogTags= new List<AnalogInput>();
+            List<DigitalInput> digitalTags = new List<DigitalInput>();
 
-
-            foreach (Tag t in tags)
+            foreach (AnalogInput t in analogTags)
             {
-
-                Thread thread = new Thread(new ParameterizedThreadStart(getValues));
+                Thread thread = new Thread(new ParameterizedThreadStart(getValuesAnalog));
                 thread.Start(t);
+            }
 
+            foreach (DigitalInput t in digitalTags)
+            {
+                Thread thread = new Thread(new ParameterizedThreadStart(getValuesDigital));
+                thread.Start(t);
             }
 
         }
@@ -68,7 +81,7 @@ namespace Core.Service
                 }
             }
 
-            // TODO prikazati alarme
+            // TODO prikazati alarme i sacuvati trigere
         }
 
     }
