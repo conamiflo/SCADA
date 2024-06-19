@@ -47,7 +47,7 @@ namespace Core.Service
         {
             _alarmRepository.LogAlarm(alarm);
         }
-        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, SortOption sortOption)
+        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, bool sortOption)
         {
             var alarms = _alarmRepository.GetAllAlarms()
                                          .Where(a => a.Timestamp >= startTime && a.Timestamp <= endTime);
@@ -55,16 +55,15 @@ namespace Core.Service
             return SortAlarms(alarms, sortOption);
         }
 
-        private IEnumerable<AlarmTrigger> SortAlarms(IEnumerable<AlarmTrigger> alarms, SortOption sortOption)
+        private IEnumerable<AlarmTrigger> SortAlarms(IEnumerable<AlarmTrigger> alarms, bool sortOption)
         {
-            switch (sortOption)
+            if (sortOption)
             {
-                case SortOption.Priority:
-                    return alarms.OrderByDescending(a => a.Priority).ThenBy(a => a.Timestamp);
-                case SortOption.Timestamp:
-                    return alarms.OrderBy(a => a.Timestamp);
-                default:
-                    throw new ArgumentException("Invalid sort option");
+                return alarms.OrderByDescending(a => a.Priority).ThenBy(a => a.Timestamp);
+            }
+            else
+            {
+                return alarms.OrderBy(a => a.Timestamp);
             }
         }
 
