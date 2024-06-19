@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Repository.IRepository
 {
-    internal interface IAlarmRepository
+    public interface IAlarmRepository
     {
         void Add(AlarmTrigger alarm);
         void Remove(AlarmTrigger alarm);
