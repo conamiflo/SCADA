@@ -17,7 +17,7 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver, IRTUAdressService
     {
 
         public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
@@ -29,6 +29,7 @@ namespace Core
         public ITagValueService tagValueService;
         public TagProcessing tagProcessing;
         public RealTimeDriver realTimeDriver;
+        public IRTUAdressService rtuAdressService;
 
         public CoreService()
         {
@@ -36,6 +37,7 @@ namespace Core
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
             tagValueService = new TagValueService(new TagValueRepository());
+            rtuAdressService = new RTUAdressService(new  RTUAdressRepository());
             tagProcessing = new TagProcessing(tagService,this);
             realTimeDriver = new RealTimeDriver();
         }
@@ -365,6 +367,31 @@ namespace Core
         public double GetRealTimeUnitValue(string IOAdress)
         {
             return realTimeDriver.GetRealTimeUnitValue(IOAdress);
+        }
+
+        public void AddRTUAdress(RTUAdress address)
+        {
+            rtuAdressService.AddRTUAdress(address);
+        }
+
+        public bool DeleteRTUAdress(string address)
+        {
+            return rtuAdressService.DeleteRTUAdress(address);
+        }
+
+        public RTUAdress GetRTUAdress(string address)
+        {
+            return rtuAdressService.GetRTUAdress(address);
+        }
+
+        public List<RTUAdress> GetRTUAdresses()
+        {
+            return rtuAdressService.GetRTUAdresses();
+        }
+
+        public RTUAdress UpdateRTUAdress(RTUAdress address)
+        {
+            return rtuAdressService.UpdateRTUAdress(address);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Core.Service.IService;
+﻿using Core.Model;
+using Core.Repository;
+using Core.Service.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,13 @@ namespace Core.Service
     {
         public static string ContainerName { get; private set; } = "KeyContainer";
         public Dictionary<string,double> RTUs = new Dictionary<string,double>();
+
+        private readonly IRTUAdressService _rtuAdressService;
+
+        public RealTimeDriver()
+        {
+            _rtuAdressService = new RTUAdressService(new RTUAdressRepository());
+        }
 
         public void SendMessage(string message, byte[] signature)
         {
@@ -63,7 +72,10 @@ namespace Core.Service
                 string address = parts[0];
                 double value = double.Parse(parts[1]);
 
-                //napraviti provere da li vec postoji u xmlu itd i upisati ga u xml
+                if (_rtuAdressService.GetRTUAdress(address) == null)
+                {
+                    _rtuAdressService.AddRTUAdress(new RTUAdress(address));
+                }
 
                 RTUs[address] = value;
             }
