@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using System.Web.ApplicationServices;
 using Core.Model;
 using Core.Model.Tag;
 using Core.Service.IService;
@@ -11,22 +12,30 @@ namespace Core.Service
     public class TagProcessing
     {
         public static Dictionary<string,Thread> activeTags = new Dictionary<string, Thread>();
+        public static CoreService coreService;
 
-        public TagProcessing(ITagService tagService)
+        public TagProcessing(ITagService tagService,CoreService coreServiceInstance)
         {
             StartProcessing(tagService);
+            coreService = coreServiceInstance;
         }
 
-        public static void getValuesAnalog(object t)
+        public void getValuesAnalog(object t)
         {
             AnalogInput tag = (AnalogInput)t;
             while (true)
             {
-                if (!tag.IsOn)break;
+                double value = 0;
+
+                if (!tag.IsOn)
+                {
+                    activeTags.Remove(tag.TagName);
+                    break;
+                }
 
                 if (tag.Driver.Equals("Sim"))
                 {
-                    double value=SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
+                    value=SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
 
                     if (value > tag.HighLimit)
                     {
@@ -36,8 +45,20 @@ namespace Core.Service
                     {
                         value = tag.LowLimit;
                     }
-                    processAlarms(value, tag.Alarms, tag.TagName);
+                    
                 }
+                else if(tag.Driver.Equals("RTD"))
+                {
+                    //TODO rtd logika
+                }
+                else
+                {
+                    break;
+                }
+
+                processAlarms(value, tag.Alarms, tag.TagName);
+                coreService.addTagValue(tag.TagName, value);
+
                 Thread.Sleep((int)tag.ScanTime);
             }
         }
@@ -47,17 +68,35 @@ namespace Core.Service
             DigitalInput tag = (DigitalInput)t;
             while (true)
             {
-                if (!tag.IsOn) break;
+                if (!tag.IsOn)
+                {
+                    activeTags.Remove(tag.TagName);
+                    break;
+                }
+
+                double value = 0;
 
                 if (tag.Driver.Equals("Sim"))
                 {
-                    double value = SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
+                    value = SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
+
                 }
+                else if (tag.Driver.Equals("RTD"))
+                {
+                    //TODO rtd logika
+                }
+                else
+                {
+                    break;
+                }
+
+                coreService.addTagValue(tag.TagName, value);
+
                 Thread.Sleep((int)tag.ScanTime);
             }
         }
 
-        public static void StartProcessing(ITagService tagService) {
+        public void StartProcessing(ITagService tagService) {
             List<AnalogInput> analogTags = tagService.GetAllAnalogInputs();
             List<DigitalInput> digitalTags = tagService.GetAllDigitalInputs();
 
@@ -65,19 +104,29 @@ namespace Core.Service
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesAnalog));
                 thread.Start(t);
-                activeTags.Add(t.TagName, thread);
+
+                if (!activeTags.ContainsKey(t.TagName))
+                {
+                    activeTags.Add(t.TagName, thread);
+                }
             }
 
             foreach (DigitalInput t in digitalTags)
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesDigital));
                 thread.Start(t);
-                activeTags.Add(t.TagName, thread);
+
+                if (!activeTags.ContainsKey(t.TagName))
+                {
+                    activeTags.Add(t.TagName, thread);
+                }
             }
         }
 
-        static void processAlarms(double value,List<Alarm> alarms, string tagName)
+        void processAlarms(double value,List<Alarm> alarms, string tagName)
         {
+            if (alarms == null) return;
+
             List<AlarmTrigger> triggers = new List<AlarmTrigger>();
 
             foreach (Alarm a in alarms)
@@ -91,33 +140,42 @@ namespace Core.Service
             // TODO prikazati alarme i sacuvati trigere
         }
 
-        public static void deleteTag(string tagName)
+        public void deleteTag(string tagName)
         {
             if (activeTags.ContainsKey(tagName))
             {
                 Thread thread = activeTags[tagName];
                 thread.Abort();
                 activeTags.Remove(tagName);
+                coreService.removeTag(tagName);
             }
         }
 
-        public static void addAnalogTag(AnalogInput tag)
+        public void addAnalogTag(AnalogInput t)
         {
-            if (! activeTags.ContainsKey(tag.TagName))
+            if (! activeTags.ContainsKey(t.TagName))
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesAnalog));
-                thread.Start(tag);
-                activeTags.Add(tag.TagName, thread);
+                thread.Start(t);
+
+                if (!activeTags.ContainsKey(t.TagName))
+                {
+                    activeTags.Add(t.TagName, thread);
+                }
             }
         }
 
-        public static void addDigitalTag(DigitalInput tag)
+        public void addDigitalTag(DigitalInput t)
         {
-            if (!activeTags.ContainsKey(tag.TagName))
+            if (!activeTags.ContainsKey(t.TagName))
             {
                 Thread thread = new Thread(new ParameterizedThreadStart(getValuesDigital));
-                thread.Start(tag);
-                activeTags.Add(tag.TagName, thread);
+                thread.Start(t);
+
+                if (!activeTags.ContainsKey(t.TagName))
+                {
+                    activeTags.Add(t.TagName, thread);
+                }
             }
         }
 

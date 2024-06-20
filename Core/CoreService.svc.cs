@@ -16,15 +16,23 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService, ITagValueService
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService
     {
 
-        public Dictionary<string, IAlarmCallback> CallbackChannels = new Dictionary<string, IAlarmCallback>();
+        public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
+        public static List<ITrendingCallback> trendingCallbacks = new List<ITrendingCallback>();
+
 
         public IUserService userService;
         public ITagService tagService;
         public IAlarmService alarmService;
         public ITagValueService tagValueService;
+        public TagProcessing tagProcessing;
+
+
+
+
+
 
         public CoreService()
         {
@@ -32,8 +40,9 @@ namespace Core
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
             tagValueService = new TagValueService(new TagValueRepository());
-        }
+            tagProcessing = new TagProcessing(tagService,this);
 
+        }
 
         public string Login(string username, string password)
         {
@@ -52,11 +61,15 @@ namespace Core
         public void AddAnalogInput(AnalogInput analogInput)
         {
             tagService.AddAnalogInput(analogInput);
+            tagProcessing.addAnalogTag(analogInput);
+
         }
 
         public bool DeleteTag(string id)
         {
+            tagProcessing.deleteTag(id);
             return tagService.DeleteTag(id);
+
         }
 
         public AnalogInput GetAnalogInput(string id)
@@ -95,6 +108,8 @@ namespace Core
         public void AddDigitalInput(DigitalInput digitalInput)
         {
             tagService.AddDigitalInput(digitalInput);
+            tagProcessing.addDigitalTag(digitalInput);
+
         }
 
         public DigitalInput GetDigitalInput(string id)
@@ -116,6 +131,8 @@ namespace Core
         {
             tagService.AddDigitalOutput(digitalOutput);
         }
+
+
         public DigitalOutput GetDigitalOutput(string id)
         {
             return tagService.GetDigitalOutput(id);
@@ -149,7 +166,7 @@ namespace Core
             return alarmService.GetAllAlarms();
         }
 
-        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, Core.Service.AlarmService.SortOption sortOption)
+        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, bool sortOption)
         {
             return alarmService.GetAlarmsInPeriod(startTime, endTime, sortOption);
         }
@@ -163,7 +180,7 @@ namespace Core
         {
             alarmService.LogAlarm(alarm);
 
-            foreach (var callback in CallbackChannels.Values)
+            foreach (var callback in alarmCallbacks)
             {
                 callback.AlarmTriggered($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}");
             }
@@ -217,6 +234,113 @@ namespace Core
         public OutputsValue UpdateOutputsValue(OutputsValue outputsValue)
         {
             return tagValueService.UpdateOutputsValue(outputsValue);
+        public void SubscribeToTrending()
+        {
+            var a = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
+            trendingCallbacks.Add(a);
+
+            Dictionary<string, double> tags = new Dictionary<string, double>();
+
+            var analInput = tagService.GetAllAnalogInputs();
+            var analOutput = tagService.GetAllAnalogOutputs();
+            var digInput = tagService.GetAllDigitalInputs();
+            var digOutput = tagService.GetAllDigitalOutputs();
+
+            foreach (var item in analInput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in analOutput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in digInput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in digOutput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
+            foreach (var callback in trendingCallbacks)
+            {
+                try
+                {
+                    callback.initTagTable(tags);
+                    activeCallbacks.Add(callback);
+                }
+                catch (Exception e)
+                {
+
+                }
+
+            }
+            trendingCallbacks = activeCallbacks;
+        }
+
+        public void addTagValue(string tagName, double value)
+        {
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
+            foreach (var callback in trendingCallbacks)
+            {
+                try
+                {
+                    callback.addTagValue(tagName, value);
+                    activeCallbacks.Add(callback);
+
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            trendingCallbacks = activeCallbacks;
+
+        }
+
+        public void removeTag(string tagName)
+        {
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
+            foreach (var callback in trendingCallbacks)
+            {
+                try
+                {
+                    callback.removeTag(tagName);
+                    activeCallbacks.Add(callback);
+
+                }
+                catch (Exception e)
+                {
+                }
+            }
+            trendingCallbacks = activeCallbacks;
+        }
+
+        public void ToggleTagScan(string inputTag, bool isOn,bool isAnalog)
+        {
+            tagService.ToggleTagScan(inputTag, isOn, isAnalog);
+
+            if (isAnalog)
+            {
+                AnalogInput analogInput = GetAnalogInput(inputTag);
+                analogInput.IsOn = isOn;
+
+                if (isOn)
+                {
+                    tagProcessing.addAnalogTag(analogInput);
+                }
+            }
+            else
+            {
+                DigitalInput digitalInput = GetDigitalInput(inputTag);
+                digitalInput.IsOn = isOn;
+
+                if (isOn)
+                {
+                    tagProcessing.addDigitalTag(digitalInput);
+                }
+            }
         }
     }
 }

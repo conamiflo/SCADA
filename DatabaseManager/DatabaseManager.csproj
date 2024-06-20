@@ -65,6 +65,9 @@
     <None Include="Connected Services\CoreService\CoreService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\CoreService\CoreService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\DataSources\Core.Model.AlarmTrigger.datasource" />
     <None Include="Properties\DataSources\Core.Model.Tag.AnalogInput.datasource" />
     <None Include="Properties\DataSources\Core.Model.Tag.AnalogOutput.datasource" />

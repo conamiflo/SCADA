@@ -430,15 +430,9 @@ namespace DatabaseManager
             string confirmation = Console.ReadLine().ToLower();
             if (confirmation.Equals("y"))
             {
-                input.IsOn = !input.IsOn;
-                if (input is AnalogInput)
-                {
-                    tagServiceClient.UpdateAnalogInput(input);
-                }
-                else
-                {
-                    tagServiceClient.UpdateDigitalInput(input);
-                }
+                
+                tagServiceClient.ToggleTagScan(input.TagName,!input.IsOn,tagType.Equals("AnalogInput"));
+
                 Console.WriteLine("Tag changed successfully.");
             }
         }
@@ -493,8 +487,6 @@ namespace DatabaseManager
                 Console.Write("Invalid input. Please enter a valid number for Threshold Value: ");
             }
 
-            Console.Write("Enter Size Name the alarm is tied to: ");
-            string sizeName = Console.ReadLine();
 
             Console.Write("Enter Unit which alarm uses: ");
             string unit = Console.ReadLine();

@@ -57,5 +57,10 @@ namespace Core.Model
             Unit = alarm.Unit;
             TagValue = tagValue;
         }
+
+        public override string ToString()
+        {
+            return $"Alarm Triggered: Id={Id}, Type={Type}, Priority={Priority}, Threshold={Threshold}, Timestamp={Timestamp}";
+        }
     }
 }

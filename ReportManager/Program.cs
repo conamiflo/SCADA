@@ -1,15 +1,29 @@
-﻿using System;
+﻿using ReportManager.CoreService;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
+using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ReportManager
-{
+{   
     class Program
     {
+        public class Callback : CoreService.IAlarmServiceCallback
+        {
+            public void AlarmTriggered(string message)
+            {
+                Console.WriteLine(message);
+            }
+        }
+
+        public static AlarmServiceClient alarmServiceClient = new CoreService.AlarmServiceClient(new InstanceContext(new Callback()));
+        public static TagServiceClient tagServiceClient = new CoreService.TagServiceClient();
+
         static void Main(string[] args)
         {
             Menu();
@@ -170,10 +184,18 @@ namespace ReportManager
             }
 
             sortByPriority = GetBooleanFromUser("Choose to sort by priority or time (p or t): ", "p");
-
-            //stavti kod koji ce pozvati servis i ispisati sve alarme izmedju perioda start i end date i sortiran po sortByPriority ako je true ili time ako je false
+            printAlarmTriggers(alarmServiceClient.GetAlarmsInPeriod(startDate, endDate, sortByPriority).ToList());
 
         }
+
+        public static void printAlarmTriggers(List<AlarmTrigger> alarms)
+        {
+            foreach (AlarmTrigger alarmTrigger in alarms) {
+
+                Console.WriteLine(alarmTrigger);
+            }
+        }
+
 
         public static void getAlarmsByPriority()
         {
@@ -187,7 +209,8 @@ namespace ReportManager
                 Console.WriteLine("Quiting getting all alarms of a specific priority.");
                 return;
             }
-            //kod koji ce dobaviti alarme prioriteta priority i ispisati ih sortirane po vremenu
+
+            printAlarmTriggers(alarmServiceClient.GetAlarmsByPriority(priority).ToList());
         }
 
         public static void getTagValuesInTimePeriod()

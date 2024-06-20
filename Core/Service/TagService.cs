@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.PeerToPeer;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Web;
 
@@ -14,12 +15,11 @@ namespace Core.Service
     public class TagService : ITagService
     {
         private readonly ITagRepository _tagRepository;
-        private TagProcessing TagProcessing;
 
         public TagService(ITagRepository tagRepository)
         {
             _tagRepository = tagRepository;
-            TagProcessing = new TagProcessing(this);
+           
         }
 
         public void AddAnalogInput(AnalogInput analogInput)
@@ -53,12 +53,10 @@ namespace Core.Service
                 throw new ArgumentException("Units cannot be null or empty.");
             }
             _tagRepository.AddAnalogInput(analogInput);
-            TagProcessing.addAnalogTag(analogInput);
         }
 
         public bool DeleteTag(string id)
         {
-            TagProcessing.deleteTag(id);
             return _tagRepository.DeleteTag(id);
         }
 
@@ -67,10 +65,6 @@ namespace Core.Service
             return _tagRepository.GetAnalogInput(id);
         }
 
-        public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
-        {
-            return _tagRepository.UpdateAnalogInput(analogInput);
-        }
 
         public List<AnalogInput> GetAllAnalogInputs()
         {
@@ -88,11 +82,7 @@ namespace Core.Service
             return _tagRepository.GetAnalogOutput(id);
         }
 
-        public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
-        {
-            ValidateTagProperties(analogOutput);
-            return _tagRepository.UpdateAnalogOutput(analogOutput);
-        }
+
 
         public List<AnalogOutput> GetAllAnalogOutputs()
         {
@@ -103,18 +93,33 @@ namespace Core.Service
         {
             ValidateTagProperties(digitalInput);
             _tagRepository.AddDigitalInput(digitalInput);
-            TagProcessing.addDigitalTag(digitalInput);
+        }
+
+        public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
+        {
+            
+            return _tagRepository.UpdateAnalogInput(analogInput);
         }
 
         public DigitalInput GetDigitalInput(string id)
         {
             return _tagRepository.GetDigitalInput(id);
         }
-
+        public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
+        {
+            ValidateTagProperties(analogOutput);
+            return _tagRepository.UpdateAnalogOutput(analogOutput);
+        }
         public DigitalInput UpdateDigitalInput(DigitalInput digitalInput)
         {
             ValidateTagProperties(digitalInput);
             return _tagRepository.UpdateDigitalInput(digitalInput);
+        }
+
+        public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
+        {
+            ValidateTagProperties(digitalOutput);
+            return _tagRepository.UpdateDigitalOutput(digitalOutput);
         }
 
         public List<DigitalInput> GetAllDigitalInputs()
@@ -132,11 +137,7 @@ namespace Core.Service
             return _tagRepository.GetDigitalOutput(id);
         }
 
-        public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)
-        {
-            ValidateTagProperties(digitalOutput);
-            return _tagRepository.UpdateDigitalOutput(digitalOutput);
-        }
+
 
         public List<DigitalOutput> GetAllDigitalOutputs()
         {
@@ -156,6 +157,25 @@ namespace Core.Service
             if (string.IsNullOrEmpty(tag.IOAddress))
             {
                 throw new ArgumentException("IOAddress cannot be null or empty.");
+            }
+        }
+
+
+        public void ToggleTagScan(string inputTag,bool isOn,bool isAnalog)
+        {
+            
+            if (isAnalog)
+            {
+                AnalogInput analogInput = GetAnalogInput(inputTag);
+                analogInput.IsOn = isOn;
+                UpdateAnalogInput(analogInput);
+
+            }
+            else
+            {
+                DigitalInput digitalInput = GetDigitalInput(inputTag);
+                digitalInput.IsOn = isOn;
+                UpdateDigitalInput(digitalInput);
             }
         }
     }

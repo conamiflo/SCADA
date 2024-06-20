@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ReportManager.CoreService {
+namespace Trending.CoreService {
     using System.Runtime.Serialization;
     using System;
     
@@ -17,10 +17,10 @@ namespace ReportManager.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReportManager.CoreService.AnalogOutput))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReportManager.CoreService.DigitalInput))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReportManager.CoreService.DigitalOutput))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(ReportManager.CoreService.AnalogInput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Trending.CoreService.AnalogOutput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Trending.CoreService.DigitalInput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Trending.CoreService.DigitalOutput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Trending.CoreService.AnalogInput))]
     public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -98,7 +98,7 @@ namespace ReportManager.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    public partial class AnalogOutput : ReportManager.CoreService.Tag {
+    public partial class AnalogOutput : Trending.CoreService.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double HighLimitField;
@@ -169,7 +169,7 @@ namespace ReportManager.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    public partial class DigitalInput : ReportManager.CoreService.Tag {
+    public partial class DigitalInput : Trending.CoreService.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DriverField;
@@ -224,7 +224,7 @@ namespace ReportManager.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DigitalOutput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    public partial class DigitalOutput : ReportManager.CoreService.Tag {
+    public partial class DigitalOutput : Trending.CoreService.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int InitialValueField;
@@ -247,10 +247,10 @@ namespace ReportManager.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    public partial class AnalogInput : ReportManager.CoreService.Tag {
+    public partial class AnalogInput : Trending.CoreService.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ReportManager.CoreService.Alarm[] AlarmsField;
+        private Trending.CoreService.Alarm[] AlarmsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DriverField;
@@ -271,7 +271,7 @@ namespace ReportManager.CoreService {
         private string UnitsField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ReportManager.CoreService.Alarm[] Alarms {
+        public Trending.CoreService.Alarm[] Alarms {
             get {
                 return this.AlarmsField;
             }
@@ -381,7 +381,7 @@ namespace ReportManager.CoreService {
         private double ThresholdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ReportManager.CoreService.AlarmType TypeField;
+        private Trending.CoreService.AlarmType TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnitField;
@@ -436,7 +436,7 @@ namespace ReportManager.CoreService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ReportManager.CoreService.AlarmType Type {
+        public Trending.CoreService.AlarmType Type {
             get {
                 return this.TypeField;
             }
@@ -510,7 +510,7 @@ namespace ReportManager.CoreService {
         private System.DateTime TimestampField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ReportManager.CoreService.AlarmType TypeField;
+        private Trending.CoreService.AlarmType TypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UnitField;
@@ -604,7 +604,7 @@ namespace ReportManager.CoreService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ReportManager.CoreService.AlarmType Type {
+        public Trending.CoreService.AlarmType Type {
             get {
                 return this.TypeField;
             }
@@ -639,6 +639,17 @@ namespace ReportManager.CoreService {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmService.SortOption", Namespace="http://schemas.datacontract.org/2004/07/Core.Service")]
+    public enum AlarmServiceSortOption : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Priority = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Timestamp = 1,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IUserService")]
     public interface IUserService {
@@ -663,12 +674,12 @@ namespace ReportManager.CoreService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IUserServiceChannel : ReportManager.CoreService.IUserService, System.ServiceModel.IClientChannel {
+    public interface IUserServiceChannel : Trending.CoreService.IUserService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UserServiceClient : System.ServiceModel.ClientBase<ReportManager.CoreService.IUserService>, ReportManager.CoreService.IUserService {
+    public partial class UserServiceClient : System.ServiceModel.ClientBase<Trending.CoreService.IUserService>, Trending.CoreService.IUserService {
         
         public UserServiceClient() {
         }
@@ -719,133 +730,121 @@ namespace ReportManager.CoreService {
     public interface ITagService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
-        void AddAnalogInput(ReportManager.CoreService.AnalogInput analogInput);
+        void AddAnalogInput(Trending.CoreService.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
-        System.Threading.Tasks.Task AddAnalogInputAsync(ReportManager.CoreService.AnalogInput analogInput);
+        System.Threading.Tasks.Task AddAnalogInputAsync(Trending.CoreService.AnalogInput analogInput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        bool DeleteAnalogInput(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        bool DeleteTag(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTagAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        void ToggleTagScan(string id, bool isOn, bool isAnalog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
-        ReportManager.CoreService.AnalogInput GetAnalogInput(string id);
+        Trending.CoreService.AnalogInput GetAnalogInput(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput> GetAnalogInputAsync(string id);
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogInput> GetAnalogInputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
-        ReportManager.CoreService.AnalogInput UpdateAnalogInput(ReportManager.CoreService.AnalogInput analogInput);
+        Trending.CoreService.AnalogInput UpdateAnalogInput(Trending.CoreService.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput> UpdateAnalogInputAsync(ReportManager.CoreService.AnalogInput analogInput);
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogInput> UpdateAnalogInputAsync(Trending.CoreService.AnalogInput analogInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
-        ReportManager.CoreService.AnalogInput[] GetAllAnalogInputs();
+        Trending.CoreService.AnalogInput[] GetAllAnalogInputs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput[]> GetAllAnalogInputsAsync();
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogInput[]> GetAllAnalogInputsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
-        void AddAnalogOutput(ReportManager.CoreService.AnalogOutput analogOutput);
+        void AddAnalogOutput(Trending.CoreService.AnalogOutput analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
-        System.Threading.Tasks.Task AddAnalogOutputAsync(ReportManager.CoreService.AnalogOutput analogOutput);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        bool DeleteAnalogOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id);
+        System.Threading.Tasks.Task AddAnalogOutputAsync(Trending.CoreService.AnalogOutput analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
-        ReportManager.CoreService.AnalogOutput GetAnalogOutput(string id);
+        Trending.CoreService.AnalogOutput GetAnalogOutput(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput> GetAnalogOutputAsync(string id);
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput> GetAnalogOutputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
-        ReportManager.CoreService.AnalogOutput UpdateAnalogOutput(ReportManager.CoreService.AnalogOutput analogOutput);
+        Trending.CoreService.AnalogOutput UpdateAnalogOutput(Trending.CoreService.AnalogOutput analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput> UpdateAnalogOutputAsync(ReportManager.CoreService.AnalogOutput analogOutput);
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput> UpdateAnalogOutputAsync(Trending.CoreService.AnalogOutput analogOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
-        ReportManager.CoreService.AnalogOutput[] GetAllAnalogOutputs();
+        Trending.CoreService.AnalogOutput[] GetAllAnalogOutputs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync();
+        System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
-        void AddDigitalInput(ReportManager.CoreService.DigitalInput digitalInput);
+        void AddDigitalInput(Trending.CoreService.DigitalInput digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
-        System.Threading.Tasks.Task AddDigitalInputAsync(ReportManager.CoreService.DigitalInput digitalInput);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        bool DeleteDigitalInput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id);
+        System.Threading.Tasks.Task AddDigitalInputAsync(Trending.CoreService.DigitalInput digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
-        ReportManager.CoreService.DigitalInput GetDigitalInput(string id);
+        Trending.CoreService.DigitalInput GetDigitalInput(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput> GetDigitalInputAsync(string id);
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalInput> GetDigitalInputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
-        ReportManager.CoreService.DigitalInput UpdateDigitalInput(ReportManager.CoreService.DigitalInput digitalInput);
+        Trending.CoreService.DigitalInput UpdateDigitalInput(Trending.CoreService.DigitalInput digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput> UpdateDigitalInputAsync(ReportManager.CoreService.DigitalInput digitalInput);
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalInput> UpdateDigitalInputAsync(Trending.CoreService.DigitalInput digitalInput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
-        ReportManager.CoreService.DigitalInput[] GetAllDigitalInputs();
+        Trending.CoreService.DigitalInput[] GetAllDigitalInputs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput[]> GetAllDigitalInputsAsync();
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalInput[]> GetAllDigitalInputsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
-        void AddDigitalOutput(ReportManager.CoreService.DigitalOutput digitalOutput);
+        void AddDigitalOutput(Trending.CoreService.DigitalOutput digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
-        System.Threading.Tasks.Task AddDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        bool DeleteDigitalOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id);
+        System.Threading.Tasks.Task AddDigitalOutputAsync(Trending.CoreService.DigitalOutput digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
-        ReportManager.CoreService.DigitalOutput GetDigitalOutput(string id);
+        Trending.CoreService.DigitalOutput GetDigitalOutput(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput> GetDigitalOutputAsync(string id);
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput> GetDigitalOutputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
-        ReportManager.CoreService.DigitalOutput UpdateDigitalOutput(ReportManager.CoreService.DigitalOutput digitalOutput);
+        Trending.CoreService.DigitalOutput UpdateDigitalOutput(Trending.CoreService.DigitalOutput digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput> UpdateDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput);
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput> UpdateDigitalOutputAsync(Trending.CoreService.DigitalOutput digitalOutput);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
-        ReportManager.CoreService.DigitalOutput[] GetAllDigitalOutputs();
+        Trending.CoreService.DigitalOutput[] GetAllDigitalOutputs();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync();
+        System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ITagServiceChannel : ReportManager.CoreService.ITagService, System.ServiceModel.IClientChannel {
+    public interface ITagServiceChannel : Trending.CoreService.ITagService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TagServiceClient : System.ServiceModel.ClientBase<ReportManager.CoreService.ITagService>, ReportManager.CoreService.ITagService {
+    public partial class TagServiceClient : System.ServiceModel.ClientBase<Trending.CoreService.ITagService>, Trending.CoreService.ITagService {
         
         public TagServiceClient() {
         }
@@ -866,212 +865,196 @@ namespace ReportManager.CoreService {
                 base(binding, remoteAddress) {
         }
         
-        public void AddAnalogInput(ReportManager.CoreService.AnalogInput analogInput) {
+        public void AddAnalogInput(Trending.CoreService.AnalogInput analogInput) {
             base.Channel.AddAnalogInput(analogInput);
         }
         
-        public System.Threading.Tasks.Task AddAnalogInputAsync(ReportManager.CoreService.AnalogInput analogInput) {
+        public System.Threading.Tasks.Task AddAnalogInputAsync(Trending.CoreService.AnalogInput analogInput) {
             return base.Channel.AddAnalogInputAsync(analogInput);
         }
         
-        public bool DeleteAnalogInput(string id) {
-            return base.Channel.DeleteAnalogInput(id);
+        public bool DeleteTag(string id) {
+            return base.Channel.DeleteTag(id);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id) {
-            return base.Channel.DeleteAnalogInputAsync(id);
+        public System.Threading.Tasks.Task<bool> DeleteTagAsync(string id) {
+            return base.Channel.DeleteTagAsync(id);
         }
         
-        public ReportManager.CoreService.AnalogInput GetAnalogInput(string id) {
+        public void ToggleTagScan(string id, bool isOn, bool isAnalog) {
+            base.Channel.ToggleTagScan(id, isOn, isAnalog);
+        }
+        
+        public System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog) {
+            return base.Channel.ToggleTagScanAsync(id, isOn, isAnalog);
+        }
+        
+        public Trending.CoreService.AnalogInput GetAnalogInput(string id) {
             return base.Channel.GetAnalogInput(id);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput> GetAnalogInputAsync(string id) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogInput> GetAnalogInputAsync(string id) {
             return base.Channel.GetAnalogInputAsync(id);
         }
         
-        public ReportManager.CoreService.AnalogInput UpdateAnalogInput(ReportManager.CoreService.AnalogInput analogInput) {
+        public Trending.CoreService.AnalogInput UpdateAnalogInput(Trending.CoreService.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInput(analogInput);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput> UpdateAnalogInputAsync(ReportManager.CoreService.AnalogInput analogInput) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogInput> UpdateAnalogInputAsync(Trending.CoreService.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInputAsync(analogInput);
         }
         
-        public ReportManager.CoreService.AnalogInput[] GetAllAnalogInputs() {
+        public Trending.CoreService.AnalogInput[] GetAllAnalogInputs() {
             return base.Channel.GetAllAnalogInputs();
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogInput[]> GetAllAnalogInputsAsync() {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogInput[]> GetAllAnalogInputsAsync() {
             return base.Channel.GetAllAnalogInputsAsync();
         }
         
-        public void AddAnalogOutput(ReportManager.CoreService.AnalogOutput analogOutput) {
+        public void AddAnalogOutput(Trending.CoreService.AnalogOutput analogOutput) {
             base.Channel.AddAnalogOutput(analogOutput);
         }
         
-        public System.Threading.Tasks.Task AddAnalogOutputAsync(ReportManager.CoreService.AnalogOutput analogOutput) {
+        public System.Threading.Tasks.Task AddAnalogOutputAsync(Trending.CoreService.AnalogOutput analogOutput) {
             return base.Channel.AddAnalogOutputAsync(analogOutput);
         }
         
-        public bool DeleteAnalogOutput(string id) {
-            return base.Channel.DeleteAnalogOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id) {
-            return base.Channel.DeleteAnalogOutputAsync(id);
-        }
-        
-        public ReportManager.CoreService.AnalogOutput GetAnalogOutput(string id) {
+        public Trending.CoreService.AnalogOutput GetAnalogOutput(string id) {
             return base.Channel.GetAnalogOutput(id);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput> GetAnalogOutputAsync(string id) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput> GetAnalogOutputAsync(string id) {
             return base.Channel.GetAnalogOutputAsync(id);
         }
         
-        public ReportManager.CoreService.AnalogOutput UpdateAnalogOutput(ReportManager.CoreService.AnalogOutput analogOutput) {
+        public Trending.CoreService.AnalogOutput UpdateAnalogOutput(Trending.CoreService.AnalogOutput analogOutput) {
             return base.Channel.UpdateAnalogOutput(analogOutput);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput> UpdateAnalogOutputAsync(ReportManager.CoreService.AnalogOutput analogOutput) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput> UpdateAnalogOutputAsync(Trending.CoreService.AnalogOutput analogOutput) {
             return base.Channel.UpdateAnalogOutputAsync(analogOutput);
         }
         
-        public ReportManager.CoreService.AnalogOutput[] GetAllAnalogOutputs() {
+        public Trending.CoreService.AnalogOutput[] GetAllAnalogOutputs() {
             return base.Channel.GetAllAnalogOutputs();
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync() {
+        public System.Threading.Tasks.Task<Trending.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync() {
             return base.Channel.GetAllAnalogOutputsAsync();
         }
         
-        public void AddDigitalInput(ReportManager.CoreService.DigitalInput digitalInput) {
+        public void AddDigitalInput(Trending.CoreService.DigitalInput digitalInput) {
             base.Channel.AddDigitalInput(digitalInput);
         }
         
-        public System.Threading.Tasks.Task AddDigitalInputAsync(ReportManager.CoreService.DigitalInput digitalInput) {
+        public System.Threading.Tasks.Task AddDigitalInputAsync(Trending.CoreService.DigitalInput digitalInput) {
             return base.Channel.AddDigitalInputAsync(digitalInput);
         }
         
-        public bool DeleteDigitalInput(string id) {
-            return base.Channel.DeleteDigitalInput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id) {
-            return base.Channel.DeleteDigitalInputAsync(id);
-        }
-        
-        public ReportManager.CoreService.DigitalInput GetDigitalInput(string id) {
+        public Trending.CoreService.DigitalInput GetDigitalInput(string id) {
             return base.Channel.GetDigitalInput(id);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput> GetDigitalInputAsync(string id) {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalInput> GetDigitalInputAsync(string id) {
             return base.Channel.GetDigitalInputAsync(id);
         }
         
-        public ReportManager.CoreService.DigitalInput UpdateDigitalInput(ReportManager.CoreService.DigitalInput digitalInput) {
+        public Trending.CoreService.DigitalInput UpdateDigitalInput(Trending.CoreService.DigitalInput digitalInput) {
             return base.Channel.UpdateDigitalInput(digitalInput);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput> UpdateDigitalInputAsync(ReportManager.CoreService.DigitalInput digitalInput) {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalInput> UpdateDigitalInputAsync(Trending.CoreService.DigitalInput digitalInput) {
             return base.Channel.UpdateDigitalInputAsync(digitalInput);
         }
         
-        public ReportManager.CoreService.DigitalInput[] GetAllDigitalInputs() {
+        public Trending.CoreService.DigitalInput[] GetAllDigitalInputs() {
             return base.Channel.GetAllDigitalInputs();
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalInput[]> GetAllDigitalInputsAsync() {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalInput[]> GetAllDigitalInputsAsync() {
             return base.Channel.GetAllDigitalInputsAsync();
         }
         
-        public void AddDigitalOutput(ReportManager.CoreService.DigitalOutput digitalOutput) {
+        public void AddDigitalOutput(Trending.CoreService.DigitalOutput digitalOutput) {
             base.Channel.AddDigitalOutput(digitalOutput);
         }
         
-        public System.Threading.Tasks.Task AddDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput) {
+        public System.Threading.Tasks.Task AddDigitalOutputAsync(Trending.CoreService.DigitalOutput digitalOutput) {
             return base.Channel.AddDigitalOutputAsync(digitalOutput);
         }
         
-        public bool DeleteDigitalOutput(string id) {
-            return base.Channel.DeleteDigitalOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id) {
-            return base.Channel.DeleteDigitalOutputAsync(id);
-        }
-        
-        public ReportManager.CoreService.DigitalOutput GetDigitalOutput(string id) {
+        public Trending.CoreService.DigitalOutput GetDigitalOutput(string id) {
             return base.Channel.GetDigitalOutput(id);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput> GetDigitalOutputAsync(string id) {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput> GetDigitalOutputAsync(string id) {
             return base.Channel.GetDigitalOutputAsync(id);
         }
         
-        public ReportManager.CoreService.DigitalOutput UpdateDigitalOutput(ReportManager.CoreService.DigitalOutput digitalOutput) {
+        public Trending.CoreService.DigitalOutput UpdateDigitalOutput(Trending.CoreService.DigitalOutput digitalOutput) {
             return base.Channel.UpdateDigitalOutput(digitalOutput);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput> UpdateDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput) {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput> UpdateDigitalOutputAsync(Trending.CoreService.DigitalOutput digitalOutput) {
             return base.Channel.UpdateDigitalOutputAsync(digitalOutput);
         }
         
-        public ReportManager.CoreService.DigitalOutput[] GetAllDigitalOutputs() {
+        public Trending.CoreService.DigitalOutput[] GetAllDigitalOutputs() {
             return base.Channel.GetAllDigitalOutputs();
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync() {
+        public System.Threading.Tasks.Task<Trending.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync() {
             return base.Channel.GetAllDigitalOutputsAsync();
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IAlarmService", CallbackContract=typeof(ReportManager.CoreService.IAlarmServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IAlarmService", CallbackContract=typeof(Trending.CoreService.IAlarmServiceCallback))]
     public interface IAlarmService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
-        void AddAlarm(ReportManager.CoreService.AlarmTrigger alarm);
+        void AddAlarm(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/AddAlarm", ReplyAction="http://tempuri.org/IAlarmService/AddAlarmResponse")]
-        System.Threading.Tasks.Task AddAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm);
+        System.Threading.Tasks.Task AddAlarmAsync(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
-        void RemoveAlarm(ReportManager.CoreService.AlarmTrigger alarm);
+        void RemoveAlarm(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/RemoveAlarm", ReplyAction="http://tempuri.org/IAlarmService/RemoveAlarmResponse")]
-        System.Threading.Tasks.Task RemoveAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm);
+        System.Threading.Tasks.Task RemoveAlarmAsync(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmById", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmByIdResponse")]
-        ReportManager.CoreService.AlarmTrigger GetAlarmById(int id);
+        Trending.CoreService.AlarmTrigger GetAlarmById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmById", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmByIdResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger> GetAlarmByIdAsync(int id);
+        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger> GetAlarmByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
-        ReportManager.CoreService.AlarmTrigger[] GetAllAlarms();
+        Trending.CoreService.AlarmTrigger[] GetAllAlarms();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAllAlarms", ReplyAction="http://tempuri.org/IAlarmService/GetAllAlarmsResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAllAlarmsAsync();
+        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAllAlarmsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/LogAlarm", ReplyAction="http://tempuri.org/IAlarmService/LogAlarmResponse")]
-        void LogAlarm(ReportManager.CoreService.AlarmTrigger alarm);
+        void LogAlarm(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/LogAlarm", ReplyAction="http://tempuri.org/IAlarmService/LogAlarmResponse")]
-        System.Threading.Tasks.Task LogAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm);
+        System.Threading.Tasks.Task LogAlarmAsync(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        ReportManager.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption);
+        Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption);
+        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
-        ReportManager.CoreService.AlarmTrigger[] GetAlarmsByPriority(int priority);
+        Trending.CoreService.AlarmTrigger[] GetAlarmsByPriority(int priority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
-        System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority);
+        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1082,12 +1065,12 @@ namespace ReportManager.CoreService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAlarmServiceChannel : ReportManager.CoreService.IAlarmService, System.ServiceModel.IClientChannel {
+    public interface IAlarmServiceChannel : Trending.CoreService.IAlarmService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AlarmServiceClient : System.ServiceModel.DuplexClientBase<ReportManager.CoreService.IAlarmService>, ReportManager.CoreService.IAlarmService {
+    public partial class AlarmServiceClient : System.ServiceModel.DuplexClientBase<Trending.CoreService.IAlarmService>, Trending.CoreService.IAlarmService {
         
         public AlarmServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -1109,60 +1092,121 @@ namespace ReportManager.CoreService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void AddAlarm(ReportManager.CoreService.AlarmTrigger alarm) {
+        public void AddAlarm(Trending.CoreService.AlarmTrigger alarm) {
             base.Channel.AddAlarm(alarm);
         }
         
-        public System.Threading.Tasks.Task AddAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm) {
+        public System.Threading.Tasks.Task AddAlarmAsync(Trending.CoreService.AlarmTrigger alarm) {
             return base.Channel.AddAlarmAsync(alarm);
         }
         
-        public void RemoveAlarm(ReportManager.CoreService.AlarmTrigger alarm) {
+        public void RemoveAlarm(Trending.CoreService.AlarmTrigger alarm) {
             base.Channel.RemoveAlarm(alarm);
         }
         
-        public System.Threading.Tasks.Task RemoveAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm) {
+        public System.Threading.Tasks.Task RemoveAlarmAsync(Trending.CoreService.AlarmTrigger alarm) {
             return base.Channel.RemoveAlarmAsync(alarm);
         }
         
-        public ReportManager.CoreService.AlarmTrigger GetAlarmById(int id) {
+        public Trending.CoreService.AlarmTrigger GetAlarmById(int id) {
             return base.Channel.GetAlarmById(id);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger> GetAlarmByIdAsync(int id) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger> GetAlarmByIdAsync(int id) {
             return base.Channel.GetAlarmByIdAsync(id);
         }
         
-        public ReportManager.CoreService.AlarmTrigger[] GetAllAlarms() {
+        public Trending.CoreService.AlarmTrigger[] GetAllAlarms() {
             return base.Channel.GetAllAlarms();
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAllAlarmsAsync() {
+        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAllAlarmsAsync() {
             return base.Channel.GetAllAlarmsAsync();
         }
         
-        public void LogAlarm(ReportManager.CoreService.AlarmTrigger alarm) {
+        public void LogAlarm(Trending.CoreService.AlarmTrigger alarm) {
             base.Channel.LogAlarm(alarm);
         }
         
-        public System.Threading.Tasks.Task LogAlarmAsync(ReportManager.CoreService.AlarmTrigger alarm) {
+        public System.Threading.Tasks.Task LogAlarmAsync(Trending.CoreService.AlarmTrigger alarm) {
             return base.Channel.LogAlarmAsync(alarm);
         }
         
-        public ReportManager.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
+        public Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption) {
             return base.Channel.GetAlarmsInPeriod(startTime, endTime, sortOption);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption) {
             return base.Channel.GetAlarmsInPeriodAsync(startTime, endTime, sortOption);
         }
         
-        public ReportManager.CoreService.AlarmTrigger[] GetAlarmsByPriority(int priority) {
+        public Trending.CoreService.AlarmTrigger[] GetAlarmsByPriority(int priority) {
             return base.Channel.GetAlarmsByPriority(priority);
         }
         
-        public System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority) {
             return base.Channel.GetAlarmsByPriorityAsync(priority);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITrendingService", CallbackContract=typeof(Trending.CoreService.ITrendingServiceCallback))]
+    public interface ITrendingService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        void SubscribeToTrending();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        System.Threading.Tasks.Task SubscribeToTrendingAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/initTagTable")]
+        void initTagTable(System.Collections.Generic.Dictionary<string, double> tags);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/addTagValue")]
+        void addTagValue(string tagName, double value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/removeTag")]
+        void removeTag(string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceChannel : Trending.CoreService.ITrendingService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TrendingServiceClient : System.ServiceModel.DuplexClientBase<Trending.CoreService.ITrendingService>, Trending.CoreService.ITrendingService {
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void SubscribeToTrending() {
+            base.Channel.SubscribeToTrending();
+        }
+        
+        public System.Threading.Tasks.Task SubscribeToTrendingAsync() {
+            return base.Channel.SubscribeToTrendingAsync();
         }
     }
 }
