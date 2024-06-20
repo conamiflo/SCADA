@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 
 namespace Core.Repository
@@ -17,6 +18,7 @@ namespace Core.Repository
         public AlarmRepository()
         {
             _context = new SCADAContext();
+            _context.AlarmTriggers.RemoveRange(_context.AlarmTriggers);
         }
 
         public IEnumerable<AlarmTrigger> GetAllAlarms()
@@ -43,7 +45,7 @@ namespace Core.Repository
 
         public void LogAlarm(AlarmTrigger alarm)
         {
-            var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}";
+            var logMessage = $"Alarm Triggered: Id={alarm.Id},Tag={alarm.TagName},Tag value= {alarm.TagValue} ,Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={alarm.Timestamp}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
             Add(alarm);
         }

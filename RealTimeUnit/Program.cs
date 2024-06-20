@@ -27,7 +27,6 @@ namespace RealTimeUnit
 
             double value = rtu.GenerateRandomValue();
             string message = $"{rtu.DriverAddress}:{value}";
-            Console.WriteLine(value);
 
             byte[] signature = rtu.SignMessage(message, out byte[] h);
 
@@ -38,7 +37,6 @@ namespace RealTimeUnit
             while (true)
             {
                 value = rtu.GenerateRandomValue();
-                Console.WriteLine(value);
                 message = $"{rtu.DriverAddress}:{value}";
 
                 signature = rtu.SignMessage(message, out byte[] hash);

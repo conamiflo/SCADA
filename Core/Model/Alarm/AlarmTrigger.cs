@@ -58,9 +58,9 @@ namespace Core.Model
             TagValue = tagValue;
         }
 
-        public override string ToString()
+        public string toString()
         {
-            return $"Alarm Triggered: Id={Id}, Type={Type}, Priority={Priority}, Threshold={Threshold}, Timestamp={Timestamp}";
+            return $"Alarm Triggered: Id={Id},Tag={TagName},Tag value= {TagValue} ,Type={Type}, Priority={Priority}, Threshold={Threshold}, Timestamp={Timestamp}";
         }
     }
 }

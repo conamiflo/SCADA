@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.PeerToPeer;
+using System.Runtime.Remoting.Contexts;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
@@ -177,7 +178,7 @@ namespace Core
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < alarm.Priority; i++)
             {
-                sb.AppendLine($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}\n");
+                sb.AppendLine($"Alarm Triggered: Id={alarm.Id},Tag={alarm.TagName},Tag value= {alarm.TagValue} ,Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={alarm.Timestamp}\n");
             }
             string message = sb.ToString();
             foreach (var callback in alarmCallbacks)

@@ -190,9 +190,9 @@ namespace ReportManager
 
         public static void printAlarmTriggers(List<AlarmTrigger> alarms)
         {
-            foreach (AlarmTrigger alarmTrigger in alarms) {
+            foreach (AlarmTrigger alarm in alarms) {
 
-                Console.WriteLine(alarmTrigger);
+                Console.WriteLine($"Alarm Triggered: Id={alarm.Id},Tag={alarm.TagName},Tag value= {alarm.TagValue} ,Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={alarm.Timestamp}");
             }
         }
 

@@ -60,12 +60,12 @@ namespace Core.Service
             if (VerifySignedMessage(hash, signature))
             {
                 string[] parts = message.Split(':');
-                string adress = parts[0];
+                string address = parts[0];
                 double value = double.Parse(parts[1]);
 
                 //napraviti provere da li vec postoji u xmlu itd i upisati ga u xml
 
-                RTUs[adress] = value;
+                RTUs[address] = value;
             }
             else
             {
