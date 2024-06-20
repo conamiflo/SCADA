@@ -26,6 +26,8 @@ namespace Core
         public IUserService userService;
         public ITagService tagService;
         public IAlarmService alarmService;
+        public TagProcessing tagProcessing;
+
 
 
 
@@ -36,7 +38,7 @@ namespace Core
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
-            new TagProcessing(tagService,this);
+            tagProcessing = new TagProcessing(tagService,this);
 
         }
 
@@ -57,11 +59,15 @@ namespace Core
         public void AddAnalogInput(AnalogInput analogInput)
         {
             tagService.AddAnalogInput(analogInput);
+            tagProcessing.addAnalogTag(analogInput);
+
         }
 
         public bool DeleteTag(string id)
         {
+            tagProcessing.deleteTag(id);
             return tagService.DeleteTag(id);
+
         }
 
         public AnalogInput GetAnalogInput(string id)
@@ -100,6 +106,8 @@ namespace Core
         public void AddDigitalInput(DigitalInput digitalInput)
         {
             tagService.AddDigitalInput(digitalInput);
+            tagProcessing.addDigitalTag(digitalInput);
+
         }
 
         public DigitalInput GetDigitalInput(string id)
@@ -261,7 +269,28 @@ namespace Core
 
         public void ToggleTagScan(string inputTag, bool isOn,bool isAnalog)
         {
-            tagService.ToggleTagScan(inputTag, isOn,isAnalog);
+            tagService.ToggleTagScan(inputTag, isOn, isAnalog);
+
+            if (isAnalog)
+            {
+                AnalogInput analogInput = GetAnalogInput(inputTag);
+                analogInput.IsOn = isOn;
+
+                if (isOn)
+                {
+                    tagProcessing.addAnalogTag(analogInput);
+                }
+            }
+            else
+            {
+                DigitalInput digitalInput = GetDigitalInput(inputTag);
+                digitalInput.IsOn = isOn;
+
+                if (isOn)
+                {
+                    tagProcessing.addDigitalTag(digitalInput);
+                }
+            }
         }
     }
 }

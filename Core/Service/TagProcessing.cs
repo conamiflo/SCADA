@@ -20,7 +20,7 @@ namespace Core.Service
             coreService = coreServiceInstance;
         }
 
-        public static void getValuesAnalog(object t)
+        public void getValuesAnalog(object t)
         {
             AnalogInput tag = (AnalogInput)t;
             while (true)
@@ -96,7 +96,7 @@ namespace Core.Service
             }
         }
 
-        public static void StartProcessing(ITagService tagService) {
+        public void StartProcessing(ITagService tagService) {
             List<AnalogInput> analogTags = tagService.GetAllAnalogInputs();
             List<DigitalInput> digitalTags = tagService.GetAllDigitalInputs();
 
@@ -123,7 +123,7 @@ namespace Core.Service
             }
         }
 
-        static void processAlarms(double value,List<Alarm> alarms, string tagName)
+        void processAlarms(double value,List<Alarm> alarms, string tagName)
         {
             if (alarms == null) return;
 
@@ -140,7 +140,7 @@ namespace Core.Service
             // TODO prikazati alarme i sacuvati trigere
         }
 
-        public static void deleteTag(string tagName)
+        public void deleteTag(string tagName)
         {
             if (activeTags.ContainsKey(tagName))
             {
@@ -151,7 +151,7 @@ namespace Core.Service
             }
         }
 
-        public static void addAnalogTag(AnalogInput t)
+        public void addAnalogTag(AnalogInput t)
         {
             if (! activeTags.ContainsKey(t.TagName))
             {
@@ -165,7 +165,7 @@ namespace Core.Service
             }
         }
 
-        public static void addDigitalTag(DigitalInput t)
+        public void addDigitalTag(DigitalInput t)
         {
             if (!activeTags.ContainsKey(t.TagName))
             {

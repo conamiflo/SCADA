@@ -53,12 +53,10 @@ namespace Core.Service
                 throw new ArgumentException("Units cannot be null or empty.");
             }
             _tagRepository.AddAnalogInput(analogInput);
-            TagProcessing.addAnalogTag(analogInput);
         }
 
         public bool DeleteTag(string id)
         {
-            TagProcessing.deleteTag(id);
             return _tagRepository.DeleteTag(id);
         }
 
@@ -95,7 +93,6 @@ namespace Core.Service
         {
             ValidateTagProperties(digitalInput);
             _tagRepository.AddDigitalInput(digitalInput);
-            TagProcessing.addDigitalTag(digitalInput);
         }
 
         public AnalogInput UpdateAnalogInput(AnalogInput analogInput)
@@ -173,21 +170,12 @@ namespace Core.Service
                 analogInput.IsOn = isOn;
                 UpdateAnalogInput(analogInput);
 
-                if (isOn)
-                {
-                    TagProcessing.addAnalogTag(analogInput);
-                }
             }
             else
             {
                 DigitalInput digitalInput = GetDigitalInput(inputTag);
                 digitalInput.IsOn = isOn;
                 UpdateDigitalInput(digitalInput);
-
-                if (isOn)
-                {
-                    TagProcessing.addDigitalTag(digitalInput);
-                }
             }
         }
     }
