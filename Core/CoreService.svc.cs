@@ -16,7 +16,7 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver
     {
 
         public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
@@ -27,6 +27,7 @@ namespace Core
         public IAlarmService alarmService;
         public ITagValueService tagValueService;
         public TagProcessing tagProcessing;
+        public RealTimeDriver realTimeDriver;
 
         public CoreService()
         {
@@ -35,7 +36,7 @@ namespace Core
             alarmService = new AlarmService(new AlarmRepository());
             tagValueService = new TagValueService(new TagValueRepository());
             tagProcessing = new TagProcessing(tagService,this);
-
+            realTimeDriver = new RealTimeDriver();
         }
 
         public string Login(string username, string password)
@@ -348,6 +349,21 @@ namespace Core
         {
             var a = OperationContext.Current.GetCallbackChannel<IAlarmCallback>();
             alarmCallbacks.Add(a);
+        }
+
+        public void SendMessage(string message, byte[] signature)
+        {
+            realTimeDriver.SendMessage(message, signature);
+        }
+
+        public void SubscribeRealTimeUnit(string message, byte[] signature)
+        {
+            realTimeDriver.SubscribeRealTimeUnit(message, signature);
+        }
+
+        public double GetRealTimeUnitValue(string IOAdress)
+        {
+            return realTimeDriver.GetRealTimeUnitValue(IOAdress);
         }
     }
 }

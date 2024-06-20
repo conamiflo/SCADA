@@ -37,24 +37,28 @@ namespace Core.Service
                 if (tag.Driver.Equals("Sim"))
                 {
                     value=SimulationDriver.SimulationDriver.ReturnValue(tag.IOAddress);
-
-                    if (value > tag.HighLimit)
-                    {
-                        value = tag.HighLimit;
-                    }
-                    else if(value < tag.LowLimit)
-                    {
-                        value = tag.LowLimit;
-                    }
-                    
                 }
                 else if(tag.Driver.Equals("RTD"))
                 {
-                    //TODO rtd logika
+                    value = coreService.GetRealTimeUnitValue(tag.IOAddress);
+                    if (value == Double.NegativeInfinity)
+                    {
+                        Thread.Sleep((int)tag.ScanTime);
+                        continue;
+                    }
                 }
                 else
                 {
                     break;
+                }
+
+                if (value > tag.HighLimit)
+                {
+                    value = tag.HighLimit;
+                }
+                else if (value < tag.LowLimit)
+                {
+                    value = tag.LowLimit;
                 }
 
                 InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
@@ -87,7 +91,12 @@ namespace Core.Service
                 }
                 else if (tag.Driver.Equals("RTD"))
                 {
-                    //TODO rtd logika
+                    value = coreService.GetRealTimeUnitValue(tag.IOAddress);
+                    if (value == Double.NegativeInfinity)
+                    {
+                        Thread.Sleep((int)tag.ScanTime);
+                        continue;
+                    }
                 }
                 else
                 {

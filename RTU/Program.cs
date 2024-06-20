@@ -1,12 +1,10 @@
-﻿using RealTimeUnit.CoreService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealTimeUnit
+namespace RTU
 {
     public class Program
     {
@@ -23,11 +21,10 @@ namespace RealTimeUnit
             Console.Write("Enter upper limit for values: ");
             double upperLimit = int.Parse(Console.ReadLine());
 
-            RTU rtu = new RTU(driverAddress, lowerLimit, upperLimit);
+            RealTimeUnit rtu = new RealTimeUnit(driverAddress, lowerLimit, upperLimit);
 
             double value = rtu.GenerateRandomValue();
             string message = $"{rtu.DriverAddress}:{value}";
-            Console.WriteLine(value);
 
             byte[] signature = rtu.SignMessage(message, out byte[] h);
 
@@ -38,7 +35,6 @@ namespace RealTimeUnit
             while (true)
             {
                 value = rtu.GenerateRandomValue();
-                Console.WriteLine(value);
                 message = $"{rtu.DriverAddress}:{value}";
 
                 signature = rtu.SignMessage(message, out byte[] hash);

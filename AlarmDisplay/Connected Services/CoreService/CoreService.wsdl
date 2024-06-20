@@ -913,6 +913,24 @@
   <wsdl:message name="ITrendingService_removeTag_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:removeTag" />
   </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_SubscribeRealTimeUnit_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeRealTimeUnit" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_SubscribeRealTimeUnit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubscribeRealTimeUnitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_GetRealTimeUnitValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRealTimeUnitValue" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_GetRealTimeUnitValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRealTimeUnitValueResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="Registration">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Registration" message="tns:IUserService_Registration_InputMessage" />
@@ -1051,6 +1069,20 @@
     </wsdl:operation>
     <wsdl:operation name="removeTag">
       <wsdl:output wsaw:Action="http://tempuri.org/ITrendingService/removeTag" message="tns:ITrendingService_removeTag_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRealTimeDriver">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/SendMessage" message="tns:IRealTimeDriver_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/SendMessageResponse" message="tns:IRealTimeDriver_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeRealTimeUnit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit" message="tns:IRealTimeDriver_SubscribeRealTimeUnit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnitResponse" message="tns:IRealTimeDriver_SubscribeRealTimeUnit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeUnitValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue" message="tns:IRealTimeDriver_GetRealTimeUnitValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse" message="tns:IRealTimeDriver_GetRealTimeUnitValue_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
@@ -1383,6 +1415,36 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRealTimeDriver" type="tns:IRealTimeDriver">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubscribeRealTimeUnit">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRealTimeUnitValue">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="CoreService">
     <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
       <soap:address location="http://localhost:50508/CoreService.svc/UserService" />
@@ -1407,6 +1469,9 @@
           <Upn>DESKTOP-445ODN7\Stefan Djurica</Upn>
         </Identity>
       </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRealTimeDriver" binding="tns:BasicHttpBinding_IRealTimeDriver">
+      <soap:address location="http://localhost:50508/CoreService.svc/RealTimeDriver" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

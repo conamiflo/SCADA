@@ -4,5 +4,5 @@
     <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
     <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
   </Tag>
-  <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="10000" IsOn="true" Driver="Kita" />
+  <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="10000" IsOn="true" Driver="RTD" />
 </ArrayOfTag>

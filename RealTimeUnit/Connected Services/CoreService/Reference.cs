@@ -1212,4 +1212,79 @@ namespace RealTimeUnit.CoreService {
             return base.Channel.SubscribeToTrendingAsync();
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IRealTimeDriver")]
+    public interface IRealTimeDriver {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
+        void SendMessage(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
+        System.Threading.Tasks.Task SendMessageAsync(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit", ReplyAction="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnitResponse")]
+        void SubscribeRealTimeUnit(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit", ReplyAction="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnitResponse")]
+        System.Threading.Tasks.Task SubscribeRealTimeUnitAsync(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue", ReplyAction="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse")]
+        double GetRealTimeUnitValue(string IOAdress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue", ReplyAction="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse")]
+        System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRealTimeDriverChannel : RealTimeUnit.CoreService.IRealTimeDriver, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RealTimeDriverClient : System.ServiceModel.ClientBase<RealTimeUnit.CoreService.IRealTimeDriver>, RealTimeUnit.CoreService.IRealTimeDriver {
+        
+        public RealTimeDriverClient() {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RealTimeDriverClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void SendMessage(string message, byte[] signature) {
+            base.Channel.SendMessage(message, signature);
+        }
+        
+        public System.Threading.Tasks.Task SendMessageAsync(string message, byte[] signature) {
+            return base.Channel.SendMessageAsync(message, signature);
+        }
+        
+        public void SubscribeRealTimeUnit(string message, byte[] signature) {
+            base.Channel.SubscribeRealTimeUnit(message, signature);
+        }
+        
+        public System.Threading.Tasks.Task SubscribeRealTimeUnitAsync(string message, byte[] signature) {
+            return base.Channel.SubscribeRealTimeUnitAsync(message, signature);
+        }
+        
+        public double GetRealTimeUnitValue(string IOAdress) {
+            return base.Channel.GetRealTimeUnitValue(IOAdress);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress) {
+            return base.Channel.GetRealTimeUnitValueAsync(IOAdress);
+        }
+    }
 }

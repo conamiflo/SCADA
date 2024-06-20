@@ -7,23 +7,22 @@ using System.Threading.Tasks;
 
 namespace RealTimeUnit
 {
-    public class RealTimeUnit
+    public class RTU
     {
         public string DriverAddress { get; set; }
-        public int LowLimit { get; set; }
-        public int HighLimit { get; set; }
+        public double LowLimit { get; set; }
+        public double HighLimit { get; set; }
 
-        public RealTimeUnit(string address, int lowLimit, int highLimit)
+        public RTU(string address, double lowLimit, double highLimit)
         {
             DriverAddress = address;
             LowLimit = lowLimit;
             HighLimit = highLimit;
         }
 
-        public int GenerateRandomValue()
+        public double GenerateRandomValue()
         {
-            Random rand = new Random();
-            return rand.Next(LowLimit, HighLimit + 1);
+            return new Random().NextDouble() * (HighLimit - LowLimit) + LowLimit;
         }
 
         public byte[] SignMessage(string message, out byte[] hashValue)
