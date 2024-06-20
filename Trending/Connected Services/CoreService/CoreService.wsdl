@@ -672,8 +672,7 @@
       <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag" />
       <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Core.Model" />
-      <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Core.Service" />
-      <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_Registration_InputMessage">
@@ -1329,7 +1328,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:50508/CoreService.svc/AlarmService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-9RSTEVF\Kita</Upn>
+          <Upn>DESKTOP-445ODN7\Stefan Djurica</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -1338,7 +1337,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:50508/CoreService.svc/TrendingService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-9RSTEVF\Kita</Upn>
+          <Upn>DESKTOP-445ODN7\Stefan Djurica</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

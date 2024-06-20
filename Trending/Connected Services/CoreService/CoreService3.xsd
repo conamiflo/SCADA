@@ -2,8 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag" />
   <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Core.Model" />
-  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Core.Service" />
-  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Registration">
     <xs:complexType>
       <xs:sequence>
@@ -351,14 +350,14 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
         <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Service" minOccurs="0" name="sortOption" type="q26:AlarmService.SortOption" />
+        <xs:element minOccurs="0" name="sortOption" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAlarmsInPeriodResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q27:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q26:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -372,7 +371,7 @@
   <xs:element name="GetAlarmsByPriorityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q28:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q27:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -396,7 +395,7 @@
   <xs:element name="initTagTable">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q29:ArrayOfKeyValueOfstringdouble" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q28:ArrayOfKeyValueOfstringdouble" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

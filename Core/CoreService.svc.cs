@@ -22,17 +22,11 @@ namespace Core
         public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
         public static List<ITrendingCallback> trendingCallbacks = new List<ITrendingCallback>();
 
-
         public IUserService userService;
         public ITagService tagService;
         public IAlarmService alarmService;
         public ITagValueService tagValueService;
         public TagProcessing tagProcessing;
-
-
-
-
-
 
         public CoreService()
         {

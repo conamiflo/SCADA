@@ -243,6 +243,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppData\alarmsLog.txt" />
     <Content Include="AppData\tags.xml" />
     <Content Include="CoreService.svc" />
     <Content Include="Web.config" />

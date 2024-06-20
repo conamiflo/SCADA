@@ -724,11 +724,17 @@ namespace ReportManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
         System.Threading.Tasks.Task AddAnalogInputAsync(ReportManager.CoreService.AnalogInput analogInput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        bool DeleteAnalogInput(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        bool DeleteTag(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTagAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        void ToggleTagScan(string id, bool isOn, bool isAnalog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
         ReportManager.CoreService.AnalogInput GetAnalogInput(string id);
@@ -754,12 +760,6 @@ namespace ReportManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
         System.Threading.Tasks.Task AddAnalogOutputAsync(ReportManager.CoreService.AnalogOutput analogOutput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        bool DeleteAnalogOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
         ReportManager.CoreService.AnalogOutput GetAnalogOutput(string id);
         
@@ -784,12 +784,6 @@ namespace ReportManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
         System.Threading.Tasks.Task AddDigitalInputAsync(ReportManager.CoreService.DigitalInput digitalInput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        bool DeleteDigitalInput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
         ReportManager.CoreService.DigitalInput GetDigitalInput(string id);
         
@@ -813,12 +807,6 @@ namespace ReportManager.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
         System.Threading.Tasks.Task AddDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        bool DeleteDigitalOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
         ReportManager.CoreService.DigitalOutput GetDigitalOutput(string id);
@@ -874,12 +862,20 @@ namespace ReportManager.CoreService {
             return base.Channel.AddAnalogInputAsync(analogInput);
         }
         
-        public bool DeleteAnalogInput(string id) {
-            return base.Channel.DeleteAnalogInput(id);
+        public bool DeleteTag(string id) {
+            return base.Channel.DeleteTag(id);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id) {
-            return base.Channel.DeleteAnalogInputAsync(id);
+        public System.Threading.Tasks.Task<bool> DeleteTagAsync(string id) {
+            return base.Channel.DeleteTagAsync(id);
+        }
+        
+        public void ToggleTagScan(string id, bool isOn, bool isAnalog) {
+            base.Channel.ToggleTagScan(id, isOn, isAnalog);
+        }
+        
+        public System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog) {
+            return base.Channel.ToggleTagScanAsync(id, isOn, isAnalog);
         }
         
         public ReportManager.CoreService.AnalogInput GetAnalogInput(string id) {
@@ -914,14 +910,6 @@ namespace ReportManager.CoreService {
             return base.Channel.AddAnalogOutputAsync(analogOutput);
         }
         
-        public bool DeleteAnalogOutput(string id) {
-            return base.Channel.DeleteAnalogOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id) {
-            return base.Channel.DeleteAnalogOutputAsync(id);
-        }
-        
         public ReportManager.CoreService.AnalogOutput GetAnalogOutput(string id) {
             return base.Channel.GetAnalogOutput(id);
         }
@@ -954,14 +942,6 @@ namespace ReportManager.CoreService {
             return base.Channel.AddDigitalInputAsync(digitalInput);
         }
         
-        public bool DeleteDigitalInput(string id) {
-            return base.Channel.DeleteDigitalInput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id) {
-            return base.Channel.DeleteDigitalInputAsync(id);
-        }
-        
         public ReportManager.CoreService.DigitalInput GetDigitalInput(string id) {
             return base.Channel.GetDigitalInput(id);
         }
@@ -992,14 +972,6 @@ namespace ReportManager.CoreService {
         
         public System.Threading.Tasks.Task AddDigitalOutputAsync(ReportManager.CoreService.DigitalOutput digitalOutput) {
             return base.Channel.AddDigitalOutputAsync(digitalOutput);
-        }
-        
-        public bool DeleteDigitalOutput(string id) {
-            return base.Channel.DeleteDigitalOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id) {
-            return base.Channel.DeleteDigitalOutputAsync(id);
         }
         
         public ReportManager.CoreService.DigitalOutput GetDigitalOutput(string id) {
@@ -1163,6 +1135,67 @@ namespace ReportManager.CoreService {
         
         public System.Threading.Tasks.Task<ReportManager.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority) {
             return base.Channel.GetAlarmsByPriorityAsync(priority);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITrendingService", CallbackContract=typeof(ReportManager.CoreService.ITrendingServiceCallback))]
+    public interface ITrendingService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        void SubscribeToTrending();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        System.Threading.Tasks.Task SubscribeToTrendingAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/initTagTable")]
+        void initTagTable(System.Collections.Generic.Dictionary<string, double> tags);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/addTagValue")]
+        void addTagValue(string tagName, double value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/removeTag")]
+        void removeTag(string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceChannel : ReportManager.CoreService.ITrendingService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TrendingServiceClient : System.ServiceModel.DuplexClientBase<ReportManager.CoreService.ITrendingService>, ReportManager.CoreService.ITrendingService {
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void SubscribeToTrending() {
+            base.Channel.SubscribeToTrending();
+        }
+        
+        public System.Threading.Tasks.Task SubscribeToTrendingAsync() {
+            return base.Channel.SubscribeToTrendingAsync();
         }
     }
 }

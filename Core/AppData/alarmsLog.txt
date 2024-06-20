@@ -1,0 +1,10 @@
+﻿Alarm Triggered: Id=1119403693, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:19 PM
+Alarm Triggered: Id=1119455436, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:19 PM
+Alarm Triggered: Id=1129030613, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:21 PM
+Alarm Triggered: Id=1128992783, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:21 PM
+Alarm Triggered: Id=1142324117, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:23 PM
+Alarm Triggered: Id=1142391008, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:23 PM
+Alarm Triggered: Id=1159966288, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:25 PM
+Alarm Triggered: Id=1159985085, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:25 PM
+Alarm Triggered: Id=1206839381, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:27 PM
+Alarm Triggered: Id=1206839381, Type=HIGH, Priority=3, Threshold=80, Timestamp=6/20/2024 1:24:27 PM

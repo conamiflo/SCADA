@@ -27,6 +27,7 @@
     <MetadataFile FileName="CoreService1.xsd" MetadataType="Schema" ID="68dad301-5947-4193-b52a-1756753aa404" SourceId="1" SourceUrl="http://localhost:50508/CoreService.svc?xsd=xsd2" />
     <MetadataFile FileName="CoreService2.xsd" MetadataType="Schema" ID="a6eeb492-785d-4d77-91e7-bde48b7a7944" SourceId="1" SourceUrl="http://localhost:50508/CoreService.svc?xsd=xsd1" />
     <MetadataFile FileName="CoreService3.xsd" MetadataType="Schema" ID="e71fb777-82b6-4800-b51c-222eb011f1c9" SourceId="1" SourceUrl="http://localhost:50508/CoreService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CoreService41.xsd" MetadataType="Schema" ID="29cd29c8-9579-46a7-98db-ecf4156d8f7b" SourceId="1" SourceUrl="http://localhost:50508/CoreService.svc?xsd=xsd4" />
     <MetadataFile FileName="CoreService.disco" MetadataType="Disco" ID="5e288820-8e39-4f6a-8346-e1a309d85e09" SourceId="1" SourceUrl="http://localhost:50508/CoreService.svc?disco" />
   </Metadata>
   <Extensions>

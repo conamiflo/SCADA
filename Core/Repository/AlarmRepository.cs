@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 
 namespace Core.Repository
 {
     public class AlarmRepository : IAlarmRepository
     {
         private readonly SCADAContext _context;
-        private readonly string logFilePath = "alarmsLog.txt";
+        private readonly string logFilePath = HttpContext.Current.Server.MapPath("~/AppData/alarmsLog.txt");
 
         public AlarmRepository()
         {
@@ -44,6 +45,7 @@ namespace Core.Repository
         {
             var logMessage = $"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}";
             File.AppendAllText(logFilePath, logMessage + Environment.NewLine);
+            Add(alarm);
         }
     }
 }

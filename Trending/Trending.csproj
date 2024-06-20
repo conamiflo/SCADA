@@ -71,9 +71,6 @@
     <None Include="Connected Services\CoreService\CoreService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\CoreService\CoreService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\CoreService\Trending.CoreService.AlarmTrigger.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

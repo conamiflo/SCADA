@@ -639,17 +639,6 @@ namespace Trending.CoreService {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlarmService.SortOption", Namespace="http://schemas.datacontract.org/2004/07/Core.Service")]
-    public enum AlarmServiceSortOption : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Priority = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Timestamp = 1,
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IUserService")]
     public interface IUserService {
@@ -1045,10 +1034,10 @@ namespace Trending.CoreService {
         System.Threading.Tasks.Task LogAlarmAsync(Trending.CoreService.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption);
+        Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption);
+        System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
         Trending.CoreService.AlarmTrigger[] GetAlarmsByPriority(int priority);
@@ -1132,11 +1121,11 @@ namespace Trending.CoreService {
             return base.Channel.LogAlarmAsync(alarm);
         }
         
-        public Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption) {
+        public Trending.CoreService.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
             return base.Channel.GetAlarmsInPeriod(startTime, endTime, sortOption);
         }
         
-        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Trending.CoreService.AlarmServiceSortOption sortOption) {
+        public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
             return base.Channel.GetAlarmsInPeriodAsync(startTime, endTime, sortOption);
         }
         

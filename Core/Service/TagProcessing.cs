@@ -134,17 +134,13 @@ namespace Core.Service
         {
             if (alarms == null) return;
 
-            List<AlarmTrigger> triggers = new List<AlarmTrigger>();
-
             foreach (Alarm a in alarms)
             {
                 if (value > a.Threshold)
                 {
-                    triggers.Add(new AlarmTrigger(a,tagName,DateTime.Now,value));
+                    coreService.LogAlarm(new AlarmTrigger(a, tagName, DateTime.Now, value));
                 }
             }
-
-            // TODO prikazati alarme i sacuvati trigere
         }
 
         public void deleteTag(string tagName)

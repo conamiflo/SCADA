@@ -406,10 +406,10 @@ namespace DatabaseManager.CoreService {
         System.Threading.Tasks.Task LogAlarmAsync(Core.Model.AlarmTrigger alarm);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption);
+        Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsInPeriod", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsInPeriodResponse")]
-        System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption);
+        System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
         Core.Model.AlarmTrigger[] GetAlarmsByPriority(int priority);
@@ -493,11 +493,11 @@ namespace DatabaseManager.CoreService {
             return base.Channel.LogAlarmAsync(alarm);
         }
         
-        public Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption) {
+        public Core.Model.AlarmTrigger[] GetAlarmsInPeriod(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
             return base.Channel.GetAlarmsInPeriod(startTime, endTime, sortOption);
         }
         
-        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, Core.Service.AlarmService.SortOption sortOption) {
+        public System.Threading.Tasks.Task<Core.Model.AlarmTrigger[]> GetAlarmsInPeriodAsync(System.DateTime startTime, System.DateTime endTime, bool sortOption) {
             return base.Channel.GetAlarmsInPeriodAsync(startTime, endTime, sortOption);
         }
         

@@ -2,7 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag" />
   <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Core.Model" />
-  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Core.Service" />
+  <xs:import schemaLocation="http://localhost:50508/CoreService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Registration">
     <xs:complexType>
       <xs:sequence>
@@ -59,18 +59,32 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogInput">
+  <xs:element name="DeleteTag">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogInputResponse">
+  <xs:element name="DeleteTagResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteAnalogInputResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DeleteTagResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleTagScan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isAnalog" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleTagScanResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAnalogInput">
@@ -125,20 +139,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteAnalogOutput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteAnalogOutputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteAnalogOutputResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetAnalogOutput">
     <xs:complexType>
       <xs:sequence>
@@ -191,20 +191,6 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteDigitalInput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalInputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteDigitalInputResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetDigitalInput">
     <xs:complexType>
       <xs:sequence>
@@ -255,20 +241,6 @@
   <xs:element name="AddDigitalOutputResponse">
     <xs:complexType>
       <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalOutput">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteDigitalOutputResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteDigitalOutputResult" type="xs:boolean" />
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDigitalOutput">
@@ -378,14 +350,14 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="startTime" type="xs:dateTime" />
         <xs:element minOccurs="0" name="endTime" type="xs:dateTime" />
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Service" minOccurs="0" name="sortOption" type="q26:AlarmService.SortOption" />
+        <xs:element minOccurs="0" name="sortOption" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAlarmsInPeriodResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q27:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q26:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -399,7 +371,7 @@
   <xs:element name="GetAlarmsByPriorityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q28:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q27:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -407,6 +379,38 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscribeToTrending">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscribeToTrendingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="initTagTable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q28:ArrayOfKeyValueOfstringdouble" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addTagValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeTag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tagName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
