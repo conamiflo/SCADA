@@ -17,6 +17,9 @@ namespace AlarmDisplay.CoreService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.CoreService.AnalogOutput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.CoreService.DigitalInput))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.CoreService.DigitalOutput))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(AlarmDisplay.CoreService.AnalogInput))]
     public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -93,12 +96,164 @@ namespace AlarmDisplay.CoreService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.SerializableAttribute()]
+    public partial class AnalogOutput : AlarmDisplay.CoreService.Tag {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HighLimitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double InitialValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LowLimitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HighLimit {
+            get {
+                return this.HighLimitField;
+            }
+            set {
+                if ((this.HighLimitField.Equals(value) != true)) {
+                    this.HighLimitField = value;
+                    this.RaisePropertyChanged("HighLimit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double InitialValue {
+            get {
+                return this.InitialValueField;
+            }
+            set {
+                if ((this.InitialValueField.Equals(value) != true)) {
+                    this.InitialValueField = value;
+                    this.RaisePropertyChanged("InitialValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LowLimit {
+            get {
+                return this.LowLimitField;
+            }
+            set {
+                if ((this.LowLimitField.Equals(value) != true)) {
+                    this.LowLimitField = value;
+                    this.RaisePropertyChanged("LowLimit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Units {
+            get {
+                return this.UnitsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitsField, value) != true)) {
+                    this.UnitsField = value;
+                    this.RaisePropertyChanged("Units");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.SerializableAttribute()]
+    public partial class DigitalInput : AlarmDisplay.CoreService.Tag {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DriverField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsOnField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ScanTimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Driver {
+            get {
+                return this.DriverField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DriverField, value) != true)) {
+                    this.DriverField = value;
+                    this.RaisePropertyChanged("Driver");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsOn {
+            get {
+                return this.IsOnField;
+            }
+            set {
+                if ((this.IsOnField.Equals(value) != true)) {
+                    this.IsOnField = value;
+                    this.RaisePropertyChanged("IsOn");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ScanTime {
+            get {
+                return this.ScanTimeField;
+            }
+            set {
+                if ((this.ScanTimeField.Equals(value) != true)) {
+                    this.ScanTimeField = value;
+                    this.RaisePropertyChanged("ScanTime");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalOutput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.SerializableAttribute()]
+    public partial class DigitalOutput : AlarmDisplay.CoreService.Tag {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InitialValueField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int InitialValue {
+            get {
+                return this.InitialValueField;
+            }
+            set {
+                if ((this.InitialValueField.Equals(value) != true)) {
+                    this.InitialValueField = value;
+                    this.RaisePropertyChanged("InitialValue");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInput", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
     public partial class AnalogInput : AlarmDisplay.CoreService.Tag {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AlarmDisplay.CoreService.Alarm[] AlarmsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DriverField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double HighLimitField;
@@ -124,6 +279,19 @@ namespace AlarmDisplay.CoreService {
                 if ((object.ReferenceEquals(this.AlarmsField, value) != true)) {
                     this.AlarmsField = value;
                     this.RaisePropertyChanged("Alarms");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Driver {
+            get {
+                return this.DriverField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DriverField, value) != true)) {
+                    this.DriverField = value;
+                    this.RaisePropertyChanged("Driver");
                 }
             }
         }
@@ -584,6 +752,102 @@ namespace AlarmDisplay.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogInput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogInputResponse")]
         System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogInput> UpdateAnalogInputAsync(AlarmDisplay.CoreService.AnalogInput analogInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
+        AlarmDisplay.CoreService.AnalogInput[] GetAllAnalogInputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogInputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogInputsResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogInput[]> GetAllAnalogInputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
+        void AddAnalogOutput(AlarmDisplay.CoreService.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
+        System.Threading.Tasks.Task AddAnalogOutputAsync(AlarmDisplay.CoreService.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
+        bool DeleteAnalogOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
+        AlarmDisplay.CoreService.AnalogOutput GetAnalogOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput> GetAnalogOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
+        AlarmDisplay.CoreService.AnalogOutput UpdateAnalogOutput(AlarmDisplay.CoreService.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateAnalogOutput", ReplyAction="http://tempuri.org/ITagService/UpdateAnalogOutputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput> UpdateAnalogOutputAsync(AlarmDisplay.CoreService.AnalogOutput analogOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
+        AlarmDisplay.CoreService.AnalogOutput[] GetAllAnalogOutputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllAnalogOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllAnalogOutputsResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
+        void AddDigitalInput(AlarmDisplay.CoreService.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
+        System.Threading.Tasks.Task AddDigitalInputAsync(AlarmDisplay.CoreService.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
+        bool DeleteDigitalInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
+        AlarmDisplay.CoreService.DigitalInput GetDigitalInput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput> GetDigitalInputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
+        AlarmDisplay.CoreService.DigitalInput UpdateDigitalInput(AlarmDisplay.CoreService.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalInput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalInputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput> UpdateDigitalInputAsync(AlarmDisplay.CoreService.DigitalInput digitalInput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
+        AlarmDisplay.CoreService.DigitalInput[] GetAllDigitalInputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalInputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalInputsResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput[]> GetAllDigitalInputsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
+        void AddDigitalOutput(AlarmDisplay.CoreService.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
+        System.Threading.Tasks.Task AddDigitalOutputAsync(AlarmDisplay.CoreService.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
+        bool DeleteDigitalOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
+        System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
+        AlarmDisplay.CoreService.DigitalOutput GetDigitalOutput(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput> GetDigitalOutputAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
+        AlarmDisplay.CoreService.DigitalOutput UpdateDigitalOutput(AlarmDisplay.CoreService.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/UpdateDigitalOutput", ReplyAction="http://tempuri.org/ITagService/UpdateDigitalOutputResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput> UpdateDigitalOutputAsync(AlarmDisplay.CoreService.DigitalOutput digitalOutput);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
+        AlarmDisplay.CoreService.DigitalOutput[] GetAllDigitalOutputs();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAllDigitalOutputs", ReplyAction="http://tempuri.org/ITagService/GetAllDigitalOutputsResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -643,6 +907,134 @@ namespace AlarmDisplay.CoreService {
         
         public System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogInput> UpdateAnalogInputAsync(AlarmDisplay.CoreService.AnalogInput analogInput) {
             return base.Channel.UpdateAnalogInputAsync(analogInput);
+        }
+        
+        public AlarmDisplay.CoreService.AnalogInput[] GetAllAnalogInputs() {
+            return base.Channel.GetAllAnalogInputs();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogInput[]> GetAllAnalogInputsAsync() {
+            return base.Channel.GetAllAnalogInputsAsync();
+        }
+        
+        public void AddAnalogOutput(AlarmDisplay.CoreService.AnalogOutput analogOutput) {
+            base.Channel.AddAnalogOutput(analogOutput);
+        }
+        
+        public System.Threading.Tasks.Task AddAnalogOutputAsync(AlarmDisplay.CoreService.AnalogOutput analogOutput) {
+            return base.Channel.AddAnalogOutputAsync(analogOutput);
+        }
+        
+        public bool DeleteAnalogOutput(string id) {
+            return base.Channel.DeleteAnalogOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id) {
+            return base.Channel.DeleteAnalogOutputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.AnalogOutput GetAnalogOutput(string id) {
+            return base.Channel.GetAnalogOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput> GetAnalogOutputAsync(string id) {
+            return base.Channel.GetAnalogOutputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.AnalogOutput UpdateAnalogOutput(AlarmDisplay.CoreService.AnalogOutput analogOutput) {
+            return base.Channel.UpdateAnalogOutput(analogOutput);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput> UpdateAnalogOutputAsync(AlarmDisplay.CoreService.AnalogOutput analogOutput) {
+            return base.Channel.UpdateAnalogOutputAsync(analogOutput);
+        }
+        
+        public AlarmDisplay.CoreService.AnalogOutput[] GetAllAnalogOutputs() {
+            return base.Channel.GetAllAnalogOutputs();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.AnalogOutput[]> GetAllAnalogOutputsAsync() {
+            return base.Channel.GetAllAnalogOutputsAsync();
+        }
+        
+        public void AddDigitalInput(AlarmDisplay.CoreService.DigitalInput digitalInput) {
+            base.Channel.AddDigitalInput(digitalInput);
+        }
+        
+        public System.Threading.Tasks.Task AddDigitalInputAsync(AlarmDisplay.CoreService.DigitalInput digitalInput) {
+            return base.Channel.AddDigitalInputAsync(digitalInput);
+        }
+        
+        public bool DeleteDigitalInput(string id) {
+            return base.Channel.DeleteDigitalInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id) {
+            return base.Channel.DeleteDigitalInputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalInput GetDigitalInput(string id) {
+            return base.Channel.GetDigitalInput(id);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput> GetDigitalInputAsync(string id) {
+            return base.Channel.GetDigitalInputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalInput UpdateDigitalInput(AlarmDisplay.CoreService.DigitalInput digitalInput) {
+            return base.Channel.UpdateDigitalInput(digitalInput);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput> UpdateDigitalInputAsync(AlarmDisplay.CoreService.DigitalInput digitalInput) {
+            return base.Channel.UpdateDigitalInputAsync(digitalInput);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalInput[] GetAllDigitalInputs() {
+            return base.Channel.GetAllDigitalInputs();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalInput[]> GetAllDigitalInputsAsync() {
+            return base.Channel.GetAllDigitalInputsAsync();
+        }
+        
+        public void AddDigitalOutput(AlarmDisplay.CoreService.DigitalOutput digitalOutput) {
+            base.Channel.AddDigitalOutput(digitalOutput);
+        }
+        
+        public System.Threading.Tasks.Task AddDigitalOutputAsync(AlarmDisplay.CoreService.DigitalOutput digitalOutput) {
+            return base.Channel.AddDigitalOutputAsync(digitalOutput);
+        }
+        
+        public bool DeleteDigitalOutput(string id) {
+            return base.Channel.DeleteDigitalOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id) {
+            return base.Channel.DeleteDigitalOutputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalOutput GetDigitalOutput(string id) {
+            return base.Channel.GetDigitalOutput(id);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput> GetDigitalOutputAsync(string id) {
+            return base.Channel.GetDigitalOutputAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalOutput UpdateDigitalOutput(AlarmDisplay.CoreService.DigitalOutput digitalOutput) {
+            return base.Channel.UpdateDigitalOutput(digitalOutput);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput> UpdateDigitalOutputAsync(AlarmDisplay.CoreService.DigitalOutput digitalOutput) {
+            return base.Channel.UpdateDigitalOutputAsync(digitalOutput);
+        }
+        
+        public AlarmDisplay.CoreService.DigitalOutput[] GetAllDigitalOutputs() {
+            return base.Channel.GetAllDigitalOutputs();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.DigitalOutput[]> GetAllDigitalOutputsAsync() {
+            return base.Channel.GetAllDigitalOutputsAsync();
         }
     }
     

@@ -12,6 +12,7 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Core.Model;
 using System.Xml.Linq;
 using Core.Service;
+using Core.Repository;
 
 namespace DatabaseManager
 {
@@ -156,8 +157,10 @@ namespace DatabaseManager
             {
                 Console.WriteLine("\nMenu:");
                 Console.WriteLine("1.Create Tag");
-                Console.WriteLine("2. Give sloppy toppy");
-                Console.WriteLine("3. Sign out");
+                Console.WriteLine("2. Create alarm");
+                Console.WriteLine("3. Remove Tag");
+                Console.WriteLine("4. Turn Scan On/Off");
+                Console.WriteLine("5. Sign out");
                 Console.Write("Choose an option (1-3): ");
 
                 string choice = Console.ReadLine();
@@ -171,6 +174,12 @@ namespace DatabaseManager
                         Console.WriteLine("\n,':/\n");
                         break;
                     case "3":
+                        TagRemoval();
+                        break;
+                    case "4":
+                        TurnScanOnOff();
+                        break;
+                    case "5":
                         Console.WriteLine("Signing out. Goodbye!");
                         return;
                     default:
@@ -285,7 +294,7 @@ namespace DatabaseManager
                 }
 
                 AnalogOutput tag = new AnalogOutput(name, description, ioAddress, initValue, lowLimit, highLimit, units);
-                //tagServiceClient.AddAnalogOutput(tag);
+                tagServiceClient.AddAnalogOutput(tag);
 
 
             }
@@ -325,7 +334,7 @@ namespace DatabaseManager
                 }
 
                 DigitalInput tag = new DigitalInput(tagName, description, ioAddress, driver,scanTime,onOffScan);
-                //tagServiceClient.AddDigitalOutput(tag);
+                tagServiceClient.AddDigitalInput(tag);
 
             }
             else
@@ -338,7 +347,7 @@ namespace DatabaseManager
                 }
 
                 DigitalOutput tag = new DigitalOutput(tagName, description, ioAddress, initValue);
-                //tagServiceClient.AddDihgitalInput(tag);
+                tagServiceClient.AddDigitalOutput(tag);
 
 
             }
@@ -346,6 +355,92 @@ namespace DatabaseManager
 
 
 
+        }
+
+        public static void TagRemoval()
+        {
+            while (true)
+            {
+
+                Console.Write("Enter Tag Name to be removed or 'x' to go back: ");
+                string input = Console.ReadLine();
+                
+                if (input.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+
+                bool tagRemoved = tagServiceClient.DeleteTag(input);
+
+                if (!tagRemoved)
+                {
+                    Console.WriteLine("Tag with given name doesnt exist, please try again.");
+                    continue;
+                }
+
+                Console.WriteLine("Tag removed successfully.");
+                break;
+
+            }
+        }
+
+        public static void TurnScanOnOff()
+        {
+            while (true)
+            {
+                Console.Write("Enter Input Tag Name or 'x' to go back: ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+                AnalogInput analogInput = tagServiceClient.GetAnalogInput(input);
+                if (analogInput != null)
+                {
+                    ToggleInput(analogInput);
+                    break;
+                }
+
+                DigitalInput digitalInput = tagServiceClient.GetDigitalInput(input);
+                if (digitalInput != null)
+                {
+                    ToggleInput(digitalInput);
+                    break;
+                }
+
+                Console.WriteLine("Tag with given name doesn't exist, please try again.");
+            }
+        }
+
+        private static void ToggleInput(dynamic input)
+        {
+            string tagType = input is AnalogInput ? "AnalogInput" : "DigitalInput";
+            if (input.IsOn)
+            {
+                Console.WriteLine($"Are you sure you want to turn off {tagType}: {input.TagName} (y/n)");
+            }
+            else
+            {
+                Console.WriteLine($"Are you sure you want to turn on {tagType}: {input.TagName} (y/n)");
+            }
+
+            string confirmation = Console.ReadLine().ToLower();
+            if (confirmation.Equals("y"))
+            {
+                input.IsOn = !input.IsOn;
+                if (input is AnalogInput)
+                {
+                    tagServiceClient.UpdateAnalogInput(input);
+                }
+                else
+                {
+                    tagServiceClient.UpdateDigitalInput(input);
+                }
+                Console.WriteLine("Tag changed successfully.");
+            }
         }
 
 

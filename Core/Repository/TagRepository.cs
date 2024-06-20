@@ -34,7 +34,7 @@ namespace Core.Repository
 
         }
 
-        public bool DeleteAnalogInput(string tagName)
+        public bool DeleteTag(string tagName)
         {
             Tag analogInputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
 
@@ -94,20 +94,6 @@ namespace Core.Repository
             SaveTagsToFile();
         }
 
-        public bool DeleteAnalogOutput(string tagName)
-        {
-            Tag analogOutputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
-
-            if (analogOutputToRemove != null && analogOutputToRemove is AnalogOutput)
-            {
-                tags.Remove(analogOutputToRemove);
-                SaveTagsToFile();
-                return true;
-            }
-
-            return false;
-        }
-
         public AnalogOutput UpdateAnalogOutput(AnalogOutput analogOutput)
         {
             AnalogOutput existingAnalogOutput = tags.FirstOrDefault(tag => tag.TagName == analogOutput.TagName) as AnalogOutput;
@@ -145,20 +131,6 @@ namespace Core.Repository
             SaveTagsToFile();
         }
 
-        public bool DeleteDigitalInput(string tagName)
-        {
-            Tag digitalInputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
-
-            if (digitalInputToRemove != null && digitalInputToRemove is DigitalInput)
-            {
-                tags.Remove(digitalInputToRemove);
-                SaveTagsToFile();
-                return true;
-            }
-
-            return false;
-        }
-
         public DigitalInput UpdateDigitalInput(DigitalInput digitalInput)
         {
             DigitalInput existingDigitalInput = tags.FirstOrDefault(tag => tag.TagName == digitalInput.TagName) as DigitalInput;
@@ -193,20 +165,6 @@ namespace Core.Repository
         {
             tags.Add(digitalOutput);
             SaveTagsToFile();
-        }
-
-        public bool DeleteDigitalOutput(string tagName)
-        {
-            Tag digitalOutputToRemove = tags.FirstOrDefault(tag => tag.TagName == tagName);
-
-            if (digitalOutputToRemove != null && digitalOutputToRemove is DigitalOutput)
-            {
-                tags.Remove(digitalOutputToRemove);
-                SaveTagsToFile();
-                return true;
-            }
-
-            return false;
         }
 
         public DigitalOutput UpdateDigitalOutput(DigitalOutput digitalOutput)

@@ -96,11 +96,11 @@ namespace DatabaseManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
         System.Threading.Tasks.Task AddAnalogInputAsync(Core.Model.Tag.AnalogInput analogInput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        bool DeleteAnalogInput(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        bool DeleteTag(string id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogInput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
+        System.Threading.Tasks.Task<bool> DeleteTagAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
         Core.Model.Tag.AnalogInput GetAnalogInput(string id);
@@ -126,12 +126,6 @@ namespace DatabaseManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogOutput", ReplyAction="http://tempuri.org/ITagService/AddAnalogOutputResponse")]
         System.Threading.Tasks.Task AddAnalogOutputAsync(Core.Model.Tag.AnalogOutput analogOutput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        bool DeleteAnalogOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteAnalogOutput", ReplyAction="http://tempuri.org/ITagService/DeleteAnalogOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogOutput", ReplyAction="http://tempuri.org/ITagService/GetAnalogOutputResponse")]
         Core.Model.Tag.AnalogOutput GetAnalogOutput(string id);
         
@@ -156,12 +150,6 @@ namespace DatabaseManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalInput", ReplyAction="http://tempuri.org/ITagService/AddDigitalInputResponse")]
         System.Threading.Tasks.Task AddDigitalInputAsync(Core.Model.Tag.DigitalInput digitalInput);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        bool DeleteDigitalInput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalInput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalInputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalInput", ReplyAction="http://tempuri.org/ITagService/GetDigitalInputResponse")]
         Core.Model.Tag.DigitalInput GetDigitalInput(string id);
         
@@ -185,12 +173,6 @@ namespace DatabaseManager.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddDigitalOutput", ReplyAction="http://tempuri.org/ITagService/AddDigitalOutputResponse")]
         System.Threading.Tasks.Task AddDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        bool DeleteDigitalOutput(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteDigitalOutput", ReplyAction="http://tempuri.org/ITagService/DeleteDigitalOutputResponse")]
-        System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetDigitalOutput", ReplyAction="http://tempuri.org/ITagService/GetDigitalOutputResponse")]
         Core.Model.Tag.DigitalOutput GetDigitalOutput(string id);
@@ -246,12 +228,12 @@ namespace DatabaseManager.CoreService {
             return base.Channel.AddAnalogInputAsync(analogInput);
         }
         
-        public bool DeleteAnalogInput(string id) {
-            return base.Channel.DeleteAnalogInput(id);
+        public bool DeleteTag(string id) {
+            return base.Channel.DeleteTag(id);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteAnalogInputAsync(string id) {
-            return base.Channel.DeleteAnalogInputAsync(id);
+        public System.Threading.Tasks.Task<bool> DeleteTagAsync(string id) {
+            return base.Channel.DeleteTagAsync(id);
         }
         
         public Core.Model.Tag.AnalogInput GetAnalogInput(string id) {
@@ -286,14 +268,6 @@ namespace DatabaseManager.CoreService {
             return base.Channel.AddAnalogOutputAsync(analogOutput);
         }
         
-        public bool DeleteAnalogOutput(string id) {
-            return base.Channel.DeleteAnalogOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteAnalogOutputAsync(string id) {
-            return base.Channel.DeleteAnalogOutputAsync(id);
-        }
-        
         public Core.Model.Tag.AnalogOutput GetAnalogOutput(string id) {
             return base.Channel.GetAnalogOutput(id);
         }
@@ -326,14 +300,6 @@ namespace DatabaseManager.CoreService {
             return base.Channel.AddDigitalInputAsync(digitalInput);
         }
         
-        public bool DeleteDigitalInput(string id) {
-            return base.Channel.DeleteDigitalInput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalInputAsync(string id) {
-            return base.Channel.DeleteDigitalInputAsync(id);
-        }
-        
         public Core.Model.Tag.DigitalInput GetDigitalInput(string id) {
             return base.Channel.GetDigitalInput(id);
         }
@@ -364,14 +330,6 @@ namespace DatabaseManager.CoreService {
         
         public System.Threading.Tasks.Task AddDigitalOutputAsync(Core.Model.Tag.DigitalOutput digitalOutput) {
             return base.Channel.AddDigitalOutputAsync(digitalOutput);
-        }
-        
-        public bool DeleteDigitalOutput(string id) {
-            return base.Channel.DeleteDigitalOutput(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteDigitalOutputAsync(string id) {
-            return base.Channel.DeleteDigitalOutputAsync(id);
         }
         
         public Core.Model.Tag.DigitalOutput GetDigitalOutput(string id) {

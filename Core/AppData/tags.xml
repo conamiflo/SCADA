@@ -5,5 +5,4 @@
     <Alarm Threshold="80" Type="HIGH" Priority="3" Unit="C" />
   </Tag>
   <Tag xsi:type="DigitalInput" TagName="aaaa" Description="asdf" IOAddress="asdf" ScanTime="10000" IsOn="true" Driver="Kita" />
-  <Tag xsi:type="AnalogInput" TagName="bb" Description="dd" IOAddress="S" ScanTime="4000" LowLimit="-100" HighLimit="100" IsOn="true" driver="Sim" Units="kita/cm2" />
 </ArrayOfTag>

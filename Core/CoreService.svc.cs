@@ -59,9 +59,9 @@ namespace Core
             tagService.AddAnalogInput(analogInput);
         }
 
-        public bool DeleteAnalogInput(string id)
+        public bool DeleteTag(string id)
         {
-            return tagService.DeleteAnalogInput(id);
+            return tagService.DeleteTag(id);
         }
 
         public AnalogInput GetAnalogInput(string id)
@@ -82,11 +82,6 @@ namespace Core
             tagService.AddAnalogOutput(analogOutput);
         }
 
-        public bool DeleteAnalogOutput(string id)
-        {
-            return tagService.DeleteAnalogOutput(id);
-        }
-
         public AnalogOutput GetAnalogOutput(string id)
         {
             return tagService.GetAnalogOutput(id);
@@ -105,11 +100,6 @@ namespace Core
         public void AddDigitalInput(DigitalInput digitalInput)
         {
             tagService.AddDigitalInput(digitalInput);
-        }
-
-        public bool DeleteDigitalInput(string id)
-        {
-            return tagService.DeleteDigitalInput(id);
         }
 
         public DigitalInput GetDigitalInput(string id)

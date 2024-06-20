@@ -61,6 +61,15 @@
     <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.AnalogInput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.AnalogOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.DigitalInput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.DigitalOutput.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CoreService\CoreService.wsdl" />
     <None Include="Connected Services\CoreService\CoreService.xsd">
       <SubType>Designer</SubType>
