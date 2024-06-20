@@ -13,7 +13,7 @@ namespace Core.Service
     {
         public static string ContainerName { get; private set; } = "MyKeyStore";
         public Dictionary<string, double> RTUs = new Dictionary<string, double>();
-        private const string EXPORT_FOLDER = @"C:\public_key\";
+        private const string EXPORT_FOLDER = @"..\public_key\";
         private const string PUBLIC_KEY_FILE = @"rsaPublicKey.txt";
 
         public RealTimeDriver()

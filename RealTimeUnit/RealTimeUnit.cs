@@ -22,7 +22,7 @@ namespace RealTimeUnit
         }
 
         private const string KEY_STORE_NAME = "MyKeyStore";
-        private const string EXPORT_FOLDER = @"C:\public_key\";
+        private const string EXPORT_FOLDER = @"..\public_key\";
         private const string PUBLIC_KEY_FILE = @"rsaPublicKey.txt";
 
         public double GenerateRandomValue()
