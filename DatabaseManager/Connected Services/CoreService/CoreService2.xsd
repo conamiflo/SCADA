@@ -42,4 +42,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAlarmTrigger" nillable="true" type="tns:ArrayOfAlarmTrigger" />
+  <xs:complexType name="RTUAdress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Adress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RTUAdress" nillable="true" type="tns:RTUAdress" />
+  <xs:complexType name="ArrayOfRTUAdress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RTUAdress" nillable="true" type="tns:RTUAdress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRTUAdress" nillable="true" type="tns:ArrayOfRTUAdress" />
 </xs:schema>

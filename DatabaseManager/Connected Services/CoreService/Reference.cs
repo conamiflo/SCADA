@@ -832,4 +832,107 @@ namespace DatabaseManager.CoreService {
             return base.Channel.GetRealTimeUnitValueAsync(IOAdress);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IRTUAdressService")]
+    public interface IRTUAdressService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        void AddRTUAdress(Core.Model.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        System.Threading.Tasks.Task AddRTUAdressAsync(Core.Model.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        bool DeleteRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        Core.Model.RTUAdress GetRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        System.Threading.Tasks.Task<Core.Model.RTUAdress> GetRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        Core.Model.RTUAdress[] GetRTUAdresses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        System.Threading.Tasks.Task<Core.Model.RTUAdress[]> GetRTUAdressesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        Core.Model.RTUAdress UpdateRTUAdress(Core.Model.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        System.Threading.Tasks.Task<Core.Model.RTUAdress> UpdateRTUAdressAsync(Core.Model.RTUAdress address);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRTUAdressServiceChannel : DatabaseManager.CoreService.IRTUAdressService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RTUAdressServiceClient : System.ServiceModel.ClientBase<DatabaseManager.CoreService.IRTUAdressService>, DatabaseManager.CoreService.IRTUAdressService {
+        
+        public RTUAdressServiceClient() {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddRTUAdress(Core.Model.RTUAdress address) {
+            base.Channel.AddRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task AddRTUAdressAsync(Core.Model.RTUAdress address) {
+            return base.Channel.AddRTUAdressAsync(address);
+        }
+        
+        public bool DeleteRTUAdress(string address) {
+            return base.Channel.DeleteRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address) {
+            return base.Channel.DeleteRTUAdressAsync(address);
+        }
+        
+        public Core.Model.RTUAdress GetRTUAdress(string address) {
+            return base.Channel.GetRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.RTUAdress> GetRTUAdressAsync(string address) {
+            return base.Channel.GetRTUAdressAsync(address);
+        }
+        
+        public Core.Model.RTUAdress[] GetRTUAdresses() {
+            return base.Channel.GetRTUAdresses();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.RTUAdress[]> GetRTUAdressesAsync() {
+            return base.Channel.GetRTUAdressesAsync();
+        }
+        
+        public Core.Model.RTUAdress UpdateRTUAdress(Core.Model.RTUAdress address) {
+            return base.Channel.UpdateRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.RTUAdress> UpdateRTUAdressAsync(Core.Model.RTUAdress address) {
+            return base.Channel.UpdateRTUAdressAsync(address);
+        }
+    }
 }

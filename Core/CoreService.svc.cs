@@ -17,7 +17,7 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver, IRTUAdressService
     {
 
         public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
@@ -27,6 +27,7 @@ namespace Core
         public ITagService tagService;
         public IAlarmService alarmService;
         public ITagValueService tagValueService;
+        public IRTUAdressService rtuAdressService;
         public TagProcessing tagProcessing;
         public RealTimeDriver realTimeDriver;
 
@@ -365,6 +366,31 @@ namespace Core
         public double GetRealTimeUnitValue(string IOAdress)
         {
             return realTimeDriver.GetRealTimeUnitValue(IOAdress);
+        }
+
+        public void AddRTUAdress(RTUAdress address)
+        {
+            rtuAdressService.AddRTUAdress(address);
+        }
+
+        public bool DeleteRTUAdress(string address)
+        {
+            return rtuAdressService.DeleteRTUAdress(address);
+        }
+
+        public RTUAdress GetRTUAdress(string address)
+        {
+            return rtuAdressService.GetRTUAdress(address);
+        }
+
+        public List<RTUAdress> GetRTUAdresses()
+        {
+            return rtuAdressService.GetRTUAdresses();
+        }
+
+        public RTUAdress UpdateRTUAdress(RTUAdress address)
+        {
+            return rtuAdressService.UpdateRTUAdress(address);
         }
     }
 }

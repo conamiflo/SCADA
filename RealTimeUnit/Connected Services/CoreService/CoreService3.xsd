@@ -283,10 +283,142 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetInputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInputsValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="GetInputsValueResult" nillable="true" type="q21:InputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOutputsValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="GetOutputsValueResult" nillable="true" type="q22:OutputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInputsValues">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllInputsValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="GetAllInputsValuesResult" nillable="true" type="q23:ArrayOfInputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOutputsValues">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllOutputsValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="GetAllOutputsValuesResult" nillable="true" type="q24:ArrayOfOutputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="inputsValue" nillable="true" type="q25:InputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInputsValueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="outputsValue" nillable="true" type="q26:OutputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOutputsValueResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveInputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveInputsValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveInputsValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOutputValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveOutputValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveOutputValueResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="inputsValue" nillable="true" type="q27:InputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInputsValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="UpdateInputsValueResult" nillable="true" type="q28:InputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOutputsValue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="outputsValue" nillable="true" type="q29:OutputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOutputsValueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Core.Model.Tag" minOccurs="0" name="UpdateOutputsValueResult" nillable="true" type="q30:OutputsValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q21:AlarmTrigger" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q31:AlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -298,7 +430,7 @@
   <xs:element name="RemoveAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q22:AlarmTrigger" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q32:AlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -317,7 +449,7 @@
   <xs:element name="GetAlarmByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmByIdResult" nillable="true" type="q23:AlarmTrigger" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmByIdResult" nillable="true" type="q33:AlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -329,14 +461,14 @@
   <xs:element name="GetAllAlarmsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAllAlarmsResult" nillable="true" type="q24:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAllAlarmsResult" nillable="true" type="q34:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LogAlarm">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q25:AlarmTrigger" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="alarm" nillable="true" type="q35:AlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -357,7 +489,7 @@
   <xs:element name="GetAlarmsInPeriodResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q26:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsInPeriodResult" nillable="true" type="q36:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -371,7 +503,7 @@
   <xs:element name="GetAlarmsByPriorityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q27:ArrayOfAlarmTrigger" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetAlarmsByPriorityResult" nillable="true" type="q37:ArrayOfAlarmTrigger" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -405,7 +537,7 @@
   <xs:element name="initTagTable">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q28:ArrayOfKeyValueOfstringdouble" />
+        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q38:ArrayOfKeyValueOfstringdouble" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -461,6 +593,72 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetRealTimeUnitValueResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTUAdress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="address" nillable="true" type="q39:RTUAdress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRTUAdressResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTUAdress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRTUAdressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRTUAdressResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTUAdress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="address" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTUAdressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetRTUAdressResult" nillable="true" type="q40:RTUAdress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTUAdresses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRTUAdressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="GetRTUAdressesResult" nillable="true" type="q41:ArrayOfRTUAdress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRTUAdress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="address" nillable="true" type="q42:RTUAdress" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRTUAdressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Core.Model" minOccurs="0" name="UpdateRTUAdressResult" nillable="true" type="q43:RTUAdress" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
