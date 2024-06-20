@@ -17,7 +17,7 @@ namespace Core.Repository
         {
             _userContext = new UserContext();
         }
-
+                
         public User AddUser(string username, string password)
         {
             if(GetUser(username) != null)

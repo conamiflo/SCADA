@@ -264,6 +264,7 @@
     <Compile Include="Repository\AlarmRepository.cs" />
     <Compile Include="Repository\IRepository\IAlarmRepository.cs" />
     <Compile Include="Repository\IRepository\ITagRepository.cs" />
+    <Compile Include="Repository\IRepository\ITagValueRepository.cs" />
     <Compile Include="Repository\IRepository\IUserRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

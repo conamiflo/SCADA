@@ -16,7 +16,7 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService
+    public class CoreService : IUserService, ITagService, IAlarmService, ITagValueService
     {
 
         public Dictionary<string, IAlarmCallback> CallbackChannels = new Dictionary<string, IAlarmCallback>();
@@ -24,12 +24,14 @@ namespace Core
         public IUserService userService;
         public ITagService tagService;
         public IAlarmService alarmService;
+        public ITagValueService tagValueService;
 
         public CoreService()
         {
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
+            tagValueService = new TagValueService(new TagValueRepository());
         }
 
 
@@ -165,6 +167,56 @@ namespace Core
             {
                 callback.AlarmTriggered($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}");
             }
+        }
+
+        public InputsValue GetInputsValue(int id)
+        {
+            return tagValueService.GetInputsValue(id);
+        }
+
+        public OutputsValue GetOutputsValue(int id)
+        {
+            return tagValueService.GetOutputsValue(id);
+        }
+
+        public List<InputsValue> GetAllInputsValues()
+        {
+            return tagValueService.GetAllInputsValues();
+        }
+
+        public List<OutputsValue> GetAllOutputsValues()
+        {
+            return tagValueService.GetAllOutputsValues();
+        }
+
+        public void AddInputsValue(InputsValue inputsValue)
+        {
+            tagValueService.AddInputsValue(inputsValue);
+        }
+
+        public void AddOutputsValue(OutputsValue outputsValue)
+        {
+            tagValueService.AddOutputsValue(outputsValue);
+        }
+
+        public bool RemoveInputsValue(int id)
+        {
+            return tagValueService.RemoveInputsValue(id);
+        }
+
+        public bool RemoveOutputValue(int id)
+        {
+            return tagValueService.RemoveOutputValue(id);
+        }
+
+        public InputsValue UpdateInputsValue(InputsValue inputsValue)
+        {
+            return tagValueService.UpdateInputsValue(inputsValue);
+        }
+
+        public OutputsValue UpdateOutputsValue(OutputsValue outputsValue)
+        {
+            return tagValueService.UpdateOutputsValue(outputsValue);
         }
     }
 }
