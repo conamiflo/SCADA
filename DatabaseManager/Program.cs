@@ -13,12 +13,16 @@ using Core.Model;
 using System.Xml.Linq;
 using Core.Service;
 using Core.Repository;
+using System.Net;
+using ValueType = Core.Model.Tag.ValueType;
 
 namespace DatabaseManager
 {
     class Program
     {
         public static TagServiceClient tagServiceClient = new CoreService.TagServiceClient();
+        public static TagValueServiceClient tagValueServiceClient = new CoreService.TagValueServiceClient();
+
 
         static void Main(string[] args)
         {
@@ -120,7 +124,9 @@ namespace DatabaseManager
                 Console.WriteLine("2. Create alarm");
                 Console.WriteLine("3. Remove Tag");
                 Console.WriteLine("4. Turn Scan On/Off");
-                Console.WriteLine("5. Sign out");
+                Console.WriteLine("5. Get Output Value");
+                Console.WriteLine("6. Change Output Value");
+                Console.WriteLine("7. Sign out");
                 Console.Write("Choose an option (1-3): ");
 
                 string choice = Console.ReadLine();
@@ -140,6 +146,12 @@ namespace DatabaseManager
                         TurnScanOnOff();
                         break;
                     case "5":
+                        getOutputValue();
+                        break;
+                    case "6":
+                        changeOutputValue();
+                        break;
+                    case "7":
                         Console.WriteLine("Signing out. Goodbye!");
                         return;
                     default:
@@ -203,8 +215,7 @@ namespace DatabaseManager
             Console.WriteLine("Enter the I/O address of the tag: ");
             string ioAddress = Console.ReadLine();
 
-            Console.Write("Enter Driver: ");
-            string driver = Console.ReadLine();
+            
 
             Console.Write("Enter Low Limit: ");
             double lowLimit;
@@ -225,6 +236,9 @@ namespace DatabaseManager
 
             if(input)
             {
+                Console.Write("Enter Driver: ");
+                string driver = Console.ReadLine();
+
                 Console.Write("Enter On/Off Scan (true/false): ");
                 bool onOffScan;
                 while (!bool.TryParse(Console.ReadLine(), out onOffScan))
@@ -457,6 +471,84 @@ namespace DatabaseManager
             tag.addAlarm(alarm);
 
             
+        }
+
+        public static void getOutputValue()
+        {
+            while (true)
+            {
+                Console.Write("Enter Input Tag Name or 'x' to go back: ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+                if(!tagServiceClient.checkOutputTagExistance(input))
+                {
+                    Console.WriteLine("Tag with given name doesn't exist, please try again.");
+                    continue;
+                }
+
+                double value = tagValueServiceClient.GetLatestTagOutputsValue(input);
+
+                Console.WriteLine("Tag: {0}, Value: {1}", input, value);
+            }
+        }
+
+        public static void changeOutputValue()
+        {
+            String IOAddress=null;
+            DateTime TimeStamp=DateTime.Now;
+            ValueType valueType=0;
+
+            while (true)
+            {
+                Console.Write("Enter Input Tag Name or 'x' to go back: ");
+                string input = Console.ReadLine();
+
+                if (input.ToLower().Equals("x"))
+                {
+                    return;
+                }
+
+                AnalogOutput analogOutput = tagServiceClient.GetAnalogOutput(input);
+                if (analogOutput != null)
+                {
+                    IOAddress= analogOutput.IOAddress;
+                    valueType = ValueType.ANALOG;
+
+
+                }
+
+                DigitalOutput digitalOutput = tagServiceClient.GetDigitalOutput(input);
+                if (digitalOutput != null)
+                {
+                    IOAddress = digitalOutput.IOAddress;
+                    valueType = ValueType.ANALOG;
+                }
+
+                if (IOAddress == null)
+                {
+                    Console.WriteLine("Tag with given name doesn't exist, please try again.");
+                    continue;
+                }
+
+                Console.Write("Enter a value: ");
+                int value;
+                while (!int.TryParse(Console.ReadLine(), out value))
+                {
+                    Console.Write("Invalid input. Please enter valid int for a value: ");
+                }
+
+                OutputsValue outputsValue=new OutputsValue(IOAddress, input, value, valueType);
+                tagValueServiceClient.AddOutputsValue(outputsValue);
+
+                Console.Write("\nValue Changed");
+
+
+            }
         }
 
 

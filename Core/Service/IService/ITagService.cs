@@ -8,6 +8,8 @@ namespace Core.Service.IService
     public interface ITagService
     {
         [OperationContract]
+         bool checkOutputTagExistance(string input);
+        [OperationContract]
         void AddAnalogInput(AnalogInput analogInput);
 
         [OperationContract]

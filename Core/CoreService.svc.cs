@@ -14,6 +14,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using ValueType = Core.Model.Tag.ValueType;
+
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
@@ -84,6 +86,8 @@ namespace Core
         public void AddAnalogOutput(AnalogOutput analogOutput)
         {
             tagService.AddAnalogOutput(analogOutput);
+            tagValueService.AddOutputsValue(new OutputsValue(analogOutput.IOAddress, analogOutput.TagName, analogOutput.InitialValue, ValueType.ANALOG));
+
         }
 
         public AnalogOutput GetAnalogOutput(string id)
@@ -126,6 +130,7 @@ namespace Core
         public void AddDigitalOutput(DigitalOutput digitalOutput)
         {
             tagService.AddDigitalOutput(digitalOutput);
+            tagValueService.AddOutputsValue(new OutputsValue (digitalOutput.IOAddress,digitalOutput.TagName,digitalOutput.InitialValue,ValueType.DIGITAL));
         }
 
 
@@ -365,6 +370,16 @@ namespace Core
         public double GetRealTimeUnitValue(string IOAdress)
         {
             return realTimeDriver.GetRealTimeUnitValue(IOAdress);
+        }
+
+        public double GetLatestTagOutputsValue(string tagName)
+        {
+            return tagValueService.GetLatestTagOutputsValue(tagName);
+        }
+
+        public bool checkOutputTagExistance(string input)
+        {
+            return tagService.checkOutputTagExistance(input);
         }
     }
 }

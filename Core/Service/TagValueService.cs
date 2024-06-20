@@ -66,5 +66,15 @@ namespace Core.Service
         {
             return _tagValueRepository.UpdateOutputsValue(outputsValue);
         }
+
+        public double GetLatestTagOutputsValue(string tagName)
+        {
+            List<OutputsValue> outputsValues = new List<OutputsValue>();
+
+            outputsValues = _tagValueRepository.GetAllOutputsValues();
+            outputsValues= outputsValues.Where(x => x.TagName == tagName).ToList();
+            outputsValues = outputsValues.OrderByDescending(x => x.TimeStamp).ToList();
+            return outputsValues[0].Value;
+        }
     }
 }

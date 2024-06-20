@@ -137,8 +137,6 @@ namespace Core.Service
             return _tagRepository.GetDigitalOutput(id);
         }
 
-
-
         public List<DigitalOutput> GetAllDigitalOutputs()
         {
             return _tagRepository.GetAllDigitalOutputs();
@@ -178,5 +176,25 @@ namespace Core.Service
                 UpdateDigitalInput(digitalInput);
             }
         }
+
+
+        public bool checkOutputTagExistance(string input)
+        {
+            AnalogOutput analogOutput = GetAnalogOutput(input);
+            if (analogOutput != null)
+            {
+                return true;
+            }
+
+            DigitalOutput digitalOutput = GetDigitalOutput(input);
+            if (digitalOutput != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
     }
 }

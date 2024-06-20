@@ -739,6 +739,12 @@
   <wsdl:message name="IUserService_Logout_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogoutResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagService_checkOutputTagExistance_InputMessage">
+    <wsdl:part name="parameters" element="tns:checkOutputTagExistance" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_checkOutputTagExistance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:checkOutputTagExistanceResponse" />
+  </wsdl:message>
   <wsdl:message name="ITagService_AddAnalogInput_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAnalogInput" />
   </wsdl:message>
@@ -847,65 +853,23 @@
   <wsdl:message name="ITagService_GetAllDigitalOutputs_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDigitalOutputsResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagValueService_GetInputsValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetInputsValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_GetInputsValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetInputsValueResponse" />
-  </wsdl:message>
   <wsdl:message name="ITagValueService_GetOutputsValue_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOutputsValue" />
   </wsdl:message>
   <wsdl:message name="ITagValueService_GetOutputsValue_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOutputsValueResponse" />
   </wsdl:message>
-  <wsdl:message name="ITagValueService_GetAllInputsValues_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllInputsValues" />
+  <wsdl:message name="ITagValueService_GetLatestTagOutputsValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestTagOutputsValue" />
   </wsdl:message>
-  <wsdl:message name="ITagValueService_GetAllInputsValues_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllInputsValuesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_GetAllOutputsValues_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllOutputsValues" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_GetAllOutputsValues_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllOutputsValuesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_AddInputsValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddInputsValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_AddInputsValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddInputsValueResponse" />
+  <wsdl:message name="ITagValueService_GetLatestTagOutputsValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestTagOutputsValueResponse" />
   </wsdl:message>
   <wsdl:message name="ITagValueService_AddOutputsValue_InputMessage">
     <wsdl:part name="parameters" element="tns:AddOutputsValue" />
   </wsdl:message>
   <wsdl:message name="ITagValueService_AddOutputsValue_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddOutputsValueResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_RemoveInputsValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveInputsValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_RemoveInputsValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveInputsValueResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_RemoveOutputValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveOutputValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_RemoveOutputValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveOutputValueResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_UpdateInputsValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateInputsValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_UpdateInputsValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateInputsValueResponse" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_UpdateOutputsValue_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateOutputsValue" />
-  </wsdl:message>
-  <wsdl:message name="ITagValueService_UpdateOutputsValue_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateOutputsValueResponse" />
   </wsdl:message>
   <wsdl:message name="IAlarmService_AddAlarm_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAlarm" />
@@ -1006,6 +970,10 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITagService">
+    <wsdl:operation name="checkOutputTagExistance">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/checkOutputTagExistance" message="tns:ITagService_checkOutputTagExistance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/checkOutputTagExistanceResponse" message="tns:ITagService_checkOutputTagExistance_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddAnalogInput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/AddAnalogInput" message="tns:ITagService_AddAnalogInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/AddAnalogInputResponse" message="tns:ITagService_AddAnalogInput_OutputMessage" />
@@ -1080,45 +1048,17 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITagValueService">
-    <wsdl:operation name="GetInputsValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/GetInputsValue" message="tns:ITagValueService_GetInputsValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/GetInputsValueResponse" message="tns:ITagValueService_GetInputsValue_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetOutputsValue">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/GetOutputsValue" message="tns:ITagValueService_GetOutputsValue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/GetOutputsValueResponse" message="tns:ITagValueService_GetOutputsValue_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllInputsValues">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/GetAllInputsValues" message="tns:ITagValueService_GetAllInputsValues_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse" message="tns:ITagValueService_GetAllInputsValues_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllOutputsValues">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/GetAllOutputsValues" message="tns:ITagValueService_GetAllOutputsValues_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse" message="tns:ITagValueService_GetAllOutputsValues_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddInputsValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/AddInputsValue" message="tns:ITagValueService_AddInputsValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/AddInputsValueResponse" message="tns:ITagValueService_AddInputsValue_OutputMessage" />
+    <wsdl:operation name="GetLatestTagOutputsValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/GetLatestTagOutputsValue" message="tns:ITagValueService_GetLatestTagOutputsValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/GetLatestTagOutputsValueResponse" message="tns:ITagValueService_GetLatestTagOutputsValue_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddOutputsValue">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/AddOutputsValue" message="tns:ITagValueService_AddOutputsValue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/AddOutputsValueResponse" message="tns:ITagValueService_AddOutputsValue_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveInputsValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/RemoveInputsValue" message="tns:ITagValueService_RemoveInputsValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/RemoveInputsValueResponse" message="tns:ITagValueService_RemoveInputsValue_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveOutputValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/RemoveOutputValue" message="tns:ITagValueService_RemoveOutputValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/RemoveOutputValueResponse" message="tns:ITagValueService_RemoveOutputValue_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateInputsValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/UpdateInputsValue" message="tns:ITagValueService_UpdateInputsValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/UpdateInputsValueResponse" message="tns:ITagValueService_UpdateInputsValue_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOutputsValue">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/UpdateOutputsValue" message="tns:ITagValueService_UpdateOutputsValue_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse" message="tns:ITagValueService_UpdateOutputsValue_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IAlarmService">
@@ -1219,6 +1159,15 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_ITagService" type="tns:ITagService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="checkOutputTagExistance">
+      <soap:operation soapAction="http://tempuri.org/ITagService/checkOutputTagExistance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddAnalogInput">
       <soap:operation soapAction="http://tempuri.org/ITagService/AddAnalogInput" style="document" />
       <wsdl:input>
@@ -1384,15 +1333,6 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_ITagValueService" type="tns:ITagValueService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetInputsValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/GetInputsValue" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetOutputsValue">
       <soap:operation soapAction="http://tempuri.org/ITagValueService/GetOutputsValue" style="document" />
       <wsdl:input>
@@ -1402,26 +1342,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllInputsValues">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/GetAllInputsValues" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllOutputsValues">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/GetAllOutputsValues" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddInputsValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/AddInputsValue" style="document" />
+    <wsdl:operation name="GetLatestTagOutputsValue">
+      <soap:operation soapAction="http://tempuri.org/ITagValueService/GetLatestTagOutputsValue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1431,42 +1353,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddOutputsValue">
       <soap:operation soapAction="http://tempuri.org/ITagValueService/AddOutputsValue" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveInputsValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/RemoveInputsValue" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveOutputValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/RemoveOutputValue" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateInputsValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/UpdateInputsValue" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateOutputsValue">
-      <soap:operation soapAction="http://tempuri.org/ITagValueService/UpdateOutputsValue" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

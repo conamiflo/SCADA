@@ -84,24 +84,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDigitalOutput" nillable="true" type="tns:ArrayOfDigitalOutput" />
-  <xs:complexType name="InputsValue">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="IOAddress" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Value" type="xs:double" />
-      <xs:element minOccurs="0" name="ValueType" type="tns:ValueType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="InputsValue" nillable="true" type="tns:InputsValue" />
-  <xs:simpleType name="ValueType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ANALOG" />
-      <xs:enumeration value="DIGITAL" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ValueType" nillable="true" type="tns:ValueType" />
   <xs:complexType name="OutputsValue">
     <xs:sequence>
       <xs:element minOccurs="0" name="IOAddress" nillable="true" type="xs:string" />
@@ -113,16 +95,11 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OutputsValue" nillable="true" type="tns:OutputsValue" />
-  <xs:complexType name="ArrayOfInputsValue">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="InputsValue" nillable="true" type="tns:InputsValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfInputsValue" nillable="true" type="tns:ArrayOfInputsValue" />
-  <xs:complexType name="ArrayOfOutputsValue">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="OutputsValue" nillable="true" type="tns:OutputsValue" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfOutputsValue" nillable="true" type="tns:ArrayOfOutputsValue" />
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ANALOG" />
+      <xs:enumeration value="DIGITAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ValueType" nillable="true" type="tns:ValueType" />
 </xs:schema>
