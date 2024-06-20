@@ -70,9 +70,6 @@
     <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.DigitalOutput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.InputsValue.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\CoreService\AlarmDisplay.CoreService.OutputsValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

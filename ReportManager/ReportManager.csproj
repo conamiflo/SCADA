@@ -89,9 +89,6 @@
     <None Include="Connected Services\CoreService\ReportManager.CoreService.DigitalOutput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\CoreService\ReportManager.CoreService.InputsValue.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\CoreService\ReportManager.CoreService.OutputsValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

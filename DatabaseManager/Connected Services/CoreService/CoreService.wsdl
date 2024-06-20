@@ -871,6 +871,30 @@
   <wsdl:message name="ITagValueService_AddOutputsValue_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddOutputsValueResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagValueService_getTagValuesInTimePeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTagValuesInTimePeriod" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getTagValuesInTimePeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTagValuesInTimePeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getLatestAITagValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLatestAITagValues" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getLatestAITagValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLatestAITagValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getLatestDITagValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLatestDITagValues" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getLatestDITagValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLatestDITagValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getTagValuesByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTagValuesByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="ITagValueService_getTagValuesByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTagValuesByIdentifierResponse" />
+  </wsdl:message>
   <wsdl:message name="IAlarmService_AddAlarm_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAlarm" />
   </wsdl:message>
@@ -1089,6 +1113,22 @@
     <wsdl:operation name="AddOutputsValue">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/AddOutputsValue" message="tns:ITagValueService_AddOutputsValue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/AddOutputsValueResponse" message="tns:ITagValueService_AddOutputsValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTagValuesInTimePeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod" message="tns:ITagValueService_getTagValuesInTimePeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse" message="tns:ITagValueService_getTagValuesInTimePeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLatestAITagValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/getLatestAITagValues" message="tns:ITagValueService_getLatestAITagValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/getLatestAITagValuesResponse" message="tns:ITagValueService_getLatestAITagValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLatestDITagValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/getLatestDITagValues" message="tns:ITagValueService_getLatestDITagValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/getLatestDITagValuesResponse" message="tns:ITagValueService_getLatestDITagValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTagValuesByIdentifier">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifier" message="tns:ITagValueService_getTagValuesByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifierResponse" message="tns:ITagValueService_getTagValuesByIdentifier_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IAlarmService">
@@ -1405,6 +1445,42 @@
     </wsdl:operation>
     <wsdl:operation name="AddOutputsValue">
       <soap:operation soapAction="http://tempuri.org/ITagValueService/AddOutputsValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTagValuesInTimePeriod">
+      <soap:operation soapAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLatestAITagValues">
+      <soap:operation soapAction="http://tempuri.org/ITagValueService/getLatestAITagValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLatestDITagValues">
+      <soap:operation soapAction="http://tempuri.org/ITagValueService/getLatestDITagValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTagValuesByIdentifier">
+      <soap:operation soapAction="http://tempuri.org/ITagValueService/getTagValuesByIdentifier" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

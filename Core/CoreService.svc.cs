@@ -36,12 +36,12 @@ namespace Core
 
         public CoreService()
         {
+            realTimeDriver = new RealTimeDriver(new RTUAdressService(new RTUAdressRepository()));
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
             tagValueService = new TagValueService(new TagValueRepository());
             tagProcessing = new TagProcessing(tagService,this);
-            realTimeDriver = new RealTimeDriver();
         }
 
         public string Login(string username, string password)
@@ -182,6 +182,7 @@ namespace Core
         public void LogAlarm(AlarmTrigger alarm)
         {
             alarmService.LogAlarm(alarm);
+            List<IAlarmCallback> activeCallbacks = new List<IAlarmCallback>();
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < alarm.Priority; i++)
             {
@@ -190,8 +191,17 @@ namespace Core
             string message = sb.ToString();
             foreach (var callback in alarmCallbacks)
             {
-                callback.AlarmTriggered(message);
+                try
+                {
+                    callback.AlarmTriggered(message);
+                    activeCallbacks.Add(callback);
+
+                }
+                catch (Exception e)
+                {
+                }
             }
+            alarmCallbacks = activeCallbacks;
         }
 
         public InputsValue GetInputsValue(int id)
@@ -222,6 +232,13 @@ namespace Core
         public void AddOutputsValue(OutputsValue outputsValue)
         {
             tagValueService.AddOutputsValue(outputsValue);
+           
+            
+
+
+
+
+
         }
 
         public bool RemoveInputsValue(int id)
@@ -382,6 +399,8 @@ namespace Core
         public bool checkOutputTagExistance(string input)
         {
             return tagService.checkOutputTagExistance(input);
+        }
+
         public void AddRTUAdress(RTUAdress address)
         {
             rtuAdressService.AddRTUAdress(address);

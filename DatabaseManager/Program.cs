@@ -120,14 +120,14 @@ namespace DatabaseManager
             while (true)
             {
                 Console.WriteLine("\nMenu:");
-                Console.WriteLine("1.Create Tag");
+                Console.WriteLine("1. Create Tag");
                 Console.WriteLine("2. Create alarm");
                 Console.WriteLine("3. Remove Tag");
                 Console.WriteLine("4. Turn Scan On/Off");
                 Console.WriteLine("5. Get Output Value");
                 Console.WriteLine("6. Change Output Value");
                 Console.WriteLine("7. Sign out");
-                Console.Write("Choose an option (1-3): ");
+                Console.Write("Choose an option (1-7): ");
 
                 string choice = Console.ReadLine();
 
@@ -137,7 +137,7 @@ namespace DatabaseManager
                         TagCreationMenu();
                         break;
                     case "2":
-                        Console.WriteLine("\n,':/\n");
+                        AlarmCreation();
                         break;
                     case "3":
                         TagRemoval();
@@ -255,7 +255,7 @@ namespace DatabaseManager
 
 
 
-                AnalogInput tag = new AnalogInput(name,  description,  ioAddress,  scanTime,driver,null,  onOffScan,  lowLimit,  highLimit,  units);
+                AnalogInput tag = new AnalogInput(name,  description,  ioAddress,  scanTime,driver,new List<Alarm>(),  onOffScan,  lowLimit,  highLimit,  units);
                 tagServiceClient.AddAnalogInput(tag);
             }
             else
@@ -412,22 +412,21 @@ namespace DatabaseManager
         }
 
 
-        void AlarmCreation()
+        private static void AlarmCreation()
         {
             AnalogInput tag = new AnalogInput();
             while (true)
             {
-
                 Console.Write("Enter Alarms Tag Name ");
 
                 string input = Console.ReadLine();
-                // TODO tag finding logic
-                tag = null;
-                break;
+                tag = tagServiceClient.GetAnalogInput(input);
 
+                if (tag != null)
+                {
+                    break;
+                }
             }
-                
-
 
             Console.Write("Enter Alarm Type: ");
             Console.WriteLine("1.Low");
@@ -438,7 +437,7 @@ namespace DatabaseManager
                 string input = Console.ReadLine().ToLower();
                 if (input == "1" || input == "2")
                 {
-                    type = (AlarmType)int.Parse(input);
+                    type = (AlarmType)(int.Parse(input)-1);
                     break;
                 }
                 else
@@ -467,10 +466,8 @@ namespace DatabaseManager
 
             Alarm alarm = new Alarm(threshold, type, priority, unit);
 
-            // TODO add alarm to the selected tag
             tag.addAlarm(alarm);
-
-            
+            tagServiceClient.UpdateAnalogInput(tag);
         }
 
         public static void getOutputValue()
@@ -526,7 +523,7 @@ namespace DatabaseManager
                 if (digitalOutput != null)
                 {
                     IOAddress = digitalOutput.IOAddress;
-                    valueType = ValueType.ANALOG;
+                    valueType = ValueType.DIGITAL;
                 }
 
                 if (IOAddress == null)

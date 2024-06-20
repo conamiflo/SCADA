@@ -484,9 +484,9 @@ namespace RealTimeUnit.CoreService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="InputsValue", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OutputsValue", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
     [System.SerializableAttribute()]
-    public partial class InputsValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class OutputsValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -616,131 +616,6 @@ namespace RealTimeUnit.CoreService {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DIGITAL = 1,
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OutputsValue", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
-    [System.SerializableAttribute()]
-    public partial class OutputsValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IOAddressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeStampField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double ValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RealTimeUnit.CoreService.ValueType ValueTypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IOAddress {
-            get {
-                return this.IOAddressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IOAddressField, value) != true)) {
-                    this.IOAddressField = value;
-                    this.RaisePropertyChanged("IOAddress");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TagName {
-            get {
-                return this.TagNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
-                    this.TagNameField = value;
-                    this.RaisePropertyChanged("TagName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeStamp {
-            get {
-                return this.TimeStampField;
-            }
-            set {
-                if ((this.TimeStampField.Equals(value) != true)) {
-                    this.TimeStampField = value;
-                    this.RaisePropertyChanged("TimeStamp");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((this.ValueField.Equals(value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RealTimeUnit.CoreService.ValueType ValueType {
-            get {
-                return this.ValueTypeField;
-            }
-            set {
-                if ((this.ValueTypeField.Equals(value) != true)) {
-                    this.ValueTypeField = value;
-                    this.RaisePropertyChanged("ValueType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1024,6 +899,12 @@ namespace RealTimeUnit.CoreService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITagService")]
     public interface ITagService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/checkOutputTagExistance", ReplyAction="http://tempuri.org/ITagService/checkOutputTagExistanceResponse")]
+        bool checkOutputTagExistance(string input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/checkOutputTagExistance", ReplyAction="http://tempuri.org/ITagService/checkOutputTagExistanceResponse")]
+        System.Threading.Tasks.Task<bool> checkOutputTagExistanceAsync(string input);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/AddAnalogInput", ReplyAction="http://tempuri.org/ITagService/AddAnalogInputResponse")]
         void AddAnalogInput(RealTimeUnit.CoreService.AnalogInput analogInput);
         
@@ -1158,6 +1039,14 @@ namespace RealTimeUnit.CoreService {
         
         public TagServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool checkOutputTagExistance(string input) {
+            return base.Channel.checkOutputTagExistance(input);
+        }
+        
+        public System.Threading.Tasks.Task<bool> checkOutputTagExistanceAsync(string input) {
+            return base.Channel.checkOutputTagExistanceAsync(input);
         }
         
         public void AddAnalogInput(RealTimeUnit.CoreService.AnalogInput analogInput) {
@@ -1309,65 +1198,23 @@ namespace RealTimeUnit.CoreService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITagValueService")]
     public interface ITagValueService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
-        RealTimeUnit.CoreService.InputsValue GetInputsValue(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
-        System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue> GetInputsValueAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
         RealTimeUnit.CoreService.OutputsValue GetOutputsValue(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
         System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue> GetOutputsValueAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
-        RealTimeUnit.CoreService.InputsValue[] GetAllInputsValues();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetLatestTagOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetLatestTagOutputsValueResponse")]
+        double GetLatestTagOutputsValue(string tagName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
-        System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue[]> GetAllInputsValuesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
-        RealTimeUnit.CoreService.OutputsValue[] GetAllOutputsValues();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
-        System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue[]> GetAllOutputsValuesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
-        void AddInputsValue(RealTimeUnit.CoreService.InputsValue inputsValue);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
-        System.Threading.Tasks.Task AddInputsValueAsync(RealTimeUnit.CoreService.InputsValue inputsValue);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetLatestTagOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetLatestTagOutputsValueResponse")]
+        System.Threading.Tasks.Task<double> GetLatestTagOutputsValueAsync(string tagName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
         void AddOutputsValue(RealTimeUnit.CoreService.OutputsValue outputsValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
         System.Threading.Tasks.Task AddOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
-        bool RemoveInputsValue(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
-        System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
-        bool RemoveOutputValue(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
-        System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
-        RealTimeUnit.CoreService.InputsValue UpdateInputsValue(RealTimeUnit.CoreService.InputsValue inputsValue);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
-        System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue> UpdateInputsValueAsync(RealTimeUnit.CoreService.InputsValue inputsValue);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
-        RealTimeUnit.CoreService.OutputsValue UpdateOutputsValue(RealTimeUnit.CoreService.OutputsValue outputsValue);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
-        System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue> UpdateOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse")]
         string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate);
@@ -1421,14 +1268,6 @@ namespace RealTimeUnit.CoreService {
                 base(binding, remoteAddress) {
         }
         
-        public RealTimeUnit.CoreService.InputsValue GetInputsValue(int id) {
-            return base.Channel.GetInputsValue(id);
-        }
-        
-        public System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue> GetInputsValueAsync(int id) {
-            return base.Channel.GetInputsValueAsync(id);
-        }
-        
         public RealTimeUnit.CoreService.OutputsValue GetOutputsValue(int id) {
             return base.Channel.GetOutputsValue(id);
         }
@@ -1437,28 +1276,12 @@ namespace RealTimeUnit.CoreService {
             return base.Channel.GetOutputsValueAsync(id);
         }
         
-        public RealTimeUnit.CoreService.InputsValue[] GetAllInputsValues() {
-            return base.Channel.GetAllInputsValues();
+        public double GetLatestTagOutputsValue(string tagName) {
+            return base.Channel.GetLatestTagOutputsValue(tagName);
         }
         
-        public System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue[]> GetAllInputsValuesAsync() {
-            return base.Channel.GetAllInputsValuesAsync();
-        }
-        
-        public RealTimeUnit.CoreService.OutputsValue[] GetAllOutputsValues() {
-            return base.Channel.GetAllOutputsValues();
-        }
-        
-        public System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue[]> GetAllOutputsValuesAsync() {
-            return base.Channel.GetAllOutputsValuesAsync();
-        }
-        
-        public void AddInputsValue(RealTimeUnit.CoreService.InputsValue inputsValue) {
-            base.Channel.AddInputsValue(inputsValue);
-        }
-        
-        public System.Threading.Tasks.Task AddInputsValueAsync(RealTimeUnit.CoreService.InputsValue inputsValue) {
-            return base.Channel.AddInputsValueAsync(inputsValue);
+        public System.Threading.Tasks.Task<double> GetLatestTagOutputsValueAsync(string tagName) {
+            return base.Channel.GetLatestTagOutputsValueAsync(tagName);
         }
         
         public void AddOutputsValue(RealTimeUnit.CoreService.OutputsValue outputsValue) {
@@ -1467,38 +1290,6 @@ namespace RealTimeUnit.CoreService {
         
         public System.Threading.Tasks.Task AddOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue) {
             return base.Channel.AddOutputsValueAsync(outputsValue);
-        }
-        
-        public bool RemoveInputsValue(int id) {
-            return base.Channel.RemoveInputsValue(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id) {
-            return base.Channel.RemoveInputsValueAsync(id);
-        }
-        
-        public bool RemoveOutputValue(int id) {
-            return base.Channel.RemoveOutputValue(id);
-        }
-        
-        public System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id) {
-            return base.Channel.RemoveOutputValueAsync(id);
-        }
-        
-        public RealTimeUnit.CoreService.InputsValue UpdateInputsValue(RealTimeUnit.CoreService.InputsValue inputsValue) {
-            return base.Channel.UpdateInputsValue(inputsValue);
-        }
-        
-        public System.Threading.Tasks.Task<RealTimeUnit.CoreService.InputsValue> UpdateInputsValueAsync(RealTimeUnit.CoreService.InputsValue inputsValue) {
-            return base.Channel.UpdateInputsValueAsync(inputsValue);
-        }
-        
-        public RealTimeUnit.CoreService.OutputsValue UpdateOutputsValue(RealTimeUnit.CoreService.OutputsValue outputsValue) {
-            return base.Channel.UpdateOutputsValue(outputsValue);
-        }
-        
-        public System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue> UpdateOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue) {
-            return base.Channel.UpdateOutputsValueAsync(outputsValue);
         }
         
         public string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate) {

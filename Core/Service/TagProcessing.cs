@@ -14,7 +14,7 @@ namespace Core.Service
     {
         public static Dictionary<string,Thread> activeTags = new Dictionary<string, Thread>();
         public static CoreService coreService;
-
+        private readonly object _lockObject = new object();
         public TagProcessing(ITagService tagService,CoreService coreServiceInstance)
         {
             StartProcessing(tagService);
@@ -61,17 +61,19 @@ namespace Core.Service
                     value = tag.LowLimit;
                 }
 
-                InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
-                coreService.AddInputsValue(inputsValue);
-
-                processAlarms(value, tag.Alarms, tag.TagName);
-                coreService.addTagValue(tag.TagName, value);
+                InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.ANALOG);
+                lock(_lockObject)
+                {
+                    coreService.AddInputsValue(inputsValue);
+                    processAlarms(value, tag.Alarms, tag.TagName);
+                    coreService.addTagValue(tag.TagName, value);
+                }
 
                 Thread.Sleep((int)tag.ScanTime);
             }
         }
 
-        public static void getValuesDigital(object t)
+        public void getValuesDigital(object t)
         {
             DigitalInput tag = (DigitalInput)t;
             while (true)
@@ -104,9 +106,12 @@ namespace Core.Service
                 }
 
                 InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
-                coreService.AddInputsValue(inputsValue);
+                lock (_lockObject)
+                {
+                    coreService.AddInputsValue(inputsValue);
+                    coreService.addTagValue(tag.TagName, value);
+                }
 
-                coreService.addTagValue(tag.TagName, value);
 
                 Thread.Sleep((int)tag.ScanTime);
             }

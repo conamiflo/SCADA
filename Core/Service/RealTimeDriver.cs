@@ -16,9 +16,9 @@ namespace Core.Service
         public Dictionary<string,double> RTUs = new Dictionary<string,double>();
         private readonly IRTUAdressService _rtuAdressService;
 
-        public RealTimeDriver()
+        public RealTimeDriver(IRTUAdressService RAS)
         {
-            _rtuAdressService = new RTUAdressService(new RTUAdressRepository());
+            _rtuAdressService = RAS;
         }
         public void SendMessage(string message, byte[] signature)
         {
@@ -85,9 +85,15 @@ namespace Core.Service
 
         public double GetRealTimeUnitValue(string IOAdress)
         {
-            if (RTUs.ContainsKey(IOAdress))
+            try
             {
-                return RTUs[IOAdress];  
+                if (RTUs.ContainsKey(IOAdress))
+                {
+                    return RTUs[IOAdress];
+                }
+            }
+            catch (Exception ex)
+            {
             }
             return Double.NegativeInfinity;
         }

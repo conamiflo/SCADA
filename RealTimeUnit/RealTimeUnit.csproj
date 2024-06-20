@@ -104,9 +104,6 @@
     <None Include="Connected Services\CoreService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\CoreService\RealTimeUnit.CoreService.InputsValue.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\CoreService\RealTimeUnit.CoreService.OutputsValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
