@@ -14,12 +14,11 @@ namespace Core.Service
     public class TagService : ITagService
     {
         private readonly ITagRepository _tagRepository;
-        private TagProcessing TagProcessing;
 
         public TagService(ITagRepository tagRepository)
         {
             _tagRepository = tagRepository;
-            TagProcessing = new TagProcessing(this);
+           
         }
 
         public void AddAnalogInput(AnalogInput analogInput)

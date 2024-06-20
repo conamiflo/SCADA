@@ -537,4 +537,65 @@ namespace DatabaseManager.CoreService {
             return base.Channel.GetAlarmsByPriorityAsync(priority);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITrendingService", CallbackContract=typeof(DatabaseManager.CoreService.ITrendingServiceCallback))]
+    public interface ITrendingService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        void SubscribeToTrending();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrendingService/SubscribeToTrending", ReplyAction="http://tempuri.org/ITrendingService/SubscribeToTrendingResponse")]
+        System.Threading.Tasks.Task SubscribeToTrendingAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/initTagTable")]
+        void initTagTable(System.Collections.Generic.Dictionary<string, double> tags);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/addTagValue")]
+        void addTagValue(string tagName, double value);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrendingService/removeTag")]
+        void removeTag(string tagName);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingServiceChannel : DatabaseManager.CoreService.ITrendingService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TrendingServiceClient : System.ServiceModel.DuplexClientBase<DatabaseManager.CoreService.ITrendingService>, DatabaseManager.CoreService.ITrendingService {
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void SubscribeToTrending() {
+            base.Channel.SubscribeToTrending();
+        }
+        
+        public System.Threading.Tasks.Task SubscribeToTrendingAsync() {
+            return base.Channel.SubscribeToTrendingAsync();
+        }
+    }
 }

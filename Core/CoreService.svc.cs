@@ -16,22 +16,29 @@ using System.Text;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService
     {
 
-        public Dictionary<string, IAlarmCallback> CallbackChannels = new Dictionary<string, IAlarmCallback>();
+        public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
+        public static List<ITrendingCallback> trendingCallbacks = new List<ITrendingCallback>();
+
 
         public IUserService userService;
         public ITagService tagService;
         public IAlarmService alarmService;
+
+
+
+
 
         public CoreService()
         {
             userService = new UserService(new UserRepository());
             tagService = new TagService(new TagRepository());
             alarmService = new AlarmService(new AlarmRepository());
-        }
+            new TagProcessing(tagService,this);
 
+        }
 
         public string Login(string username, string password)
         {
@@ -128,7 +135,7 @@ namespace Core
         public bool DeleteDigitalOutput(string id)
         {
             return tagService.DeleteDigitalOutput(id);
-        }   
+        }
 
         public DigitalOutput GetDigitalOutput(string id)
         {
@@ -177,10 +184,74 @@ namespace Core
         {
             alarmService.LogAlarm(alarm);
 
-            foreach (var callback in CallbackChannels.Values)
+            foreach (var callback in alarmCallbacks)
             {
                 callback.AlarmTriggered($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}");
             }
         }
+
+        public void SubscribeToTrending()
+        {
+            var a = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
+            trendingCallbacks.Add(a);
+
+            Dictionary<string, double> tags = new Dictionary<string, double>();
+
+            var analInput = tagService.GetAllAnalogInputs();
+            var analOutput = tagService.GetAllAnalogOutputs();
+            var digInput = tagService.GetAllDigitalInputs();
+            var digOutput = tagService.GetAllDigitalOutputs();
+
+            foreach (var item in analInput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in analOutput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in digInput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+            foreach (var item in digOutput)
+            {
+                tags.Add(item.TagName, 0);
+            }
+
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
+            foreach (var callback in trendingCallbacks)
+            {
+                try
+                {
+                    callback.initTagTable(tags);
+                    activeCallbacks.Add(callback);
+                }
+                catch (Exception e)
+                {
+
+                }
+
+            }
+            trendingCallbacks = activeCallbacks;
+        }
+
+        public void addTagValue(string tagName, double value)
+        {
+            foreach (var callback in trendingCallbacks)
+            {
+                callback.addTagValue(tagName, value);
+            }
+        }
+
+        public void removeTag(string tagName)
+        {
+            foreach (var callback in trendingCallbacks)
+            {
+                callback.removeTag(tagName);
+            }
+        }
+
+
     }
 }

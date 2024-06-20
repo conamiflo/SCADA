@@ -276,6 +276,7 @@
     <Compile Include="Service\IService\ITagService.cs" />
     <Compile Include="Service\AlarmService.cs" />
     <Compile Include="Service\IService\IAlarmService.cs" />
+    <Compile Include="Service\IService\ITrendingService.cs" />
     <Compile Include="Service\IService\IUserService.cs" />
     <Compile Include="Service\RealTimeUnitService.cs" />
     <Compile Include="Service\ReportManagerService.cs" />
