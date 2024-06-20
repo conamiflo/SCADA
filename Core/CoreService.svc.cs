@@ -164,7 +164,7 @@ namespace Core
             return alarmService.GetAllAlarms();
         }
 
-        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, Core.Service.AlarmService.SortOption sortOption)
+        public IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, bool sortOption)
         {
             return alarmService.GetAlarmsInPeriod(startTime, endTime, sortOption);
         }
