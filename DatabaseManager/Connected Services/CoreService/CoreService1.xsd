@@ -74,6 +74,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ToggleTagScan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isOn" type="xs:boolean" />
+        <xs:element minOccurs="0" name="isAnalog" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToggleTagScanResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAnalogInput">
     <xs:complexType>
       <xs:sequence>

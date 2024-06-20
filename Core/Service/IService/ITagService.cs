@@ -14,6 +14,9 @@ namespace Core.Service.IService
         bool DeleteTag(string id);
 
         [OperationContract]
+        void ToggleTagScan(string id, bool isOn,bool isAnalog);
+
+        [OperationContract]
         AnalogInput GetAnalogInput(string id);
 
         [OperationContract]

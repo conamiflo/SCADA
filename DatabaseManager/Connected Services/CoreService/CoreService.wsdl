@@ -706,6 +706,12 @@
   <wsdl:message name="ITagService_DeleteTag_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTagResponse" />
   </wsdl:message>
+  <wsdl:message name="ITagService_ToggleTagScan_InputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleTagScan" />
+  </wsdl:message>
+  <wsdl:message name="ITagService_ToggleTagScan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ToggleTagScanResponse" />
+  </wsdl:message>
   <wsdl:message name="ITagService_GetAnalogInput_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAnalogInput" />
   </wsdl:message>
@@ -879,6 +885,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/DeleteTag" message="tns:ITagService_DeleteTag_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/DeleteTagResponse" message="tns:ITagService_DeleteTag_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="ToggleTagScan">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITagService/ToggleTagScan" message="tns:ITagService_ToggleTagScan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITagService/ToggleTagScanResponse" message="tns:ITagService_ToggleTagScan_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAnalogInput">
       <wsdl:input wsaw:Action="http://tempuri.org/ITagService/GetAnalogInput" message="tns:ITagService_GetAnalogInput_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITagService/GetAnalogInputResponse" message="tns:ITagService_GetAnalogInput_OutputMessage" />
@@ -1031,6 +1041,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteTag">
       <soap:operation soapAction="http://tempuri.org/ITagService/DeleteTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ToggleTagScan">
+      <soap:operation soapAction="http://tempuri.org/ITagService/ToggleTagScan" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

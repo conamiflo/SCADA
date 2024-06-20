@@ -122,10 +122,6 @@ namespace Core
             tagService.AddDigitalOutput(digitalOutput);
         }
 
-        public bool DeleteDigitalOutput(string id)
-        {
-            return tagService.DeleteDigitalOutput(id);
-        }
 
         public DigitalOutput GetDigitalOutput(string id)
         {
@@ -228,20 +224,44 @@ namespace Core
 
         public void addTagValue(string tagName, double value)
         {
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
             foreach (var callback in trendingCallbacks)
             {
-                callback.addTagValue(tagName, value);
+                try
+                {
+                    callback.addTagValue(tagName, value);
+                    activeCallbacks.Add(callback);
+
+                }
+                catch (Exception e)
+                {
+                }
             }
+            trendingCallbacks = activeCallbacks;
+
         }
 
         public void removeTag(string tagName)
         {
+            List<ITrendingCallback> activeCallbacks = new List<ITrendingCallback>();
             foreach (var callback in trendingCallbacks)
             {
-                callback.removeTag(tagName);
+                try
+                {
+                    callback.removeTag(tagName);
+                    activeCallbacks.Add(callback);
+
+                }
+                catch (Exception e)
+                {
+                }
             }
+            trendingCallbacks = activeCallbacks;
         }
 
-
+        public void ToggleTagScan(string inputTag, bool isOn,bool isAnalog)
+        {
+            tagService.ToggleTagScan(inputTag, isOn,isAnalog);
+        }
     }
 }

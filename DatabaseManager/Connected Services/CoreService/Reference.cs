@@ -102,6 +102,12 @@ namespace DatabaseManager.CoreService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/DeleteTag", ReplyAction="http://tempuri.org/ITagService/DeleteTagResponse")]
         System.Threading.Tasks.Task<bool> DeleteTagAsync(string id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        void ToggleTagScan(string id, bool isOn, bool isAnalog);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/ToggleTagScan", ReplyAction="http://tempuri.org/ITagService/ToggleTagScanResponse")]
+        System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagService/GetAnalogInput", ReplyAction="http://tempuri.org/ITagService/GetAnalogInputResponse")]
         Core.Model.Tag.AnalogInput GetAnalogInput(string id);
         
@@ -234,6 +240,14 @@ namespace DatabaseManager.CoreService {
         
         public System.Threading.Tasks.Task<bool> DeleteTagAsync(string id) {
             return base.Channel.DeleteTagAsync(id);
+        }
+        
+        public void ToggleTagScan(string id, bool isOn, bool isAnalog) {
+            base.Channel.ToggleTagScan(id, isOn, isAnalog);
+        }
+        
+        public System.Threading.Tasks.Task ToggleTagScanAsync(string id, bool isOn, bool isAnalog) {
+            return base.Channel.ToggleTagScanAsync(id, isOn, isAnalog);
         }
         
         public Core.Model.Tag.AnalogInput GetAnalogInput(string id) {

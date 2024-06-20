@@ -27,7 +27,11 @@ namespace Core.Service
             {
                 double value = 0;
 
-                if (!tag.IsOn)break;
+                if (!tag.IsOn)
+                {
+                    activeTags.Remove(tag.TagName);
+                    break;
+                }
 
                 if (tag.Driver.Equals("Sim"))
                 {
@@ -64,7 +68,11 @@ namespace Core.Service
             DigitalInput tag = (DigitalInput)t;
             while (true)
             {
-                if (!tag.IsOn) break;
+                if (!tag.IsOn)
+                {
+                    activeTags.Remove(tag.TagName);
+                    break;
+                }
 
                 double value = 0;
 
