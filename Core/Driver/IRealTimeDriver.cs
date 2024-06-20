@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.RealTimeDriver
+namespace Core.Driver
 {
     [ServiceContract]
     public interface IRealTimeDriver
