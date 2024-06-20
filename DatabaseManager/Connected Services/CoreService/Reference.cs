@@ -372,6 +372,179 @@ namespace DatabaseManager.CoreService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITagValueService")]
+    public interface ITagValueService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
+        Core.Model.Tag.InputsValue GetInputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.InputsValue> GetInputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
+        Core.Model.Tag.OutputsValue GetOutputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue> GetOutputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
+        Core.Model.Tag.InputsValue[] GetAllInputsValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.InputsValue[]> GetAllInputsValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
+        Core.Model.Tag.OutputsValue[] GetAllOutputsValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue[]> GetAllOutputsValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
+        void AddInputsValue(Core.Model.Tag.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
+        System.Threading.Tasks.Task AddInputsValueAsync(Core.Model.Tag.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
+        void AddOutputsValue(Core.Model.Tag.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
+        System.Threading.Tasks.Task AddOutputsValueAsync(Core.Model.Tag.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
+        bool RemoveInputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
+        System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
+        bool RemoveOutputValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
+        System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
+        Core.Model.Tag.InputsValue UpdateInputsValue(Core.Model.Tag.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.InputsValue> UpdateInputsValueAsync(Core.Model.Tag.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
+        Core.Model.Tag.OutputsValue UpdateOutputsValue(Core.Model.Tag.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
+        System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue> UpdateOutputsValueAsync(Core.Model.Tag.OutputsValue outputsValue);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITagValueServiceChannel : DatabaseManager.CoreService.ITagValueService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TagValueServiceClient : System.ServiceModel.ClientBase<DatabaseManager.CoreService.ITagValueService>, DatabaseManager.CoreService.ITagValueService {
+        
+        public TagValueServiceClient() {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagValueServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public Core.Model.Tag.InputsValue GetInputsValue(int id) {
+            return base.Channel.GetInputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.InputsValue> GetInputsValueAsync(int id) {
+            return base.Channel.GetInputsValueAsync(id);
+        }
+        
+        public Core.Model.Tag.OutputsValue GetOutputsValue(int id) {
+            return base.Channel.GetOutputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue> GetOutputsValueAsync(int id) {
+            return base.Channel.GetOutputsValueAsync(id);
+        }
+        
+        public Core.Model.Tag.InputsValue[] GetAllInputsValues() {
+            return base.Channel.GetAllInputsValues();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.InputsValue[]> GetAllInputsValuesAsync() {
+            return base.Channel.GetAllInputsValuesAsync();
+        }
+        
+        public Core.Model.Tag.OutputsValue[] GetAllOutputsValues() {
+            return base.Channel.GetAllOutputsValues();
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue[]> GetAllOutputsValuesAsync() {
+            return base.Channel.GetAllOutputsValuesAsync();
+        }
+        
+        public void AddInputsValue(Core.Model.Tag.InputsValue inputsValue) {
+            base.Channel.AddInputsValue(inputsValue);
+        }
+        
+        public System.Threading.Tasks.Task AddInputsValueAsync(Core.Model.Tag.InputsValue inputsValue) {
+            return base.Channel.AddInputsValueAsync(inputsValue);
+        }
+        
+        public void AddOutputsValue(Core.Model.Tag.OutputsValue outputsValue) {
+            base.Channel.AddOutputsValue(outputsValue);
+        }
+        
+        public System.Threading.Tasks.Task AddOutputsValueAsync(Core.Model.Tag.OutputsValue outputsValue) {
+            return base.Channel.AddOutputsValueAsync(outputsValue);
+        }
+        
+        public bool RemoveInputsValue(int id) {
+            return base.Channel.RemoveInputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id) {
+            return base.Channel.RemoveInputsValueAsync(id);
+        }
+        
+        public bool RemoveOutputValue(int id) {
+            return base.Channel.RemoveOutputValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id) {
+            return base.Channel.RemoveOutputValueAsync(id);
+        }
+        
+        public Core.Model.Tag.InputsValue UpdateInputsValue(Core.Model.Tag.InputsValue inputsValue) {
+            return base.Channel.UpdateInputsValue(inputsValue);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.InputsValue> UpdateInputsValueAsync(Core.Model.Tag.InputsValue inputsValue) {
+            return base.Channel.UpdateInputsValueAsync(inputsValue);
+        }
+        
+        public Core.Model.Tag.OutputsValue UpdateOutputsValue(Core.Model.Tag.OutputsValue outputsValue) {
+            return base.Channel.UpdateOutputsValue(outputsValue);
+        }
+        
+        public System.Threading.Tasks.Task<Core.Model.Tag.OutputsValue> UpdateOutputsValueAsync(Core.Model.Tag.OutputsValue outputsValue) {
+            return base.Channel.UpdateOutputsValueAsync(outputsValue);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IAlarmService", CallbackContract=typeof(DatabaseManager.CoreService.IAlarmServiceCallback))]
     public interface IAlarmService {
         
@@ -582,6 +755,81 @@ namespace DatabaseManager.CoreService {
         
         public System.Threading.Tasks.Task SubscribeToTrendingAsync() {
             return base.Channel.SubscribeToTrendingAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IRealTimeDriver")]
+    public interface IRealTimeDriver {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
+        void SendMessage(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
+        System.Threading.Tasks.Task SendMessageAsync(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit", ReplyAction="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnitResponse")]
+        void SubscribeRealTimeUnit(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnit", ReplyAction="http://tempuri.org/IRealTimeDriver/SubscribeRealTimeUnitResponse")]
+        System.Threading.Tasks.Task SubscribeRealTimeUnitAsync(string message, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue", ReplyAction="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse")]
+        double GetRealTimeUnitValue(string IOAdress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue", ReplyAction="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse")]
+        System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRealTimeDriverChannel : DatabaseManager.CoreService.IRealTimeDriver, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RealTimeDriverClient : System.ServiceModel.ClientBase<DatabaseManager.CoreService.IRealTimeDriver>, DatabaseManager.CoreService.IRealTimeDriver {
+        
+        public RealTimeDriverClient() {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RealTimeDriverClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RealTimeDriverClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void SendMessage(string message, byte[] signature) {
+            base.Channel.SendMessage(message, signature);
+        }
+        
+        public System.Threading.Tasks.Task SendMessageAsync(string message, byte[] signature) {
+            return base.Channel.SendMessageAsync(message, signature);
+        }
+        
+        public void SubscribeRealTimeUnit(string message, byte[] signature) {
+            base.Channel.SubscribeRealTimeUnit(message, signature);
+        }
+        
+        public System.Threading.Tasks.Task SubscribeRealTimeUnitAsync(string message, byte[] signature) {
+            return base.Channel.SubscribeRealTimeUnitAsync(message, signature);
+        }
+        
+        public double GetRealTimeUnitValue(string IOAdress) {
+            return base.Channel.GetRealTimeUnitValue(IOAdress);
+        }
+        
+        public System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress) {
+            return base.Channel.GetRealTimeUnitValueAsync(IOAdress);
         }
     }
 }
