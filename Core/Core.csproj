@@ -267,6 +267,7 @@
     <Compile Include="Repository\IRepository\ITagValueRepository.cs" />
     <Compile Include="Repository\IRepository\IUserRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
+    <Compile Include="Repository\TagValueRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="CoreService.svc.cs">
       <DependentUpon>CoreService.svc</DependentUpon>
@@ -277,12 +278,14 @@
     <Compile Include="Service\IService\ITagService.cs" />
     <Compile Include="Service\AlarmService.cs" />
     <Compile Include="Service\IService\IAlarmService.cs" />
+    <Compile Include="Service\IService\ITagValueService.cs" />
     <Compile Include="Service\IService\ITrendingService.cs" />
     <Compile Include="Service\IService\IUserService.cs" />
     <Compile Include="Service\RealTimeUnitService.cs" />
     <Compile Include="Service\ReportManagerService.cs" />
     <Compile Include="Service\TagProcessing.cs" />
     <Compile Include="Service\TagService.cs" />
+    <Compile Include="Service\TagValueService.cs" />
     <Compile Include="Service\TrendingService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Util\EncryptUtil.cs" />

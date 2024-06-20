@@ -234,6 +234,8 @@ namespace Core
         public OutputsValue UpdateOutputsValue(OutputsValue outputsValue)
         {
             return tagValueService.UpdateOutputsValue(outputsValue);
+        }
+
         public void SubscribeToTrending()
         {
             var a = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();

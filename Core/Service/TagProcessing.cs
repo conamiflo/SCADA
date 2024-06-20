@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Web;
 using System.Web.ApplicationServices;
@@ -56,6 +57,9 @@ namespace Core.Service
                     break;
                 }
 
+                InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
+                coreService.AddInputsValue(inputsValue);
+
                 processAlarms(value, tag.Alarms, tag.TagName);
                 coreService.addTagValue(tag.TagName, value);
 
@@ -89,6 +93,9 @@ namespace Core.Service
                 {
                     break;
                 }
+
+                InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
+                coreService.AddInputsValue(inputsValue);
 
                 coreService.addTagValue(tag.TagName, value);
 
