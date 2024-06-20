@@ -135,7 +135,6 @@ namespace Core
             tagValueService.AddOutputsValue(new OutputsValue (digitalOutput.IOAddress,digitalOutput.TagName,digitalOutput.InitialValue,ValueType.DIGITAL));
         }
 
-
         public DigitalOutput GetDigitalOutput(string id)
         {
             return tagService.GetDigitalOutput(id);
@@ -231,14 +230,8 @@ namespace Core
 
         public void AddOutputsValue(OutputsValue outputsValue)
         {
-            tagValueService.AddOutputsValue(outputsValue);
-           
-            
-
-
-
-
-
+           tagValueService.AddOutputsValue(outputsValue);
+           addTagValue(outputsValue.TagName, outputsValue.Value);
         }
 
         public bool RemoveInputsValue(int id)

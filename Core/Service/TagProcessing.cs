@@ -105,6 +105,8 @@ namespace Core.Service
                     break;
                 }
 
+                value = value<=0 ? 0 : 1;
+
                 InputsValue inputsValue = new InputsValue(tag.IOAddress, tag.TagName, value, Model.Tag.ValueType.DIGITAL);
                 lock (_lockObject)
                 {

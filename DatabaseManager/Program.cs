@@ -313,21 +313,15 @@ namespace DatabaseManager
             }
             else
             {
-                Console.Write("Enter an initial value: ");
                 int initValue;
-                while (!int.TryParse(Console.ReadLine(), out initValue))
+                Console.Write("Enter a initial value (0|1): ");
+                while (!int.TryParse(Console.ReadLine(), out initValue) || (initValue != 0 && initValue != 1))
                 {
-                    Console.Write("Invalid input. Please enter valid int for initial value: ");
+                    Console.Write("Invalid input. Please enter valid int for a value: ");
                 }
-
                 DigitalOutput tag = new DigitalOutput(tagName, description, ioAddress, initValue);
                 tagServiceClient.AddDigitalOutput(tag);
-
-
             }
-
-
-
 
         }
 
@@ -496,9 +490,9 @@ namespace DatabaseManager
 
         public static void changeOutputValue()
         {
-            String IOAddress=null;
-            DateTime TimeStamp=DateTime.Now;
-            ValueType valueType=0;
+            String IOAddress = null;
+            DateTime TimeStamp = DateTime.Now;
+            ValueType valueType = 0;
 
             while (true)
             {
@@ -513,7 +507,7 @@ namespace DatabaseManager
                 AnalogOutput analogOutput = tagServiceClient.GetAnalogOutput(input);
                 if (analogOutput != null)
                 {
-                    IOAddress= analogOutput.IOAddress;
+                    IOAddress = analogOutput.IOAddress;
                     valueType = ValueType.ANALOG;
 
 
@@ -534,9 +528,22 @@ namespace DatabaseManager
 
                 Console.Write("Enter a value: ");
                 int value;
-                while (!int.TryParse(Console.ReadLine(), out value))
+
+                if (valueType == ValueType.DIGITAL)
                 {
-                    Console.Write("Invalid input. Please enter valid int for a value: ");
+                    Console.Write("Enter a value (0|1): ");
+                    while (!int.TryParse(Console.ReadLine(), out value) || (value != 0 && value !=1))
+                    {
+                        Console.Write("Invalid input. Please enter valid int for a value: ");
+                    }
+                }
+                else
+                {
+                    Console.Write("Enter a value: ");
+                    while (!int.TryParse(Console.ReadLine(), out value))
+                    {
+                        Console.Write("Invalid input. Please enter valid int for a value: ");
+                    }
                 }
 
                 OutputsValue outputsValue=new OutputsValue(IOAddress, input, value, valueType);

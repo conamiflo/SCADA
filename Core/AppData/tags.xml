@@ -1,11 +1,1 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfTag xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Tag xsi:type="AnalogInput" TagName="aaa" Description="sadfasdf" IOAddress="S" ScanTime="10000" LowLimit="20" HighLimit="120" IsOn="true" driver="Sim" Units="cm">
-    <Alarm Threshold="80" Type="HIGH" Priority="2" Unit="cm" />
-    <Alarm Threshold="20" Type="HIGH" Priority="1" Unit="cm" />
-  </Tag>
-  <Tag xsi:type="DigitalOutput" TagName="thug" Description="thug shaker central" IOAddress="shaker" InitialValue="5" />
-  <Tag xsi:type="AnalogInput" TagName="joe" Description="joe smoe" IOAddress="asdf" ScanTime="5000" LowLimit="100" HighLimit="800" IsOn="true" driver="RTD" Units="cm">
-    <Alarm Threshold="500" Type="HIGH" Priority="3" Unit="dm" />
-  </Tag>
-</ArrayOfTag>
