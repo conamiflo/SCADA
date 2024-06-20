@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Core.Model.AlarmTrigger.datasource" />
+    <None Include="Properties\DataSources\Core.Model.RTUAdress1.datasource" />
     <None Include="Properties\DataSources\Core.Model.Tag.AnalogInput.datasource" />
     <None Include="Properties\DataSources\Core.Model.Tag.AnalogOutput.datasource" />
     <None Include="Properties\DataSources\Core.Model.Tag.DigitalInput.datasource" />

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.PeerToPeer;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -391,6 +392,27 @@ namespace Core
         public RTUAdress UpdateRTUAdress(RTUAdress address)
         {
             return rtuAdressService.UpdateRTUAdress(address);
+        }
+
+        public string getTagValuesInTimePeriod(DateTime startDate, DateTime endDate)
+        {
+            return tagValueService.getTagValuesInTimePeriod(startDate, endDate);
+        }
+
+        public string getLatestAITagValues()
+        {
+            return tagValueService.getLatestAITagValues();
+
+        }
+
+        public string getLatestDITagValues()
+        {
+            return tagValueService.getLatestDITagValues();
+        }
+
+        public string getTagValuesByIdentifier(string id)
+        {
+            return tagValueService.getTagValuesByIdentifier(id);
         }
     }
 }

@@ -110,6 +110,9 @@
     <None Include="Connected Services\CoreService\RealTimeUnit.CoreService.OutputsValue.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\CoreService\RealTimeUnit.CoreService.RTUAdress1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CoreService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -1368,6 +1368,30 @@ namespace RealTimeUnit.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
         System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue> UpdateOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse")]
+        string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse")]
+        System.Threading.Tasks.Task<string> getTagValuesInTimePeriodAsync(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestAITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestAITagValuesResponse")]
+        string getLatestAITagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestAITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestAITagValuesResponse")]
+        System.Threading.Tasks.Task<string> getLatestAITagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestDITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestDITagValuesResponse")]
+        string getLatestDITagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestDITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestDITagValuesResponse")]
+        System.Threading.Tasks.Task<string> getLatestDITagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifier", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesByIdentifierResponse")]
+        string getTagValuesByIdentifier(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifier", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesByIdentifierResponse")]
+        System.Threading.Tasks.Task<string> getTagValuesByIdentifierAsync(string id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1475,6 +1499,38 @@ namespace RealTimeUnit.CoreService {
         
         public System.Threading.Tasks.Task<RealTimeUnit.CoreService.OutputsValue> UpdateOutputsValueAsync(RealTimeUnit.CoreService.OutputsValue outputsValue) {
             return base.Channel.UpdateOutputsValueAsync(outputsValue);
+        }
+        
+        public string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.getTagValuesInTimePeriod(startDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<string> getTagValuesInTimePeriodAsync(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.getTagValuesInTimePeriodAsync(startDate, endDate);
+        }
+        
+        public string getLatestAITagValues() {
+            return base.Channel.getLatestAITagValues();
+        }
+        
+        public System.Threading.Tasks.Task<string> getLatestAITagValuesAsync() {
+            return base.Channel.getLatestAITagValuesAsync();
+        }
+        
+        public string getLatestDITagValues() {
+            return base.Channel.getLatestDITagValues();
+        }
+        
+        public System.Threading.Tasks.Task<string> getLatestDITagValuesAsync() {
+            return base.Channel.getLatestDITagValuesAsync();
+        }
+        
+        public string getTagValuesByIdentifier(string id) {
+            return base.Channel.getTagValuesByIdentifier(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> getTagValuesByIdentifierAsync(string id) {
+            return base.Channel.getTagValuesByIdentifierAsync(id);
         }
     }
     

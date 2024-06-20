@@ -1,6 +1,8 @@
 ﻿using Core.Model.Tag;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Text;
 
 namespace Core.Service.IService
 {
@@ -27,5 +29,18 @@ namespace Core.Service.IService
         InputsValue UpdateInputsValue(InputsValue inputsValue);
         [OperationContract]
         OutputsValue UpdateOutputsValue(OutputsValue outputsValue);
+
+        [OperationContract]
+        string getTagValuesInTimePeriod(DateTime startDate, DateTime endDate);
+
+        [OperationContract]
+        string getLatestAITagValues();
+
+        [OperationContract]
+        string getLatestDITagValues();
+
+        [OperationContract]
+        string getTagValuesByIdentifier(string id);
+        
     }
 }

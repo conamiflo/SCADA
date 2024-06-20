@@ -484,6 +484,267 @@ namespace AlarmDisplay.CoreService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InputsValue", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.SerializableAttribute()]
+    public partial class InputsValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IOAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeStampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AlarmDisplay.CoreService.ValueType ValueTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IOAddress {
+            get {
+                return this.IOAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IOAddressField, value) != true)) {
+                    this.IOAddressField = value;
+                    this.RaisePropertyChanged("IOAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeStamp {
+            get {
+                return this.TimeStampField;
+            }
+            set {
+                if ((this.TimeStampField.Equals(value) != true)) {
+                    this.TimeStampField = value;
+                    this.RaisePropertyChanged("TimeStamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AlarmDisplay.CoreService.ValueType ValueType {
+            get {
+                return this.ValueTypeField;
+            }
+            set {
+                if ((this.ValueTypeField.Equals(value) != true)) {
+                    this.ValueTypeField = value;
+                    this.RaisePropertyChanged("ValueType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ValueType", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    public enum ValueType : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ANALOG = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DIGITAL = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OutputsValue", Namespace="http://schemas.datacontract.org/2004/07/Core.Model.Tag")]
+    [System.SerializableAttribute()]
+    public partial class OutputsValue : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IOAddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeStampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private AlarmDisplay.CoreService.ValueType ValueTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IOAddress {
+            get {
+                return this.IOAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IOAddressField, value) != true)) {
+                    this.IOAddressField = value;
+                    this.RaisePropertyChanged("IOAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeStamp {
+            get {
+                return this.TimeStampField;
+            }
+            set {
+                if ((this.TimeStampField.Equals(value) != true)) {
+                    this.TimeStampField = value;
+                    this.RaisePropertyChanged("TimeStamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public AlarmDisplay.CoreService.ValueType ValueType {
+            get {
+                return this.ValueTypeField;
+            }
+            set {
+                if ((this.ValueTypeField.Equals(value) != true)) {
+                    this.ValueTypeField = value;
+                    this.RaisePropertyChanged("ValueType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AlarmTrigger", Namespace="http://schemas.datacontract.org/2004/07/Core.Model")]
     [System.SerializableAttribute()]
     public partial class AlarmTrigger : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -625,6 +886,51 @@ namespace AlarmDisplay.CoreService {
                 if ((object.ReferenceEquals(this.UnitField, value) != true)) {
                     this.UnitField = value;
                     this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RTUAdress", Namespace="http://schemas.datacontract.org/2004/07/Core.Model")]
+    [System.SerializableAttribute()]
+    public partial class RTUAdress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdressField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Adress {
+            get {
+                return this.AdressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdressField, value) != true)) {
+                    this.AdressField = value;
+                    this.RaisePropertyChanged("Adress");
                 }
             }
         }
@@ -1000,6 +1306,235 @@ namespace AlarmDisplay.CoreService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.ITagValueService")]
+    public interface ITagValueService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
+        AlarmDisplay.CoreService.InputsValue GetInputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetInputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetInputsValueResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue> GetInputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
+        AlarmDisplay.CoreService.OutputsValue GetOutputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/GetOutputsValueResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue> GetOutputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
+        AlarmDisplay.CoreService.InputsValue[] GetAllInputsValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllInputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllInputsValuesResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue[]> GetAllInputsValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
+        AlarmDisplay.CoreService.OutputsValue[] GetAllOutputsValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/GetAllOutputsValues", ReplyAction="http://tempuri.org/ITagValueService/GetAllOutputsValuesResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue[]> GetAllOutputsValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
+        void AddInputsValue(AlarmDisplay.CoreService.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddInputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddInputsValueResponse")]
+        System.Threading.Tasks.Task AddInputsValueAsync(AlarmDisplay.CoreService.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
+        void AddOutputsValue(AlarmDisplay.CoreService.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/AddOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/AddOutputsValueResponse")]
+        System.Threading.Tasks.Task AddOutputsValueAsync(AlarmDisplay.CoreService.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
+        bool RemoveInputsValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveInputsValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveInputsValueResponse")]
+        System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
+        bool RemoveOutputValue(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/RemoveOutputValue", ReplyAction="http://tempuri.org/ITagValueService/RemoveOutputValueResponse")]
+        System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
+        AlarmDisplay.CoreService.InputsValue UpdateInputsValue(AlarmDisplay.CoreService.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateInputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateInputsValueResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue> UpdateInputsValueAsync(AlarmDisplay.CoreService.InputsValue inputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
+        AlarmDisplay.CoreService.OutputsValue UpdateOutputsValue(AlarmDisplay.CoreService.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/UpdateOutputsValue", ReplyAction="http://tempuri.org/ITagValueService/UpdateOutputsValueResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue> UpdateOutputsValueAsync(AlarmDisplay.CoreService.OutputsValue outputsValue);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse")]
+        string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesInTimePeriod", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesInTimePeriodResponse")]
+        System.Threading.Tasks.Task<string> getTagValuesInTimePeriodAsync(System.DateTime startDate, System.DateTime endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestAITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestAITagValuesResponse")]
+        string getLatestAITagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestAITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestAITagValuesResponse")]
+        System.Threading.Tasks.Task<string> getLatestAITagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestDITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestDITagValuesResponse")]
+        string getLatestDITagValues();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getLatestDITagValues", ReplyAction="http://tempuri.org/ITagValueService/getLatestDITagValuesResponse")]
+        System.Threading.Tasks.Task<string> getLatestDITagValuesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifier", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesByIdentifierResponse")]
+        string getTagValuesByIdentifier(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITagValueService/getTagValuesByIdentifier", ReplyAction="http://tempuri.org/ITagValueService/getTagValuesByIdentifierResponse")]
+        System.Threading.Tasks.Task<string> getTagValuesByIdentifierAsync(string id);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITagValueServiceChannel : AlarmDisplay.CoreService.ITagValueService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TagValueServiceClient : System.ServiceModel.ClientBase<AlarmDisplay.CoreService.ITagValueService>, AlarmDisplay.CoreService.ITagValueService {
+        
+        public TagValueServiceClient() {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagValueServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TagValueServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public AlarmDisplay.CoreService.InputsValue GetInputsValue(int id) {
+            return base.Channel.GetInputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue> GetInputsValueAsync(int id) {
+            return base.Channel.GetInputsValueAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.OutputsValue GetOutputsValue(int id) {
+            return base.Channel.GetOutputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue> GetOutputsValueAsync(int id) {
+            return base.Channel.GetOutputsValueAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.InputsValue[] GetAllInputsValues() {
+            return base.Channel.GetAllInputsValues();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue[]> GetAllInputsValuesAsync() {
+            return base.Channel.GetAllInputsValuesAsync();
+        }
+        
+        public AlarmDisplay.CoreService.OutputsValue[] GetAllOutputsValues() {
+            return base.Channel.GetAllOutputsValues();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue[]> GetAllOutputsValuesAsync() {
+            return base.Channel.GetAllOutputsValuesAsync();
+        }
+        
+        public void AddInputsValue(AlarmDisplay.CoreService.InputsValue inputsValue) {
+            base.Channel.AddInputsValue(inputsValue);
+        }
+        
+        public System.Threading.Tasks.Task AddInputsValueAsync(AlarmDisplay.CoreService.InputsValue inputsValue) {
+            return base.Channel.AddInputsValueAsync(inputsValue);
+        }
+        
+        public void AddOutputsValue(AlarmDisplay.CoreService.OutputsValue outputsValue) {
+            base.Channel.AddOutputsValue(outputsValue);
+        }
+        
+        public System.Threading.Tasks.Task AddOutputsValueAsync(AlarmDisplay.CoreService.OutputsValue outputsValue) {
+            return base.Channel.AddOutputsValueAsync(outputsValue);
+        }
+        
+        public bool RemoveInputsValue(int id) {
+            return base.Channel.RemoveInputsValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveInputsValueAsync(int id) {
+            return base.Channel.RemoveInputsValueAsync(id);
+        }
+        
+        public bool RemoveOutputValue(int id) {
+            return base.Channel.RemoveOutputValue(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveOutputValueAsync(int id) {
+            return base.Channel.RemoveOutputValueAsync(id);
+        }
+        
+        public AlarmDisplay.CoreService.InputsValue UpdateInputsValue(AlarmDisplay.CoreService.InputsValue inputsValue) {
+            return base.Channel.UpdateInputsValue(inputsValue);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.InputsValue> UpdateInputsValueAsync(AlarmDisplay.CoreService.InputsValue inputsValue) {
+            return base.Channel.UpdateInputsValueAsync(inputsValue);
+        }
+        
+        public AlarmDisplay.CoreService.OutputsValue UpdateOutputsValue(AlarmDisplay.CoreService.OutputsValue outputsValue) {
+            return base.Channel.UpdateOutputsValue(outputsValue);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.OutputsValue> UpdateOutputsValueAsync(AlarmDisplay.CoreService.OutputsValue outputsValue) {
+            return base.Channel.UpdateOutputsValueAsync(outputsValue);
+        }
+        
+        public string getTagValuesInTimePeriod(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.getTagValuesInTimePeriod(startDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<string> getTagValuesInTimePeriodAsync(System.DateTime startDate, System.DateTime endDate) {
+            return base.Channel.getTagValuesInTimePeriodAsync(startDate, endDate);
+        }
+        
+        public string getLatestAITagValues() {
+            return base.Channel.getLatestAITagValues();
+        }
+        
+        public System.Threading.Tasks.Task<string> getLatestAITagValuesAsync() {
+            return base.Channel.getLatestAITagValuesAsync();
+        }
+        
+        public string getLatestDITagValues() {
+            return base.Channel.getLatestDITagValues();
+        }
+        
+        public System.Threading.Tasks.Task<string> getLatestDITagValuesAsync() {
+            return base.Channel.getLatestDITagValuesAsync();
+        }
+        
+        public string getTagValuesByIdentifier(string id) {
+            return base.Channel.getTagValuesByIdentifier(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> getTagValuesByIdentifierAsync(string id) {
+            return base.Channel.getTagValuesByIdentifierAsync(id);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IAlarmService", CallbackContract=typeof(AlarmDisplay.CoreService.IAlarmServiceCallback))]
     public interface IAlarmService {
         
@@ -1285,6 +1820,109 @@ namespace AlarmDisplay.CoreService {
         
         public System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress) {
             return base.Channel.GetRealTimeUnitValueAsync(IOAdress);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IRTUAdressService")]
+    public interface IRTUAdressService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        void AddRTUAdress(AlarmDisplay.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        System.Threading.Tasks.Task AddRTUAdressAsync(AlarmDisplay.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        bool DeleteRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        AlarmDisplay.CoreService.RTUAdress GetRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress> GetRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        AlarmDisplay.CoreService.RTUAdress[] GetRTUAdresses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress[]> GetRTUAdressesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        AlarmDisplay.CoreService.RTUAdress UpdateRTUAdress(AlarmDisplay.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress> UpdateRTUAdressAsync(AlarmDisplay.CoreService.RTUAdress address);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRTUAdressServiceChannel : AlarmDisplay.CoreService.IRTUAdressService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RTUAdressServiceClient : System.ServiceModel.ClientBase<AlarmDisplay.CoreService.IRTUAdressService>, AlarmDisplay.CoreService.IRTUAdressService {
+        
+        public RTUAdressServiceClient() {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddRTUAdress(AlarmDisplay.CoreService.RTUAdress address) {
+            base.Channel.AddRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task AddRTUAdressAsync(AlarmDisplay.CoreService.RTUAdress address) {
+            return base.Channel.AddRTUAdressAsync(address);
+        }
+        
+        public bool DeleteRTUAdress(string address) {
+            return base.Channel.DeleteRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address) {
+            return base.Channel.DeleteRTUAdressAsync(address);
+        }
+        
+        public AlarmDisplay.CoreService.RTUAdress GetRTUAdress(string address) {
+            return base.Channel.GetRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress> GetRTUAdressAsync(string address) {
+            return base.Channel.GetRTUAdressAsync(address);
+        }
+        
+        public AlarmDisplay.CoreService.RTUAdress[] GetRTUAdresses() {
+            return base.Channel.GetRTUAdresses();
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress[]> GetRTUAdressesAsync() {
+            return base.Channel.GetRTUAdressesAsync();
+        }
+        
+        public AlarmDisplay.CoreService.RTUAdress UpdateRTUAdress(AlarmDisplay.CoreService.RTUAdress address) {
+            return base.Channel.UpdateRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<AlarmDisplay.CoreService.RTUAdress> UpdateRTUAdressAsync(AlarmDisplay.CoreService.RTUAdress address) {
+            return base.Channel.UpdateRTUAdressAsync(address);
         }
     }
 }

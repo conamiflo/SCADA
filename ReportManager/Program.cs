@@ -17,12 +17,11 @@ namespace ReportManager
         {
             public void AlarmTriggered(string message)
             {
-                Console.WriteLine(message);
             }
         }
 
         public static AlarmServiceClient alarmServiceClient = new CoreService.AlarmServiceClient(new InstanceContext(new Callback()));
-        public static TagServiceClient tagServiceClient = new CoreService.TagServiceClient();
+        public static TagValueServiceClient TagValueServiceClient = new CoreService.TagValueServiceClient();
 
         static void Main(string[] args)
         {
@@ -56,7 +55,7 @@ namespace ReportManager
                         break;
                     case "3":
                         getTagValuesInTimePeriod();
-                        return;
+                        break;
                     case "4":
                         getLatestAITags();
                         break;
@@ -126,11 +125,6 @@ namespace ReportManager
                     Console.Write("Invalid date format. Please try again or quit by entering q: ");
                     choice = Console.ReadLine();
                 }
-                else if(date > DateTime.Now)
-                {
-                    Console.Write("Date must be in the past. Please try again or quit by entering q: ");
-                    choice = Console.ReadLine();
-                }
 
                 if (choice.ToLower().Equals("q"))
                 {
@@ -196,7 +190,6 @@ namespace ReportManager
             }
         }
 
-
         public static void getAlarmsByPriority()
         {
             int priority;
@@ -247,7 +240,7 @@ namespace ReportManager
                     }
                 }
 
-                //kod za dobavljanje tagova u odredjenom periodu sortirane po vremenu
+                Console.WriteLine(TagValueServiceClient.getTagValuesInTimePeriod(startDate, endDate));
 
             }
             catch (Exception ex)
@@ -259,12 +252,14 @@ namespace ReportManager
 
         public static void getLatestAITags()
         {
-            //kod koji dobavlja sve poslednje vrednosti AI tagova sortirane po vremenu
+            Console.WriteLine(TagValueServiceClient.getLatestAITagValues());
+
         }
 
         public static void getLatestDITags()
         {
-            //kod koji dobavlja sve poslednje vrednosti DI tagova sortirane po vremenu
+            Console.WriteLine(TagValueServiceClient.getLatestDITagValues());
+
         }
 
         public static void getTagByIdentifier()
@@ -272,7 +267,8 @@ namespace ReportManager
             Console.Write($"Enter a tag identifier: ");
             string tagName = Console.ReadLine();
 
-            //nabaviti sve vrednosti tagova sa identifierom tagName i sortirati po vrednosti (Mozda napraviti da je dovoljno da je tagName pod string TagName-a od taga)
+            Console.WriteLine(TagValueServiceClient.getTagValuesByIdentifier(tagName));
+
         }
 
     }
