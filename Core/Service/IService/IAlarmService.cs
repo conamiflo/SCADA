@@ -35,7 +35,7 @@ namespace Core.Service.IService
         void LogAlarm(AlarmTrigger alarm);
 
         [OperationContract]
-        IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, SortOption sortOption);
+        IEnumerable<AlarmTrigger> GetAlarmsInPeriod(DateTime startTime, DateTime endTime, bool sortOption);
 
         [OperationContract]
         IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority);
