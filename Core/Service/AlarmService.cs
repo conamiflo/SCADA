@@ -73,5 +73,10 @@ namespace Core.Service
                                    .Where(a => a.Priority == priority)
                                    .OrderBy(a => a.Timestamp);
         }
+
+        public void SubscribeToAlarmDisplay()
+        {
+            return;
+        }
     }
 }

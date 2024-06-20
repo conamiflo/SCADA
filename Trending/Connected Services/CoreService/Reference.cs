@@ -1044,6 +1044,12 @@ namespace Trending.CoreService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/GetAlarmsByPriority", ReplyAction="http://tempuri.org/IAlarmService/GetAlarmsByPriorityResponse")]
         System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/SubscribeToAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmService/SubscribeToAlarmDisplayResponse")]
+        void SubscribeToAlarmDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmService/SubscribeToAlarmDisplay", ReplyAction="http://tempuri.org/IAlarmService/SubscribeToAlarmDisplayResponse")]
+        System.Threading.Tasks.Task SubscribeToAlarmDisplayAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1135,6 +1141,14 @@ namespace Trending.CoreService {
         
         public System.Threading.Tasks.Task<Trending.CoreService.AlarmTrigger[]> GetAlarmsByPriorityAsync(int priority) {
             return base.Channel.GetAlarmsByPriorityAsync(priority);
+        }
+        
+        public void SubscribeToAlarmDisplay() {
+            base.Channel.SubscribeToAlarmDisplay();
+        }
+        
+        public System.Threading.Tasks.Task SubscribeToAlarmDisplayAsync() {
+            return base.Channel.SubscribeToAlarmDisplayAsync();
         }
     }
     

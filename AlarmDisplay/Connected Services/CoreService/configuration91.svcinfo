@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="vQGmVqcRDbZnB7MXQZZsfOJAI2zlJHkQMMXlk5vZN+A=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="U5duGcqEFWql5Ci5SHkWyUUUNunDqiS1LXHxxF1w/iQ=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IUserService1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IUserService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IUserService1</serializedValue>
+          <serializedValue>BasicHttpBinding_IUserService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -110,10 +110,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ITagService1">
+    <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ITagService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ITagService1</serializedValue>
+          <serializedValue>BasicHttpBinding_ITagService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -219,10 +219,10 @@
         </property>
       </properties>
     </bindingConfiguration>
-    <bindingConfiguration bindingType="wsDualHttpBinding" name="WSDualHttpBinding_IAlarmService1">
+    <bindingConfiguration bindingType="wsDualHttpBinding" name="WSDualHttpBinding_IAlarmService">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_IAlarmService1</serializedValue>
+          <serializedValue>WSDualHttpBinding_IAlarmService</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -409,7 +409,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IUserService1" contract="CoreService.IUserService" bindingType="basicHttpBinding" address="http://localhost:50508/CoreService.svc/UserService" bindingConfiguration="BasicHttpBinding_IUserService1">
+    <endpoint name="BasicHttpBinding_IUserService" contract="CoreService.IUserService" bindingType="basicHttpBinding" address="http://localhost:50508/CoreService.svc/UserService" bindingConfiguration="BasicHttpBinding_IUserService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:50508/CoreService.svc/UserService</serializedValue>
@@ -421,7 +421,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IUserService1</serializedValue>
+          <serializedValue>BasicHttpBinding_IUserService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>CoreService.IUserService</serializedValue>
@@ -484,7 +484,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IUserService1</serializedValue>
+          <serializedValue>BasicHttpBinding_IUserService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -494,7 +494,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="BasicHttpBinding_ITagService1" contract="CoreService.ITagService" bindingType="basicHttpBinding" address="http://localhost:50508/CoreService.svc/TagService" bindingConfiguration="BasicHttpBinding_ITagService1">
+    <endpoint name="BasicHttpBinding_ITagService" contract="CoreService.ITagService" bindingType="basicHttpBinding" address="http://localhost:50508/CoreService.svc/TagService" bindingConfiguration="BasicHttpBinding_ITagService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:50508/CoreService.svc/TagService</serializedValue>
@@ -506,7 +506,7 @@
           <serializedValue>basicHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ITagService1</serializedValue>
+          <serializedValue>BasicHttpBinding_ITagService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>CoreService.ITagService</serializedValue>
@@ -569,7 +569,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_ITagService1</serializedValue>
+          <serializedValue>BasicHttpBinding_ITagService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -579,7 +579,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="WSDualHttpBinding_IAlarmService1" contract="CoreService.IAlarmService" bindingType="wsDualHttpBinding" address="http://localhost:50508/CoreService.svc/AlarmService" bindingConfiguration="WSDualHttpBinding_IAlarmService1">
+    <endpoint name="WSDualHttpBinding_IAlarmService" contract="CoreService.IAlarmService" bindingType="wsDualHttpBinding" address="http://localhost:50508/CoreService.svc/AlarmService" bindingConfiguration="WSDualHttpBinding_IAlarmService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:50508/CoreService.svc/AlarmService</serializedValue>
@@ -591,7 +591,7 @@
           <serializedValue>wsDualHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_IAlarmService1</serializedValue>
+          <serializedValue>WSDualHttpBinding_IAlarmService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>CoreService.IAlarmService</serializedValue>
@@ -654,7 +654,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WSDualHttpBinding_IAlarmService1</serializedValue>
+          <serializedValue>WSDualHttpBinding_IAlarmService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

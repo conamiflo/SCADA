@@ -375,6 +375,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SubscribeToAlarmDisplay">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscribeToAlarmDisplayResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AlarmTriggered">
     <xs:complexType>
       <xs:sequence>

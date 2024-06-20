@@ -39,5 +39,8 @@ namespace Core.Service.IService
 
         [OperationContract]
         IEnumerable<AlarmTrigger> GetAlarmsByPriority(int priority);
+
+        [OperationContract]
+        void SubscribeToAlarmDisplay();
     }
 }

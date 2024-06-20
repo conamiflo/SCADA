@@ -173,10 +173,15 @@ namespace Core
         public void LogAlarm(AlarmTrigger alarm)
         {
             alarmService.LogAlarm(alarm);
-
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < alarm.Priority; i++)
+            {
+                sb.AppendLine($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}\n");
+            }
+            string message = sb.ToString();
             foreach (var callback in alarmCallbacks)
             {
-                callback.AlarmTriggered($"Alarm Triggered: Id={alarm.Id}, Type={alarm.Type}, Priority={alarm.Priority}, Threshold={alarm.Threshold}, Timestamp={DateTime.Now}");
+                callback.AlarmTriggered(message);
             }
         }
 
@@ -337,6 +342,12 @@ namespace Core
                     tagProcessing.addDigitalTag(digitalInput);
                 }
             }
+        }
+
+        public void SubscribeToAlarmDisplay()
+        {
+            var a = OperationContext.Current.GetCallbackChannel<IAlarmCallback>();
+            alarmCallbacks.Add(a);
         }
     }
 }
