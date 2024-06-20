@@ -352,14 +352,14 @@ namespace Core
             alarmCallbacks.Add(a);
         }
 
-        public void SendMessage(string message, byte[] signature)
+        public void SendMessage(string message)
         {
-            realTimeDriver.SendMessage(message, signature);
+            realTimeDriver.SendMessage(message);
         }
 
-        public void SubscribeRealTimeUnit(string message, byte[] signature)
+        public void SubscribeRealTimeUnit(string message)
         {
-            realTimeDriver.SubscribeRealTimeUnit(message, signature);
+            realTimeDriver.SubscribeRealTimeUnit(message);
         }
 
         public double GetRealTimeUnitValue(string IOAdress)

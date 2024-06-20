@@ -11,11 +11,17 @@ namespace Core.Service.IService
     [ServiceContract]
     public interface IRealTimeDriver
     {
-        [OperationContract]
-        void SendMessage(string message, byte[] signature);
+        //[OperationContract]
+        //void SendMessage(string message, byte[] signature);
+
+        //[OperationContract]
+        //void SubscribeRealTimeUnit(string message, byte[] signature);
 
         [OperationContract]
-        void SubscribeRealTimeUnit(string message, byte[] signature);
+        void SendMessage(string message);
+
+        [OperationContract]
+        void SubscribeRealTimeUnit(string message);
 
         [OperationContract]
         double GetRealTimeUnitValue(string IOAdress);
