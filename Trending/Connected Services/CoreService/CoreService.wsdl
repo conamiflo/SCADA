@@ -991,6 +991,36 @@
   <wsdl:message name="IRealTimeDriver_GetRealTimeUnitValue_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRealTimeUnitValueResponse" />
   </wsdl:message>
+  <wsdl:message name="IRTUAdressService_AddRTUAdress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTUAdress" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_AddRTUAdress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRTUAdressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_DeleteRTUAdress_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTUAdress" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_DeleteRTUAdress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRTUAdressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_GetRTUAdress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTUAdress" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_GetRTUAdress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTUAdressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_GetRTUAdresses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTUAdresses" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_GetRTUAdresses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRTUAdressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_UpdateRTUAdress_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRTUAdress" />
+  </wsdl:message>
+  <wsdl:message name="IRTUAdressService_UpdateRTUAdress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRTUAdressResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="Registration">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/Registration" message="tns:IUserService_Registration_InputMessage" />
@@ -1185,6 +1215,28 @@
     <wsdl:operation name="GetRealTimeUnitValue">
       <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValue" message="tns:IRealTimeDriver_GetRealTimeUnitValue_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/GetRealTimeUnitValueResponse" message="tns:IRealTimeDriver_GetRealTimeUnitValue_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IRTUAdressService">
+    <wsdl:operation name="AddRTUAdress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTUAdressService/AddRTUAdress" message="tns:IRTUAdressService_AddRTUAdress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse" message="tns:IRTUAdressService_AddRTUAdress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTUAdress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress" message="tns:IRTUAdressService_DeleteRTUAdress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse" message="tns:IRTUAdressService_DeleteRTUAdress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRTUAdress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTUAdressService/GetRTUAdress" message="tns:IRTUAdressService_GetRTUAdress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse" message="tns:IRTUAdressService_GetRTUAdress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRTUAdresses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses" message="tns:IRTUAdressService_GetRTUAdresses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse" message="tns:IRTUAdressService_GetRTUAdresses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRTUAdress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress" message="tns:IRTUAdressService_UpdateRTUAdress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse" message="tns:IRTUAdressService_UpdateRTUAdress_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
@@ -1640,6 +1692,54 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IRTUAdressService" type="tns:IRTUAdressService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddRTUAdress">
+      <soap:operation soapAction="http://tempuri.org/IRTUAdressService/AddRTUAdress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRTUAdress">
+      <soap:operation soapAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTUAdress">
+      <soap:operation soapAction="http://tempuri.org/IRTUAdressService/GetRTUAdress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRTUAdresses">
+      <soap:operation soapAction="http://tempuri.org/IRTUAdressService/GetRTUAdresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRTUAdress">
+      <soap:operation soapAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="CoreService">
     <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
       <soap:address location="http://localhost:50508/CoreService.svc/UserService" />
@@ -1670,6 +1770,9 @@
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IRealTimeDriver" binding="tns:BasicHttpBinding_IRealTimeDriver">
       <soap:address location="http://localhost:50508/CoreService.svc/RealTimeDriver" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IRTUAdressService" binding="tns:BasicHttpBinding_IRTUAdressService">
+      <soap:address location="http://localhost:50508/CoreService.svc/RTUAdressService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

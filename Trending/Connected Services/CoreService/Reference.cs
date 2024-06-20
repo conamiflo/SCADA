@@ -900,6 +900,51 @@ namespace Trending.CoreService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RTUAdress", Namespace="http://schemas.datacontract.org/2004/07/Core.Model")]
+    [System.SerializableAttribute()]
+    public partial class RTUAdress : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdressField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Adress {
+            get {
+                return this.AdressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AdressField, value) != true)) {
+                    this.AdressField = value;
+                    this.RaisePropertyChanged("Adress");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IUserService")]
     public interface IUserService {
@@ -1719,6 +1764,109 @@ namespace Trending.CoreService {
         
         public System.Threading.Tasks.Task<double> GetRealTimeUnitValueAsync(string IOAdress) {
             return base.Channel.GetRealTimeUnitValueAsync(IOAdress);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CoreService.IRTUAdressService")]
+    public interface IRTUAdressService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        void AddRTUAdress(Trending.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/AddRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/AddRTUAdressResponse")]
+        System.Threading.Tasks.Task AddRTUAdressAsync(Trending.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        bool DeleteRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/DeleteRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/DeleteRTUAdressResponse")]
+        System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        Trending.CoreService.RTUAdress GetRTUAdress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressResponse")]
+        System.Threading.Tasks.Task<Trending.CoreService.RTUAdress> GetRTUAdressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        Trending.CoreService.RTUAdress[] GetRTUAdresses();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/GetRTUAdresses", ReplyAction="http://tempuri.org/IRTUAdressService/GetRTUAdressesResponse")]
+        System.Threading.Tasks.Task<Trending.CoreService.RTUAdress[]> GetRTUAdressesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        Trending.CoreService.RTUAdress UpdateRTUAdress(Trending.CoreService.RTUAdress address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRTUAdressService/UpdateRTUAdress", ReplyAction="http://tempuri.org/IRTUAdressService/UpdateRTUAdressResponse")]
+        System.Threading.Tasks.Task<Trending.CoreService.RTUAdress> UpdateRTUAdressAsync(Trending.CoreService.RTUAdress address);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IRTUAdressServiceChannel : Trending.CoreService.IRTUAdressService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class RTUAdressServiceClient : System.ServiceModel.ClientBase<Trending.CoreService.IRTUAdressService>, Trending.CoreService.IRTUAdressService {
+        
+        public RTUAdressServiceClient() {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public RTUAdressServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void AddRTUAdress(Trending.CoreService.RTUAdress address) {
+            base.Channel.AddRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task AddRTUAdressAsync(Trending.CoreService.RTUAdress address) {
+            return base.Channel.AddRTUAdressAsync(address);
+        }
+        
+        public bool DeleteRTUAdress(string address) {
+            return base.Channel.DeleteRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteRTUAdressAsync(string address) {
+            return base.Channel.DeleteRTUAdressAsync(address);
+        }
+        
+        public Trending.CoreService.RTUAdress GetRTUAdress(string address) {
+            return base.Channel.GetRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<Trending.CoreService.RTUAdress> GetRTUAdressAsync(string address) {
+            return base.Channel.GetRTUAdressAsync(address);
+        }
+        
+        public Trending.CoreService.RTUAdress[] GetRTUAdresses() {
+            return base.Channel.GetRTUAdresses();
+        }
+        
+        public System.Threading.Tasks.Task<Trending.CoreService.RTUAdress[]> GetRTUAdressesAsync() {
+            return base.Channel.GetRTUAdressesAsync();
+        }
+        
+        public Trending.CoreService.RTUAdress UpdateRTUAdress(Trending.CoreService.RTUAdress address) {
+            return base.Channel.UpdateRTUAdress(address);
+        }
+        
+        public System.Threading.Tasks.Task<Trending.CoreService.RTUAdress> UpdateRTUAdressAsync(Trending.CoreService.RTUAdress address) {
+            return base.Channel.UpdateRTUAdressAsync(address);
         }
     }
 }

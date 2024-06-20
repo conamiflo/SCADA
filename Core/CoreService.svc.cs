@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.PeerToPeer;
+using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -19,7 +20,7 @@ using ValueType = Core.Model.Tag.ValueType;
 namespace Core
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver
+    public class CoreService : IUserService, ITagService, IAlarmService, ITrendingService, ITagValueService, IRealTimeDriver, IRTUAdressService
     {
 
         public List<IAlarmCallback> alarmCallbacks = new List<IAlarmCallback>();
@@ -29,6 +30,7 @@ namespace Core
         public ITagService tagService;
         public IAlarmService alarmService;
         public ITagValueService tagValueService;
+        public IRTUAdressService rtuAdressService;
         public TagProcessing tagProcessing;
         public RealTimeDriver realTimeDriver;
 
@@ -380,6 +382,50 @@ namespace Core
         public bool checkOutputTagExistance(string input)
         {
             return tagService.checkOutputTagExistance(input);
+        public void AddRTUAdress(RTUAdress address)
+        {
+            rtuAdressService.AddRTUAdress(address);
+        }
+
+        public bool DeleteRTUAdress(string address)
+        {
+            return rtuAdressService.DeleteRTUAdress(address);
+        }
+
+        public RTUAdress GetRTUAdress(string address)
+        {
+            return rtuAdressService.GetRTUAdress(address);
+        }
+
+        public List<RTUAdress> GetRTUAdresses()
+        {
+            return rtuAdressService.GetRTUAdresses();
+        }
+
+        public RTUAdress UpdateRTUAdress(RTUAdress address)
+        {
+            return rtuAdressService.UpdateRTUAdress(address);
+        }
+
+        public string getTagValuesInTimePeriod(DateTime startDate, DateTime endDate)
+        {
+            return tagValueService.getTagValuesInTimePeriod(startDate, endDate);
+        }
+
+        public string getLatestAITagValues()
+        {
+            return tagValueService.getLatestAITagValues();
+
+        }
+
+        public string getLatestDITagValues()
+        {
+            return tagValueService.getLatestDITagValues();
+        }
+
+        public string getTagValuesByIdentifier(string id)
+        {
+            return tagValueService.getTagValuesByIdentifier(id);
         }
     }
 }

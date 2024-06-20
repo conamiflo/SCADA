@@ -253,6 +253,7 @@
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="Model\Alarm\Alarm.cs" />
     <Compile Include="Model\Alarm\AlarmTrigger.cs" />
+    <Compile Include="Model\RTUAdress.cs" />
     <Compile Include="Model\Tag\AlarmValue.cs" />
     <Compile Include="Model\Tag\AnalogInput.cs" />
     <Compile Include="Model\Tag\AnalogOutput.cs" />
@@ -264,9 +265,11 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="Repository\AlarmRepository.cs" />
     <Compile Include="Repository\IRepository\IAlarmRepository.cs" />
+    <Compile Include="Repository\IRepository\IRTUAdressRepository.cs" />
     <Compile Include="Repository\IRepository\ITagRepository.cs" />
     <Compile Include="Repository\IRepository\ITagValueRepository.cs" />
     <Compile Include="Repository\IRepository\IUserRepository.cs" />
+    <Compile Include="Repository\RTUAdressRepository.cs" />
     <Compile Include="Repository\TagRepository.cs" />
     <Compile Include="Repository\TagValueRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
@@ -276,6 +279,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AlarmDisplayService.cs" />
     <Compile Include="Service\IService\IRealTimeDriver.cs" />
+    <Compile Include="Service\IService\IRTUAdressService.cs" />
     <Compile Include="Service\IService\ITagService.cs" />
     <Compile Include="Service\AlarmService.cs" />
     <Compile Include="Service\IService\IAlarmService.cs" />
@@ -283,6 +287,7 @@
     <Compile Include="Service\IService\ITrendingService.cs" />
     <Compile Include="Service\IService\IUserService.cs" />
     <Compile Include="Service\RealTimeDriver.cs" />
+    <Compile Include="Service\RTUAdressService.cs" />
     <Compile Include="Service\TagProcessing.cs" />
     <Compile Include="Service\TagService.cs" />
     <Compile Include="Service\TagValueService.cs" />
