@@ -45,7 +45,7 @@ This project implements a SCADA (Supervisory Control and Data Acquisition) syste
 1. **Clone the Repository**:
    ```sh
    git clone https://github.com/conamiflo/SCADA.git
-   cd SCADA-Project
+   cd Core
 
 2. **Run the Applications**:
    - Start the SCADA Core and launch other applications as needed.
